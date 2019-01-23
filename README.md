@@ -21,7 +21,7 @@
 
 ## 使用：  
 1.源码学习   
-    ~下载本项目，修改项目BundleId及签名信息，选择真机设备运行即可~源码整理中尽快提供完整代码
+    ~下载本项目，下载砸壳后的微信（7.0以上）[我给你准备了个](https://pan.baidu.com/s/1SHZHfu94Z_jhCkaaFDx8pA),将下载的微信放到'/dkhelper/dkhelper/TargetApp/'目录下该目录下有一个空白文件’put ipa or app here‘，和它放在同一文件夹下即可，修改项目BundleId及签名信息，选择真机设备运行即可~源码整理中尽快提供完整代码
 
 2.开发者：   
     下载以下ipa后重签名应用：[未签名版](https://pan.baidu.com/s/1-zEUQRGn3H4bZVqHpyffzQ)   

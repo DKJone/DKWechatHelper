@@ -1,0 +1,791 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		114CCC2F21F817D500A4646E /* MDConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 114CCC2E21F817D500A4646E /* MDConfig.plist */; };
+		114CCC3921F817D500A4646E /* libdkhelperDylib.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 114CCC3821F817D500A4646E /* libdkhelperDylib.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		114CCC3E21F817D500A4646E /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 114CCC3D21F817D500A4646E /* JavaScriptCore.framework */; };
+		114CCC4021F817D500A4646E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 114CCC3F21F817D500A4646E /* Foundation.framework */; };
+		114CCC4221F817D500A4646E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 114CCC4121F817D500A4646E /* UIKit.framework */; };
+		114CCC4721F817D500A4646E /* dkhelperDylib.mm in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC4621F817D500A4646E /* dkhelperDylib.mm */; };
+		114CCC4A21F817D500A4646E /* MDConfigManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC4921F817D500A4646E /* MDConfigManager.h */; };
+		114CCC4C21F817D500A4646E /* MDConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC4B21F817D500A4646E /* MDConfigManager.m */; };
+		114CCC4E21F817D500A4646E /* MDCycriptManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC4D21F817D500A4646E /* MDCycriptManager.h */; };
+		114CCC5021F817D500A4646E /* MDCycriptManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC4F21F817D500A4646E /* MDCycriptManager.m */; };
+		114CCC5221F817D500A4646E /* MDMethodTrace.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC5121F817D500A4646E /* MDMethodTrace.h */; };
+		114CCC5421F817D500A4646E /* MDMethodTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC5321F817D500A4646E /* MDMethodTrace.m */; };
+		114CCC5721F817D500A4646E /* a1a2-selectortramps-arm.s in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC5621F817D500A4646E /* a1a2-selectortramps-arm.s */; };
+		114CCC5921F817D500A4646E /* a1a2-selectortramps-arm64.s in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC5821F817D500A4646E /* a1a2-selectortramps-arm64.s */; };
+		114CCC5B21F817D500A4646E /* a1a2-selectortramps-i386.s in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC5A21F817D500A4646E /* a1a2-selectortramps-i386.s */; };
+		114CCC5D21F817D500A4646E /* a1a2-selectortramps-x86_64.s in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC5C21F817D500A4646E /* a1a2-selectortramps-x86_64.s */; };
+		114CCC5F21F817D500A4646E /* a2a3-selectortramps-arm.s in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC5E21F817D500A4646E /* a2a3-selectortramps-arm.s */; };
+		114CCC6121F817D500A4646E /* a2a3-selectortramps-i386.s in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC6021F817D500A4646E /* a2a3-selectortramps-i386.s */; };
+		114CCC6321F817D500A4646E /* a2a3-selectortramps-x86_64.s in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC6221F817D500A4646E /* a2a3-selectortramps-x86_64.s */; };
+		114CCC6521F817D500A4646E /* OCMethodTrace.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC6421F817D500A4646E /* OCMethodTrace.h */; };
+		114CCC6721F817D500A4646E /* OCMethodTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC6621F817D500A4646E /* OCMethodTrace.m */; };
+		114CCC6921F817D500A4646E /* OCSelectorTrampolines.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC6821F817D500A4646E /* OCSelectorTrampolines.h */; };
+		114CCC6B21F817D500A4646E /* OCSelectorTrampolines.mm in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC6A21F817D500A4646E /* OCSelectorTrampolines.mm */; };
+		114CCC6F21F817D500A4646E /* LLDBTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC6E21F817D500A4646E /* LLDBTools.h */; };
+		114CCC7121F817D500A4646E /* LLDBTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC7021F817D500A4646E /* LLDBTools.mm */; };
+		114CCC7621F817D500A4646E /* AntiAntiDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC7521F817D500A4646E /* AntiAntiDebug.m */; };
+		114CCC7921F817D500A4646E /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC7821F817D500A4646E /* fishhook.c */; };
+		114CCC7B21F817D500A4646E /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC7A21F817D500A4646E /* fishhook.h */; };
+		114CCC7D21F817D500A4646E /* dkhelperDylib.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC7C21F817D500A4646E /* dkhelperDylib.h */; };
+		114CCC7F21F817D500A4646E /* dkhelperDylib.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC7E21F817D500A4646E /* dkhelperDylib.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		114CCC3A21F817D500A4646E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 114CCC1C21F817D500A4646E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 114CCC3721F817D500A4646E;
+			remoteInfo = dkhelperDylib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		114CCC2421F817D500A4646E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				114CCC3921F817D500A4646E /* libdkhelperDylib.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		114CCC2721F817D500A4646E /* dkhelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dkhelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		114CCC2A21F817D500A4646E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		114CCC2C21F817D500A4646E /* quick-resign.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "quick-resign.sh"; path = "Scripts/quick-resign.sh"; sourceTree = "<group>"; };
+		114CCC2E21F817D500A4646E /* MDConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MDConfig.plist; path = Config/MDConfig.plist; sourceTree = "<group>"; };
+		114CCC3121F817D500A4646E /* put ipa or app here */ = {isa = PBXFileReference; lastKnownFileType = text; name = "put ipa or app here"; path = "TargetApp/put ipa or app here"; sourceTree = "<group>"; };
+		114CCC3221F817D500A4646E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		114CCC3821F817D500A4646E /* libdkhelperDylib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libdkhelperDylib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		114CCC3D21F817D500A4646E /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		114CCC3F21F817D500A4646E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		114CCC4121F817D500A4646E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		114CCC4521F817D500A4646E /* dkhelperDylib.xm */ = {isa = PBXFileReference; lastKnownFileType = text; name = dkhelperDylib.xm; path = Logos/dkhelperDylib.xm; sourceTree = "<group>"; };
+		114CCC4621F817D500A4646E /* dkhelperDylib.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = dkhelperDylib.mm; path = Logos/dkhelperDylib.mm; sourceTree = "<group>"; };
+		114CCC4921F817D500A4646E /* MDConfigManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MDConfigManager.h; path = Config/MDConfigManager.h; sourceTree = "<group>"; };
+		114CCC4B21F817D500A4646E /* MDConfigManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MDConfigManager.m; path = Config/MDConfigManager.m; sourceTree = "<group>"; };
+		114CCC4D21F817D500A4646E /* MDCycriptManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MDCycriptManager.h; path = Config/MDCycriptManager.h; sourceTree = "<group>"; };
+		114CCC4F21F817D500A4646E /* MDCycriptManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MDCycriptManager.m; path = Config/MDCycriptManager.m; sourceTree = "<group>"; };
+		114CCC5121F817D500A4646E /* MDMethodTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MDMethodTrace.h; path = Config/MDMethodTrace.h; sourceTree = "<group>"; };
+		114CCC5321F817D500A4646E /* MDMethodTrace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MDMethodTrace.m; path = Config/MDMethodTrace.m; sourceTree = "<group>"; };
+		114CCC5621F817D500A4646E /* a1a2-selectortramps-arm.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; name = "a1a2-selectortramps-arm.s"; path = "Trace/a1a2-selectortramps-arm.s"; sourceTree = "<group>"; };
+		114CCC5821F817D500A4646E /* a1a2-selectortramps-arm64.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; name = "a1a2-selectortramps-arm64.s"; path = "Trace/a1a2-selectortramps-arm64.s"; sourceTree = "<group>"; };
+		114CCC5A21F817D500A4646E /* a1a2-selectortramps-i386.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; name = "a1a2-selectortramps-i386.s"; path = "Trace/a1a2-selectortramps-i386.s"; sourceTree = "<group>"; };
+		114CCC5C21F817D500A4646E /* a1a2-selectortramps-x86_64.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; name = "a1a2-selectortramps-x86_64.s"; path = "Trace/a1a2-selectortramps-x86_64.s"; sourceTree = "<group>"; };
+		114CCC5E21F817D500A4646E /* a2a3-selectortramps-arm.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; name = "a2a3-selectortramps-arm.s"; path = "Trace/a2a3-selectortramps-arm.s"; sourceTree = "<group>"; };
+		114CCC6021F817D500A4646E /* a2a3-selectortramps-i386.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; name = "a2a3-selectortramps-i386.s"; path = "Trace/a2a3-selectortramps-i386.s"; sourceTree = "<group>"; };
+		114CCC6221F817D500A4646E /* a2a3-selectortramps-x86_64.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; name = "a2a3-selectortramps-x86_64.s"; path = "Trace/a2a3-selectortramps-x86_64.s"; sourceTree = "<group>"; };
+		114CCC6421F817D500A4646E /* OCMethodTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OCMethodTrace.h; path = Trace/OCMethodTrace.h; sourceTree = "<group>"; };
+		114CCC6621F817D500A4646E /* OCMethodTrace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OCMethodTrace.m; path = Trace/OCMethodTrace.m; sourceTree = "<group>"; };
+		114CCC6821F817D500A4646E /* OCSelectorTrampolines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OCSelectorTrampolines.h; path = Trace/OCSelectorTrampolines.h; sourceTree = "<group>"; };
+		114CCC6A21F817D500A4646E /* OCSelectorTrampolines.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = OCSelectorTrampolines.mm; path = Trace/OCSelectorTrampolines.mm; sourceTree = "<group>"; };
+		114CCC6C21F817D500A4646E /* selectortramps.mac */ = {isa = PBXFileReference; lastKnownFileType = text; name = selectortramps.mac; path = Trace/selectortramps.mac; sourceTree = "<group>"; };
+		114CCC6E21F817D500A4646E /* LLDBTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LLDBTools.h; path = Tools/LLDBTools.h; sourceTree = "<group>"; };
+		114CCC7021F817D500A4646E /* LLDBTools.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = LLDBTools.mm; path = Tools/LLDBTools.mm; sourceTree = "<group>"; };
+		114CCC7321F817D500A4646E /* dkhelperDylib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dkhelperDylib-Prefix.pch"; sourceTree = "<group>"; };
+		114CCC7521F817D500A4646E /* AntiAntiDebug.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AntiAntiDebug.m; path = AntiAntiDebug/AntiAntiDebug.m; sourceTree = "<group>"; };
+		114CCC7821F817D500A4646E /* fishhook.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fishhook.c; path = fishhook/fishhook.c; sourceTree = "<group>"; };
+		114CCC7A21F817D500A4646E /* fishhook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fishhook.h; path = fishhook/fishhook.h; sourceTree = "<group>"; };
+		114CCC7C21F817D500A4646E /* dkhelperDylib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dkhelperDylib.h; sourceTree = "<group>"; };
+		114CCC7E21F817D500A4646E /* dkhelperDylib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dkhelperDylib.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		114CCC2121F817D500A4646E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		114CCC3521F817D500A4646E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				114CCC3E21F817D500A4646E /* JavaScriptCore.framework in Frameworks */,
+				114CCC4221F817D500A4646E /* UIKit.framework in Frameworks */,
+				114CCC4021F817D500A4646E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		114CCC1B21F817D500A4646E = {
+			isa = PBXGroup;
+			children = (
+				114CCC2921F817D500A4646E /* dkhelper */,
+				114CCC4321F817D500A4646E /* dkhelperDylib */,
+				114CCC3C21F817D500A4646E /* Frameworks */,
+				114CCC2821F817D500A4646E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		114CCC2821F817D500A4646E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC2721F817D500A4646E /* dkhelper.app */,
+				114CCC3821F817D500A4646E /* libdkhelperDylib.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		114CCC2921F817D500A4646E /* dkhelper */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC2A21F817D500A4646E /* icon.png */,
+				114CCC3221F817D500A4646E /* Info.plist */,
+				114CCC2B21F817D500A4646E /* Scripts */,
+				114CCC2D21F817D500A4646E /* Config */,
+				114CCC3021F817D500A4646E /* TargetApp */,
+			);
+			path = dkhelper;
+			sourceTree = "<group>";
+		};
+		114CCC2B21F817D500A4646E /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC2C21F817D500A4646E /* quick-resign.sh */,
+			);
+			name = Scripts;
+			sourceTree = "<group>";
+		};
+		114CCC2D21F817D500A4646E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC2E21F817D500A4646E /* MDConfig.plist */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		114CCC3021F817D500A4646E /* TargetApp */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC3121F817D500A4646E /* put ipa or app here */,
+			);
+			name = TargetApp;
+			sourceTree = "<group>";
+		};
+		114CCC3C21F817D500A4646E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC3D21F817D500A4646E /* JavaScriptCore.framework */,
+				114CCC3F21F817D500A4646E /* Foundation.framework */,
+				114CCC4121F817D500A4646E /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		114CCC4321F817D500A4646E /* dkhelperDylib */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC7C21F817D500A4646E /* dkhelperDylib.h */,
+				114CCC7E21F817D500A4646E /* dkhelperDylib.m */,
+				114CCC4421F817D500A4646E /* Logos */,
+				114CCC4821F817D500A4646E /* Config */,
+				114CCC5521F817D500A4646E /* Trace */,
+				114CCC6D21F817D500A4646E /* Tools */,
+				114CCC7421F817D500A4646E /* AntiAntiDebug */,
+				114CCC7721F817D500A4646E /* fishhook */,
+				114CCC7221F817D500A4646E /* Supporting Files */,
+			);
+			path = dkhelperDylib;
+			sourceTree = "<group>";
+		};
+		114CCC4421F817D500A4646E /* Logos */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC4521F817D500A4646E /* dkhelperDylib.xm */,
+				114CCC4621F817D500A4646E /* dkhelperDylib.mm */,
+			);
+			name = Logos;
+			sourceTree = "<group>";
+		};
+		114CCC4821F817D500A4646E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC4921F817D500A4646E /* MDConfigManager.h */,
+				114CCC4B21F817D500A4646E /* MDConfigManager.m */,
+				114CCC4D21F817D500A4646E /* MDCycriptManager.h */,
+				114CCC4F21F817D500A4646E /* MDCycriptManager.m */,
+				114CCC5121F817D500A4646E /* MDMethodTrace.h */,
+				114CCC5321F817D500A4646E /* MDMethodTrace.m */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		114CCC5521F817D500A4646E /* Trace */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC5621F817D500A4646E /* a1a2-selectortramps-arm.s */,
+				114CCC5821F817D500A4646E /* a1a2-selectortramps-arm64.s */,
+				114CCC5A21F817D500A4646E /* a1a2-selectortramps-i386.s */,
+				114CCC5C21F817D500A4646E /* a1a2-selectortramps-x86_64.s */,
+				114CCC5E21F817D500A4646E /* a2a3-selectortramps-arm.s */,
+				114CCC6021F817D500A4646E /* a2a3-selectortramps-i386.s */,
+				114CCC6221F817D500A4646E /* a2a3-selectortramps-x86_64.s */,
+				114CCC6421F817D500A4646E /* OCMethodTrace.h */,
+				114CCC6621F817D500A4646E /* OCMethodTrace.m */,
+				114CCC6821F817D500A4646E /* OCSelectorTrampolines.h */,
+				114CCC6A21F817D500A4646E /* OCSelectorTrampolines.mm */,
+				114CCC6C21F817D500A4646E /* selectortramps.mac */,
+			);
+			name = Trace;
+			sourceTree = "<group>";
+		};
+		114CCC6D21F817D500A4646E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC6E21F817D500A4646E /* LLDBTools.h */,
+				114CCC7021F817D500A4646E /* LLDBTools.mm */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		114CCC7221F817D500A4646E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC7321F817D500A4646E /* dkhelperDylib-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		114CCC7421F817D500A4646E /* AntiAntiDebug */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC7521F817D500A4646E /* AntiAntiDebug.m */,
+			);
+			name = AntiAntiDebug;
+			sourceTree = "<group>";
+		};
+		114CCC7721F817D500A4646E /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC7821F817D500A4646E /* fishhook.c */,
+				114CCC7A21F817D500A4646E /* fishhook.h */,
+			);
+			name = fishhook;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		114CCC3621F817D500A4646E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				114CCC7D21F817D500A4646E /* dkhelperDylib.h in Headers */,
+				114CCC4E21F817D500A4646E /* MDCycriptManager.h in Headers */,
+				114CCC5221F817D500A4646E /* MDMethodTrace.h in Headers */,
+				114CCC7B21F817D500A4646E /* fishhook.h in Headers */,
+				114CCC6F21F817D500A4646E /* LLDBTools.h in Headers */,
+				114CCC4A21F817D500A4646E /* MDConfigManager.h in Headers */,
+				114CCC6921F817D500A4646E /* OCSelectorTrampolines.h in Headers */,
+				114CCC6521F817D500A4646E /* OCMethodTrace.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		114CCC2621F817D500A4646E /* dkhelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 114CCC8521F817D500A4646E /* Build configuration list for PBXNativeTarget "dkhelper" */;
+			buildPhases = (
+				114CCC2021F817D500A4646E /* Sources */,
+				114CCC2121F817D500A4646E /* Frameworks */,
+				114CCC2221F817D500A4646E /* ShellScript */,
+				114CCC2321F817D500A4646E /* Resources */,
+				114CCC2421F817D500A4646E /* CopyFiles */,
+				114CCC2521F817D500A4646E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				114CCC3B21F817D500A4646E /* PBXTargetDependency */,
+			);
+			name = dkhelper;
+			productName = dkhelper;
+			productReference = 114CCC2721F817D500A4646E /* dkhelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		114CCC3721F817D500A4646E /* dkhelperDylib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 114CCC8221F817D500A4646E /* Build configuration list for PBXNativeTarget "dkhelperDylib" */;
+			buildPhases = (
+				114CCC3321F817D500A4646E /* ShellScript */,
+				114CCC3421F817D500A4646E /* Sources */,
+				114CCC3521F817D500A4646E /* Frameworks */,
+				114CCC3621F817D500A4646E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dkhelperDylib;
+			productName = dkhelperDylib;
+			productReference = 114CCC3821F817D500A4646E /* libdkhelperDylib.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		114CCC1C21F817D500A4646E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = DKJone;
+				TargetAttributes = {
+					114CCC2621F817D500A4646E = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					114CCC3721F817D500A4646E = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 114CCC1F21F817D500A4646E /* Build configuration list for PBXProject "dkhelper" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 114CCC1B21F817D500A4646E;
+			productRefGroup = 114CCC2821F817D500A4646E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				114CCC2621F817D500A4646E /* dkhelper */,
+				114CCC3721F817D500A4646E /* dkhelperDylib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		114CCC2321F817D500A4646E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				114CCC2F21F817D500A4646E /* MDConfig.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		114CCC2221F817D500A4646E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = /opt/MonkeyDev/Tools/pack.sh;
+		};
+		114CCC2521F817D500A4646E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/MonkeyDev/Tools/pack.sh codesign";
+		};
+		114CCC3321F817D500A4646E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/MonkeyDev/bin/md --xcbp-logos";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		114CCC2021F817D500A4646E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		114CCC3421F817D500A4646E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				114CCC5021F817D500A4646E /* MDCycriptManager.m in Sources */,
+				114CCC5921F817D500A4646E /* a1a2-selectortramps-arm64.s in Sources */,
+				114CCC5721F817D500A4646E /* a1a2-selectortramps-arm.s in Sources */,
+				114CCC5D21F817D500A4646E /* a1a2-selectortramps-x86_64.s in Sources */,
+				114CCC6721F817D500A4646E /* OCMethodTrace.m in Sources */,
+				114CCC4C21F817D500A4646E /* MDConfigManager.m in Sources */,
+				114CCC7921F817D500A4646E /* fishhook.c in Sources */,
+				114CCC7621F817D500A4646E /* AntiAntiDebug.m in Sources */,
+				114CCC6B21F817D500A4646E /* OCSelectorTrampolines.mm in Sources */,
+				114CCC5B21F817D500A4646E /* a1a2-selectortramps-i386.s in Sources */,
+				114CCC6121F817D500A4646E /* a2a3-selectortramps-i386.s in Sources */,
+				114CCC5F21F817D500A4646E /* a2a3-selectortramps-arm.s in Sources */,
+				114CCC7F21F817D500A4646E /* dkhelperDylib.m in Sources */,
+				114CCC4721F817D500A4646E /* dkhelperDylib.mm in Sources */,
+				114CCC7121F817D500A4646E /* LLDBTools.mm in Sources */,
+				114CCC6321F817D500A4646E /* a2a3-selectortramps-x86_64.s in Sources */,
+				114CCC5421F817D500A4646E /* MDMethodTrace.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		114CCC3B21F817D500A4646E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 114CCC3721F817D500A4646E /* dkhelperDylib */;
+			targetProxy = 114CCC3A21F817D500A4646E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		114CCC8021F817D500A4646E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		114CCC8121F817D500A4646E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		114CCC8321F817D500A4646E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NL54V6A3P5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/Frameworks/**",
+					"$(MonkeyDevPath)/Librarys/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dkhelperDylib/dkhelperDylib-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/include",
+					"$(MonkeyDevTheosPath)/vendor/include/**",
+				);
+				INSTALL_PATH = "@executable_path/Frameworks/libdkhelperDylib.dylib";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/Frameworks",
+					"$(MonkeyDevTheosPath)/vendor/lib/**",
+				);
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DTHEOS_INSTANCE_NAME=\"\\\"dkhelperDylib\\\"\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-weak_library",
+					"/usr/lib/libc++.dylib",
+					"-weak_library",
+					"/usr/lib/libstdc++.dylib",
+					"-weak_library",
+					"$(MonkeyDevPath)/Frameworks/libsubstrate.dylib",
+					"-lcycript",
+					"-framework",
+					RevealServer,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		114CCC8421F817D500A4646E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = NL54V6A3P5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/Frameworks/**",
+					"$(MonkeyDevPath)/Librarys/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dkhelperDylib/dkhelperDylib-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/include",
+					"$(MonkeyDevTheosPath)/vendor/include/**",
+				);
+				INSTALL_PATH = "@executable_path/Frameworks/libdkhelperDylib.dylib";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/Frameworks",
+					"$(MonkeyDevTheosPath)/vendor/lib/**",
+				);
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DTHEOS_INSTANCE_NAME=\"\\\"dkhelperDylib\\\"\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-weak_library",
+					"/usr/lib/libc++.dylib",
+					"-weak_library",
+					"/usr/lib/libstdc++.dylib",
+					"-weak_library",
+					"$(MonkeyDevPath)/Frameworks/libsubstrate.dylib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		114CCC8621F817D500A4646E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NL54V6A3P5;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = dkhelper/Info.plist;
+				MONKEYDEV_ADD_SUBSTRATE = YES;
+				MONKEYDEV_CLASS_DUMP = NO;
+				MONKEYDEV_DEFAULT_BUNDLEID = YES;
+				MONKEYDEV_INSERT_DYLIB = YES;
+				MONKEYDEV_RESTORE_SYMBOL = NO;
+				MONKEYDEV_TARGET_APP = Optional;
+				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				PODS_ROOT = "${SRCROOT}/Pods";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sinoroad.dkhelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		114CCC8721F817D500A4646E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NL54V6A3P5;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = dkhelper/Info.plist;
+				MONKEYDEV_ADD_SUBSTRATE = YES;
+				MONKEYDEV_CLASS_DUMP = NO;
+				MONKEYDEV_DEFAULT_BUNDLEID = YES;
+				MONKEYDEV_INSERT_DYLIB = YES;
+				MONKEYDEV_RESTORE_SYMBOL = NO;
+				MONKEYDEV_TARGET_APP = Optional;
+				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				PODS_ROOT = "${SRCROOT}/Pods";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sinoroad.dkhelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		114CCC1F21F817D500A4646E /* Build configuration list for PBXProject "dkhelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				114CCC8021F817D500A4646E /* Debug */,
+				114CCC8121F817D500A4646E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		114CCC8221F817D500A4646E /* Build configuration list for PBXNativeTarget "dkhelperDylib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				114CCC8321F817D500A4646E /* Debug */,
+				114CCC8421F817D500A4646E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		114CCC8521F817D500A4646E /* Build configuration list for PBXNativeTarget "dkhelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				114CCC8621F817D500A4646E /* Debug */,
+				114CCC8721F817D500A4646E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 114CCC1C21F817D500A4646E /* Project object */;
+}

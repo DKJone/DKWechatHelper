@@ -1,0 +1,38 @@
+/*
+ * selectortramps.mac
+ * OCMethodTrace
+ *
+ * https://github.com/omxcodec/OCMethodTrace.git
+ *
+ * Copyright (C) 2018 Michael Chen <omxcodec@gmail.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#ifdef __x86_64__
+    #define PRELOAD(x,f)     movq x@GOTPCREL(%rip), %r10;
+    #define LABEL_ADDR(x,f)  %r10
+    #define LABEL_VALUE(x,f) (%r10)
+    #define INIT_PIC(f)
+    #define END_PIC(f)
+#elif __i386__
+    #define PRELOAD(x,f)     leal x-L0## f ##$pb(%ebx), %eax;
+    #define LABEL_ADDR(x,f)  %eax
+    #define LABEL_VALUE(x,f) (%eax)
+    #define INIT_PIC(x)     \
+        push %ebx;          \
+        call L0## x ##$pb;  \
+        L0## x ##$pb:;      \
+        pop %ebx;
+    #define END_PIC(x)       pop %ebx
+#endif

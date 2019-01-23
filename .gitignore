@@ -1,0 +1,9 @@
+_
+obj
+*.deb
+.theos/
+.DS_Store
+*.ipa
+dkhelper/dkhelper/TargetApp/
+dkhelper/dkhelper/tmp/
+dkhelper/LatestBuild

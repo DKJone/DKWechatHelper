@@ -6,7 +6,7 @@
 1.完全融入微信7.0UI风格，沉浸式体验   
 2.完全免费的全功能插件  
 3.非越狱可后台抢红包   
-4.~安全高效源码公开~ (源码整理中,尽快发布)   
+4.安全高效源码公开
 5.设置方便，手机无需越狱   
 ## 功能    
 1.自动抢红包   
@@ -21,7 +21,7 @@
 
 ## 使用：  
 1.源码学习   
-    ~下载本项目，下载砸壳后的微信（7.0以上）[我给你准备了个](https://pan.baidu.com/s/1SHZHfu94Z_jhCkaaFDx8pA),将下载的微信放到'/dkhelper/dkhelper/TargetApp/'目录下该目录下有一个空白文件’put ipa or app here‘，和它放在同一文件夹下即可，修改项目BundleId及签名信息，选择真机设备运行即可~源码整理中尽快提供完整代码
+    下载本项目，下载砸壳后的微信（7.0以上）[我给你准备了个](https://pan.baidu.com/s/1SHZHfu94Z_jhCkaaFDx8pA),将下载的微信放到'/dkhelper/dkhelper/TargetApp/'目录下该目录下有一个空白文件’put ipa or app here‘，和它放在同一文件夹下即可，修改项目BundleId及签名信息，选择真机设备运行即可   
 
 2.开发者：   
     下载以下ipa后重签名应用：[未签名版](https://pan.baidu.com/s/1-zEUQRGn3H4bZVqHpyffzQ)   

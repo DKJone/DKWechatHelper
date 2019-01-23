@@ -1,60 +1,32 @@
-// See http://iphonedevwiki.net/index.php/Logos
-
 #import <UIKit/UIKit.h>
+#import "DKHelper.h"
+#import "DKHelperSettingController.h"
 
-@interface CustomViewController
 
-@property (nonatomic, copy) NSString* newProperty;
-
-+ (void)classMethod;
-
-- (NSString*)getMyName;
-
-- (void)newMethod:(NSString*) output;
-
-@end
-
-%hook CustomViewController
-
-+ (void)classMethod
-{
-	%log;
-
-	%orig;
+%hook NewSettingViewController
+- (void)reloadTableData{
+    %orig;
+    WCTableViewManager *tableViewMgr = MSHookIvar<id>(self, "m_tableViewMgr");
+    MMTableView *tableView = [tableViewMgr getTableView];
+    WCTableViewNormalCellManager *newCell = [%c(WCTableViewNormalCellManager) normalCellForSel:@selector(setting) target:self title:@"微信小助手"];
+    [((WCTableViewSectionManager*)tableViewMgr.sections[0]) addCell: newCell];
+    [tableView reloadData];
 }
 
 %new
--(void)newMethod:(NSString*) output{
-    NSLog(@"This is a new method : %@", output);
-}
-
-%new
-- (id)newProperty {
-    return objc_getAssociatedObject(self, @selector(newProperty));
-}
-
-%new
-- (void)setNewProperty:(id)value {
-    objc_setAssociatedObject(self, @selector(newProperty), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (NSString*)getMyName
-{
-	%log;
-    
-    NSString* password = MSHookIvar<NSString*>(self,"_password");
-    
-    NSLog(@"password:%@", password);
-    
-    [%c(CustomViewController) classMethod];
-    
-    [self newMethod:@"output"];
-    
-    self.newProperty = @"newProperty";
-    
-    NSLog(@"newProperty : %@", self.newProperty);
-
-	return %orig();
+- (void)setting {
+    UIViewController *vc = [[DKHelperSettingController alloc] init];
+    [((UIViewController *)self).navigationController PushViewController:vc animated:true];
 }
 
 %end
+
+
+%hook UIViewController
+- (void)viewWillAppear:(BOOL)animated{
+    %orig;
+    NSLog(@"\n***********************************************\n\t%@ appear\n***********************************************\n",NSStringFromClass([(NSObject*)self class]));
+}
+
+%end
+

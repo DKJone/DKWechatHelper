@@ -37,6 +37,18 @@
 		114CCC7B21F817D500A4646E /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC7A21F817D500A4646E /* fishhook.h */; };
 		114CCC7D21F817D500A4646E /* dkhelperDylib.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC7C21F817D500A4646E /* dkhelperDylib.h */; };
 		114CCC7F21F817D500A4646E /* dkhelperDylib.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC7E21F817D500A4646E /* dkhelperDylib.m */; };
+		114CCC8B21F830C800A4646E /* MMUICommonUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC8A21F830C800A4646E /* MMUICommonUtil.h */; };
+		114CCC8F21F830D200A4646E /* WCUIAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC8C21F830D200A4646E /* WCUIAlertView.h */; };
+		114CCC9021F830D200A4646E /* WechatHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC8D21F830D200A4646E /* WechatHeaders.h */; };
+		114CCC9121F830D200A4646E /* UiUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC8E21F830D200A4646E /* UiUtil.h */; };
+		114CCC9421F831C200A4646E /* DKHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC9221F831C200A4646E /* DKHelper.h */; };
+		114CCC9521F831C200A4646E /* DKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC9321F831C200A4646E /* DKHelper.m */; };
+		114CCC9821F831D400A4646E /* DKHelperConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC9621F831D400A4646E /* DKHelperConfig.h */; };
+		114CCC9921F831D400A4646E /* DKHelperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC9721F831D400A4646E /* DKHelperConfig.m */; };
+		114CCC9C21F831EB00A4646E /* DKHelperSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC9A21F831EA00A4646E /* DKHelperSettingController.m */; };
+		114CCC9D21F831EB00A4646E /* DKHelperSettingController.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC9B21F831EA00A4646E /* DKHelperSettingController.h */; };
+		114CCCA021F8323E00A4646E /* DKGroupFilterController.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC9E21F8323D00A4646E /* DKGroupFilterController.h */; };
+		114CCCA121F8323E00A4646E /* DKGroupFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC9F21F8323D00A4646E /* DKGroupFilterController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +85,7 @@
 		114CCC3D21F817D500A4646E /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		114CCC3F21F817D500A4646E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		114CCC4121F817D500A4646E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		114CCC4521F817D500A4646E /* dkhelperDylib.xm */ = {isa = PBXFileReference; lastKnownFileType = text; name = dkhelperDylib.xm; path = Logos/dkhelperDylib.xm; sourceTree = "<group>"; };
+		114CCC4521F817D500A4646E /* dkhelperDylib.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp.preprocessed; name = dkhelperDylib.xm; path = Logos/dkhelperDylib.xm; sourceTree = "<group>"; };
 		114CCC4621F817D500A4646E /* dkhelperDylib.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = dkhelperDylib.mm; path = Logos/dkhelperDylib.mm; sourceTree = "<group>"; };
 		114CCC4921F817D500A4646E /* MDConfigManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MDConfigManager.h; path = Config/MDConfigManager.h; sourceTree = "<group>"; };
 		114CCC4B21F817D500A4646E /* MDConfigManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MDConfigManager.m; path = Config/MDConfigManager.m; sourceTree = "<group>"; };
@@ -101,6 +113,18 @@
 		114CCC7A21F817D500A4646E /* fishhook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fishhook.h; path = fishhook/fishhook.h; sourceTree = "<group>"; };
 		114CCC7C21F817D500A4646E /* dkhelperDylib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dkhelperDylib.h; sourceTree = "<group>"; };
 		114CCC7E21F817D500A4646E /* dkhelperDylib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dkhelperDylib.m; sourceTree = "<group>"; };
+		114CCC8A21F830C800A4646E /* MMUICommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUICommonUtil.h; sourceTree = "<group>"; };
+		114CCC8C21F830D200A4646E /* WCUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCUIAlertView.h; sourceTree = "<group>"; };
+		114CCC8D21F830D200A4646E /* WechatHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatHeaders.h; sourceTree = "<group>"; };
+		114CCC8E21F830D200A4646E /* UiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UiUtil.h; sourceTree = "<group>"; };
+		114CCC9221F831C200A4646E /* DKHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHelper.h; sourceTree = "<group>"; };
+		114CCC9321F831C200A4646E /* DKHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHelper.m; sourceTree = "<group>"; };
+		114CCC9621F831D400A4646E /* DKHelperConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHelperConfig.h; sourceTree = "<group>"; };
+		114CCC9721F831D400A4646E /* DKHelperConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHelperConfig.m; sourceTree = "<group>"; };
+		114CCC9A21F831EA00A4646E /* DKHelperSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHelperSettingController.m; sourceTree = "<group>"; };
+		114CCC9B21F831EA00A4646E /* DKHelperSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHelperSettingController.h; sourceTree = "<group>"; };
+		114CCC9E21F8323D00A4646E /* DKGroupFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKGroupFilterController.h; sourceTree = "<group>"; };
+		114CCC9F21F8323D00A4646E /* DKGroupFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKGroupFilterController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,8 +216,14 @@
 		114CCC4321F817D500A4646E /* dkhelperDylib */ = {
 			isa = PBXGroup;
 			children = (
+				114CCC8921F8307500A4646E /* wechatHeaders */,
+				114CCC8821F8306500A4646E /* MyUtils */,
 				114CCC7C21F817D500A4646E /* dkhelperDylib.h */,
 				114CCC7E21F817D500A4646E /* dkhelperDylib.m */,
+				114CCC9B21F831EA00A4646E /* DKHelperSettingController.h */,
+				114CCC9A21F831EA00A4646E /* DKHelperSettingController.m */,
+				114CCC9E21F8323D00A4646E /* DKGroupFilterController.h */,
+				114CCC9F21F8323D00A4646E /* DKGroupFilterController.m */,
 				114CCC4421F817D500A4646E /* Logos */,
 				114CCC4821F817D500A4646E /* Config */,
 				114CCC5521F817D500A4646E /* Trace */,
@@ -280,6 +310,28 @@
 			name = fishhook;
 			sourceTree = "<group>";
 		};
+		114CCC8821F8306500A4646E /* MyUtils */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC9621F831D400A4646E /* DKHelperConfig.h */,
+				114CCC9721F831D400A4646E /* DKHelperConfig.m */,
+				114CCC9221F831C200A4646E /* DKHelper.h */,
+				114CCC9321F831C200A4646E /* DKHelper.m */,
+			);
+			path = MyUtils;
+			sourceTree = "<group>";
+		};
+		114CCC8921F8307500A4646E /* wechatHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				114CCC8E21F830D200A4646E /* UiUtil.h */,
+				114CCC8C21F830D200A4646E /* WCUIAlertView.h */,
+				114CCC8D21F830D200A4646E /* WechatHeaders.h */,
+				114CCC8A21F830C800A4646E /* MMUICommonUtil.h */,
+			);
+			path = wechatHeaders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -290,10 +342,18 @@
 				114CCC7D21F817D500A4646E /* dkhelperDylib.h in Headers */,
 				114CCC4E21F817D500A4646E /* MDCycriptManager.h in Headers */,
 				114CCC5221F817D500A4646E /* MDMethodTrace.h in Headers */,
+				114CCC9821F831D400A4646E /* DKHelperConfig.h in Headers */,
+				114CCC8B21F830C800A4646E /* MMUICommonUtil.h in Headers */,
+				114CCCA021F8323E00A4646E /* DKGroupFilterController.h in Headers */,
+				114CCC9421F831C200A4646E /* DKHelper.h in Headers */,
+				114CCC9021F830D200A4646E /* WechatHeaders.h in Headers */,
+				114CCC9D21F831EB00A4646E /* DKHelperSettingController.h in Headers */,
+				114CCC8F21F830D200A4646E /* WCUIAlertView.h in Headers */,
 				114CCC7B21F817D500A4646E /* fishhook.h in Headers */,
 				114CCC6F21F817D500A4646E /* LLDBTools.h in Headers */,
 				114CCC4A21F817D500A4646E /* MDConfigManager.h in Headers */,
 				114CCC6921F817D500A4646E /* OCSelectorTrampolines.h in Headers */,
+				114CCC9121F830D200A4646E /* UiUtil.h in Headers */,
 				114CCC6521F817D500A4646E /* OCMethodTrace.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,15 +517,19 @@
 				114CCC5721F817D500A4646E /* a1a2-selectortramps-arm.s in Sources */,
 				114CCC5D21F817D500A4646E /* a1a2-selectortramps-x86_64.s in Sources */,
 				114CCC6721F817D500A4646E /* OCMethodTrace.m in Sources */,
+				114CCC9921F831D400A4646E /* DKHelperConfig.m in Sources */,
 				114CCC4C21F817D500A4646E /* MDConfigManager.m in Sources */,
+				114CCC9C21F831EB00A4646E /* DKHelperSettingController.m in Sources */,
 				114CCC7921F817D500A4646E /* fishhook.c in Sources */,
 				114CCC7621F817D500A4646E /* AntiAntiDebug.m in Sources */,
 				114CCC6B21F817D500A4646E /* OCSelectorTrampolines.mm in Sources */,
 				114CCC5B21F817D500A4646E /* a1a2-selectortramps-i386.s in Sources */,
 				114CCC6121F817D500A4646E /* a2a3-selectortramps-i386.s in Sources */,
 				114CCC5F21F817D500A4646E /* a2a3-selectortramps-arm.s in Sources */,
+				114CCCA121F8323E00A4646E /* DKGroupFilterController.m in Sources */,
 				114CCC7F21F817D500A4646E /* dkhelperDylib.m in Sources */,
 				114CCC4721F817D500A4646E /* dkhelperDylib.mm in Sources */,
+				114CCC9521F831C200A4646E /* DKHelper.m in Sources */,
 				114CCC7121F817D500A4646E /* LLDBTools.mm in Sources */,
 				114CCC6321F817D500A4646E /* a2a3-selectortramps-x86_64.s in Sources */,
 				114CCC5421F817D500A4646E /* MDMethodTrace.m in Sources */,

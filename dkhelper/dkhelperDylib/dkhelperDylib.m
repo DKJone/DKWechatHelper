@@ -1,5 +1,3 @@
-//  weibo: http://weibo.com/xiaoqing28
-//  blog:  http://www.alonemonkey.com
 //
 //  dkhelperDylib.m
 //  dkhelperDylib
@@ -14,78 +12,140 @@
 #import <Cycript/Cycript.h>
 #import <MDCycriptManager.h>
 
-CHConstructor{
-    printf(INSERT_SUCCESS_WELCOME);
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        
-#ifndef __OPTIMIZE__
-        CYListenServer(6666);
 
-        MDCycriptManager* manager = [MDCycriptManager sharedInstance];
-        [manager loadCycript:NO];
+//MARK: - 请求数据伪装
 
-        NSError* error;
-        NSString* result = [manager evaluateCycript:@"UIApp" error:&error];
-        NSLog(@"result: %@", result);
-        if(error.code != 0){
-            NSLog(@"error: %@", error.localizedDescription);
-        }
-#endif
-        
-    }];
+CHDeclareClass(ASIdentifierManager)
+
+//广告标识符伪装
+CHMethod0(NSUUID *, ASIdentifierManager, advertisingIdentifier)
+{
+    NSUUID *advertisingIdentifier;
+    NSString *key = @"idfa";
+
+    NSString *idfa = [[NSUserDefaults standardUserDefaults] stringForKey:key];
+
+    if (idfa && idfa.length)
+    {
+        advertisingIdentifier = [[NSUUID alloc] initWithUUIDString:idfa];
+    }
+    else
+    {
+        advertisingIdentifier = [NSUUID UUID];
+
+        [[NSUserDefaults standardUserDefaults] setObject:advertisingIdentifier.UUIDString forKey:key];
+    }
+
+    return advertisingIdentifier;
 }
 
+@class BaseAuthReqInfo, BaseRequest, ManualAuthAesReqData;
 
-CHDeclareClass(CustomViewController)
+CHDeclareClass(ManualAuthAesReqData);
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wstrict-prototypes"
 
-//add new method
-CHDeclareMethod1(void, CustomViewController, newMethod, NSString*, output){
-    NSLog(@"This is a new method : %@", output);
+//bundleId 伪装(待完善)
+CHMethod1(void, ManualAuthAesReqData, setBundleId, NSString *, bundleId)
+{
+    NSLog(@"======-获取请求时验证数据-========");
+    if ([bundleId isEqualToString:[NSBundle mainBundle].bundleIdentifier])
+    {
+        bundleId = @"com.tencent.xin";
+    }
+
+    CHSuper1(ManualAuthAesReqData, setBundleId, bundleId);
 }
 
-#pragma clang diagnostic pop
+//clientSeqId 伪装
+CHMethod1(void, ManualAuthAesReqData, setClientSeqId, NSString *, clientSeqId)
+{
+    NSString *key = @"clientSeqId";
+    NSString *clientSeqId_fist = [[NSUserDefaults standardUserDefaults] stringForKey:key];
+    if (!clientSeqId_fist || clientSeqId_fist.length == 0)
+    {
+        clientSeqId_fist = [[NSUUID UUID].UUIDString stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        [[NSUserDefaults standardUserDefaults] setObject:clientSeqId_fist forKey:key];
+    }
 
-CHOptimizedClassMethod0(self, void, CustomViewController, classMethod){
-    NSLog(@"hook class method");
-    CHSuper0(CustomViewController, classMethod);
+    NSString *newClientSeqId;
+
+    if ([clientSeqId containsString:@"-"])
+    {
+        NSRange range = [clientSeqId rangeOfString:@"-"];
+        NSString *clientSeqId_last = [clientSeqId substringFromIndex:range.location];
+
+        newClientSeqId = [NSString stringWithFormat:@"%@%@", clientSeqId_fist, clientSeqId_last];
+    }
+    else
+    {
+        newClientSeqId = clientSeqId_fist;
+    }
+
+    CHSuper1(ManualAuthAesReqData, setClientSeqId, newClientSeqId);
 }
 
-CHOptimizedMethod0(self, NSString*, CustomViewController, getMyName){
-    //get origin value
-    NSString* originName = CHSuper(0, CustomViewController, getMyName);
-    
-    NSLog(@"origin name is:%@",originName);
-    
-    //get property
-    NSString* password = CHIvar(self,_password,__strong NSString*);
-    
-    NSLog(@"password is %@",password);
-    
-    [self newMethod:@"output"];
-    
-    //set new property
-    self.newProperty = @"newProperty";
-    
-    NSLog(@"newProperty : %@", self.newProperty);
-    
-    //change the value
-    return @"朱德坤";
-    
+//deviceName 伪装
+CHMethod1(void, ManualAuthAesReqData, setDeviceName, NSString *, deviceName)
+{
+    //设置为默认名称
+    deviceName = @"iPhone";
+
+    CHSuper1(ManualAuthAesReqData, setDeviceName, deviceName);
 }
 
-//add new property
-CHPropertyRetainNonatomic(CustomViewController, NSString*, newProperty, setNewProperty);
+//过日志记录
+@class MMCrashReportExtLogMgr;
 
-CHConstructor{
-    CHLoadLateClass(CustomViewController);
-    CHClassHook0(CustomViewController, getMyName);
-    CHClassHook0(CustomViewController, classMethod);
-    
-    CHHook0(CustomViewController, newProperty);
-    CHHook1(CustomViewController, setNewProperty);
+CHDeclareClass(MMCrashReportExtLogMgr);
+
+CHMethod2(void, MMCrashReportExtLogMgr, addLogInfo, int *, arg1, withMessage, const char *, arg2)
+{
+    return;
 }
 
+//过越狱检测
+@class JailBreakHelper;
+
+CHDeclareClass(JailBreakHelper);
+
+CHMethod0(BOOL, JailBreakHelper, HasInstallJailbreakPluginInvalidIAPPurchase)
+{
+    return NO;
+}
+
+CHMethod1(BOOL, JailBreakHelper, HasInstallJailbreakPlugin, id, arg1)
+{
+    return NO;
+}
+
+CHMethod0(BOOL, JailBreakHelper, IsJailBreak)
+{
+    return NO;
+}
+
+//所有被hook的类和函数放在这里的构造函数中
+CHConstructor
+{
+    @autoreleasepool
+    {
+        CHLoadLateClass(ASIdentifierManager);
+        CHHook0(ASIdentifierManager, advertisingIdentifier);
+
+        CHLoadLateClass(ManualAuthAesReqData);
+        CHHook1(ManualAuthAesReqData, setBundleId);
+        CHHook1(ManualAuthAesReqData, setClientSeqId);
+        CHHook1(ManualAuthAesReqData, setDeviceName);
+
+        CHLoadLateClass(MMCrashReportExtLogMgr);
+        CHHook2(MMCrashReportExtLogMgr, addLogInfo, withMessage);
+
+        CHLoadLateClass(JailBreakHelper);
+        CHHook0(JailBreakHelper, HasInstallJailbreakPluginInvalidIAPPurchase);
+        CHHook1(JailBreakHelper, HasInstallJailbreakPlugin);
+        CHHook0(JailBreakHelper, IsJailBreak);
+
+
+
+
+    }
+}

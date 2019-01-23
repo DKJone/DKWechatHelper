@@ -29,7 +29,7 @@
 
     UITabBarController * tabbarVC =  (UITabBarController *)UIApplication.sharedApplication.keyWindow.rootViewController;
     NSArray<UINavigationController *> *vcs = tabbarVC.childViewControllers;
-    
+
     return vcs[tabbarVC.selectedIndex];
 }
 
@@ -50,7 +50,7 @@
     CGFloat width =  [FUiUtil screenWidthCurOri];
     CGFloat y = [FUiUtil navigationBarHeightCurOri] + [FUiUtil normalStatusBarHeight];
     CGFloat height = [FUiUtil visibleHeight:[DKHelper navigationContrioller].viewControllers.firstObject] - y;
-   return CGRectMake(0, y, width, height);
+    return CGRectMake(0, y, width, height);
 
 }
 

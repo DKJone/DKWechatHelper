@@ -68,7 +68,7 @@
     if ([DKHelperConfig changeSteps]){
         NSString * steps = [NSString stringWithFormat:@"%ld",[DKHelperConfig changedSteps]];
         WCTableViewCellManager *changedStepsCell = [DKHelper cellWithSel:@selector(showChangedStepInput) target:self title:@"\t步数:" rightValue: steps accessoryType:1];
-         [toBeNO1Section addCell:changedStepsCell];
+        [toBeNO1Section addCell:changedStepsCell];
     }
 
     //小游戏作弊

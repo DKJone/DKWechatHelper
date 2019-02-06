@@ -12,11 +12,19 @@
 #import "DKGroupFilterController.h"
 @interface DKHelperSettingController ()<MultiSelectGroupsViewControllerDelegate>{
     WCTableViewManager * manager;
+    MMUIViewController *helper;
 }
 
 @end
 
 @implementation DKHelperSettingController
+
+-(instancetype)init{
+    if (self = [super init]) {
+        helper = [[objc_getClass("MMUIViewController") alloc] init];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -257,6 +265,15 @@
     DKHelperConfig.redEnvelopGroupFiter  = arg1;
     [self reloadTableData];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+// 没法设置父类，设置消息转发以调用相关类方法
+- (MMUIViewController *) forwardingTargetForSelector:(SEL)aSelector {
+    if ([helper respondsToSelector:aSelector]) {
+        return helper;
+    }
+    return nil;
 }
 
 @end

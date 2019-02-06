@@ -26,18 +26,15 @@
 
 
 + (UINavigationController *)navigationContrioller{
-
-    UITabBarController * tabbarVC =  (UITabBarController *)UIApplication.sharedApplication.keyWindow.rootViewController;
-    NSArray<UINavigationController *> *vcs = tabbarVC.childViewControllers;
-
-    return vcs[tabbarVC.selectedIndex];
+    return ((UINavigationController *)([objc_getClass("CAppViewControllerManager") getCurrentNavigationController]));
 }
 
 + (UIBarButtonItem *)leftNavigationItem{
 
     UINavigationController * navc =  [DKHelper navigationContrioller];
-    if (navc.viewControllers.count > 1){
-        return  ((UIViewController *)navc.viewControllers[1]).navigationItem.leftBarButtonItem;
+    for (UIViewController *vc in navc.childViewControllers) {
+        UIBarButtonItem * item = vc.navigationItem.leftBarButtonItem;
+        if (item) { return item; }
     }
     return nil;
 }

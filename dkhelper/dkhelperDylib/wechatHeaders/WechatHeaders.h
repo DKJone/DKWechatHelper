@@ -319,6 +319,18 @@
 
 @end
 
+
+
+@interface CAppViewControllerManager: NSObject
+
++ (id)topViewControllerOfWindow:(id)arg1;
++ (id)topViewControllerOfMainWindow;
++ (id)topMostController;
++ (id)getCurrentNavigationController;
++ (id)getTabBarController;
++ (id)getAppViewControllerManager;
+
+@end
 #endif /* WechatHeaders_h */
 
 

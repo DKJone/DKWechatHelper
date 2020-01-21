@@ -24,7 +24,6 @@
 
 typedef void(^BtnBlock)(UIButton *sender);
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface DKHelper : NSObject
 
@@ -91,4 +90,4 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)serialQueueIsEmpty;
 
 @end
-NS_ASSUME_NONNULL_END
+

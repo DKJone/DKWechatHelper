@@ -74,7 +74,7 @@
     [toBeNO1Section addCell:changeStepsCell];
 
     if ([DKHelperConfig changeSteps]){
-        NSString * steps = [NSString stringWithFormat:@"%ld",[DKHelperConfig changedSteps]];
+        NSString * steps = [NSString stringWithFormat:@"%ld",(long)[DKHelperConfig changedSteps]];
         WCTableViewCellManager *changedStepsCell = [DKHelper cellWithSel:@selector(showChangedStepInput) target:self title:@"\t步数:" rightValue: steps accessoryType:1];
         [toBeNO1Section addCell:changedStepsCell];
     }
@@ -110,7 +110,7 @@
     //延迟抢红包
     NSString *delay = @"不延迟";
     if ([DKHelperConfig redEnvelopDelay] > 0){
-        delay = [NSString stringWithFormat:@"%ld毫秒",[DKHelperConfig redEnvelopDelay]];
+        delay = [NSString stringWithFormat:@"%ld毫秒",(long)[DKHelperConfig redEnvelopDelay]];
     }
     WCTableViewCellManager *redEnvelopDelayCell = [DKHelper cellWithSel:@selector(redEnvelopDelay) target:self title:@"延迟抢红包" rightValue:delay accessoryType:1];
     [advancedSection addCell:redEnvelopDelayCell];
@@ -119,7 +119,7 @@
     WCTableViewCellManager *redEnvelopTextFilterCell = [DKHelper cellWithSel:@selector(redEnvelopTextFilter) target:self title:@"关键词过滤" rightValue:textFilter accessoryType:1];
     [advancedSection addCell:redEnvelopTextFilterCell];
     //群聊过滤
-    NSString * groupFilter = [DKHelperConfig redEnvelopGroupFiter].count ? [NSString stringWithFormat:@"已过滤%ld个群",[DKHelperConfig redEnvelopGroupFiter].count] : @"不过滤";
+    NSString * groupFilter = [DKHelperConfig redEnvelopGroupFiter].count ? [NSString stringWithFormat:@"已过滤%lu个群",(unsigned long)[DKHelperConfig redEnvelopGroupFiter].count] : @"不过滤";
     WCTableViewCellManager *redEnvelopGroupFilterCell = [DKHelper cellWithSel:@selector(redEnvelopGroupFiter) target:self title:@"群聊过滤" rightValue:groupFilter accessoryType:1];
     [advancedSection addCell:redEnvelopGroupFilterCell];
     //抢自己的红包
@@ -148,7 +148,7 @@
 }
 
 - (void)showChangedStepInput{
-    NSString * str = [NSString stringWithFormat:@"%ld",DKHelperConfig.changedSteps];
+    NSString * str = [NSString stringWithFormat:@"%ld",(long)DKHelperConfig.changedSteps];
     WCUIAlertView * alert = [[objc_getClass("WCUIAlertView") alloc] initWithTitle:@"输入步数" message:@"最好不要超过60000否则可能被封号"];
     [alert addBtnTitle:@"确定" target:self sel:@selector(changeStepOK:)];
     [alert showTextFieldWithMaxLen:5];
@@ -156,8 +156,8 @@
     filed.text = str;
     [alert show];
 }
--(void)changeStepOK:(MMTextFieldAlertController *)sender{
-    NSString * str = sender.getTextField.text;
+-(void)changeStepOK:(MMTipsViewController *)sender{
+    NSString * str = sender.text;
     DKHelperConfig.changedSteps = str.integerValue ;
     [self reloadTableData];
 }
@@ -202,7 +202,7 @@
 }
 
 - (void)redEnvelopDelay{
-    NSString * str = [NSString stringWithFormat:@"%ld",DKHelperConfig.redEnvelopDelay];
+    NSString * str = [NSString stringWithFormat:@"%ld",(long)DKHelperConfig.redEnvelopDelay];
     WCUIAlertView * alert = [[objc_getClass("WCUIAlertView") alloc] initWithTitle:@"输入延迟时间(1秒=1000毫秒)" message:@""];
     [alert addBtnTitle:@"确定" target:self sel:@selector(changeDelayOK:)];
     [alert showTextFieldWithMaxLen:6];
@@ -213,8 +213,8 @@
     }
     [alert show];
 }
--(void)changeDelayOK:(MMTextFieldAlertController *)sender{
-    NSString * str = sender.getTextField.text;
+-(void)changeDelayOK:(MMTipsViewController *)sender{
+    NSString * str = sender.text;
     DKHelperConfig.redEnvelopDelay = str.integerValue ;
     [self reloadTableData];
 }
@@ -232,8 +232,8 @@
     }
     [alert show];
 }
--(void)changeTextFilterOK:(MMTextFieldAlertController *)sender{
-    NSString * str = sender.getTextField.text;
+-(void)changeTextFilterOK:(MMTipsViewController *)sender{
+    NSString * str = sender.text;
     DKHelperConfig.redEnvelopTextFiter = str ;
     [self reloadTableData];
 }

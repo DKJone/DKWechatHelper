@@ -10,6 +10,11 @@
     [[DKHelperConfig shared] enterBackgroundHandler];
 }
 
+-(void)applicationDidBecomeActive:(UIApplication *)application{
+    %orig;
+    [DKHelperConfig.shared.bgTaskTimer invalidate];
+}
+
 %end
 
 
@@ -349,3 +354,12 @@
 
 %end
 
+
+%hook MMTipsViewController
+
+%new
+- (NSString *)text{
+    return  [self valueForKeyPath:@"_tipsTextView.text"];
+}
+
+%end

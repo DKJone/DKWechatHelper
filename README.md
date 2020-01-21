@@ -1,7 +1,11 @@
 # DKWechatHelper   
  
-不止于抢红包，功能丰富的微信插件。本软件已成功运行在(iphone7-iphoneX) 微信7.0.0-7.0.2    
-给个⭐️不迷路↗️
+不止于抢红包，功能丰富的微信插件。本软件已成功运行在(iphone7-iphone11、iPad) 
+给个⭐️不迷路↗️   
+[v1.0.1](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.1)适用微信7.0.8~7.0.10  
+[v1.0.0](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.0) 适用微信7.0.0-7.0.3   
+更多更新内容请查看[CHANGELOG](./CHANGELOG.md)   
+图片加载失败可以到[简书](https://www.jianshu.com/p/8f3eae328a20)查看，本文将在[简书](https://www.jianshu.com/p/8f3eae328a20)同步更新。
 ## 特色    
 1.完全融入微信7.0UI风格，沉浸式体验   
 2.完全免费的全功能插件  
@@ -21,13 +25,20 @@
 
 ## 使用：  
 1.源码学习   
-    下载本项目，下载砸壳后的微信（7.0以上）（我给你准备了个[推荐7.0.0](https://pan.baidu.com/s/15pVma66Ea822YVGrBa2GHw)[7.0.2](https://pan.baidu.com/s/1SHZHfu94Z_jhCkaaFDx8pA)）,将下载的微信放到'/dkhelper/dkhelper/TargetApp/'目录下该目录下有一个空白文件’put ipa or app here‘，和它放在同一文件夹下即可，修改项目BundleId及签名信息，选择真机设备运行即可   
+    下载本项目，下载砸壳后的微信（7.0以上）（我给你准备了个  
+* [7.0.0](https://pan.baidu.com/s/15pVma66Ea822YVGrBa2GHw)
+* [7.0.2](https://pan.baidu.com/s/1SHZHfu94Z_jhCkaaFDx8pA)
+* [7.0.8-*提取码:h54d*](https://pan.baidu.com/s/11VoUXPC4vb5zg8HzP3kC0Q)
+* [7.0.10-*提取码: ig5j*](https://pan.baidu.com/s/1mNnXnyTIlfWUvaXu7KMD-g)   
+将下载的微信放到'/dkhelper/dkhelper/TargetApp/'目录下该目录下有一个空白文件’put ipa or app here‘，和它放在同一文件夹下即可，修改项目BundleId及签名信息，选择真机设备运行即可   
 
 2.开发者：   
-    下载以下ipa后重签名应用：[未签名版](https://pan.baidu.com/s/1-zEUQRGn3H4bZVqHpyffzQ)   
+    下载以下ipa后重签名应用：
+* [未签名版7.0.0](https://pan.baidu.com/s/1-zEUQRGn3H4bZVqHpyffzQ)    
+* [未签名版7.0.10-*提取码: 6hi8*](https://pan.baidu.com/s/1ofwCGzLfxePltqPcgFcyoQ)     
     注：推荐使用[ios-app-signer](https://github.com/DanTheMan827/ios-app-signer)签名，使用方法自行百度     
 3.普通用户：   
-    前往以下地址下载：[未签名](https://pan.baidu.com/s/1-zEUQRGn3H4bZVqHpyffzQ)
+    前往以下地址下载：上方未签名版
     下载后使用 [Cydia Impactor](http://www.cydiaimpactor.com/)安装   
 
 

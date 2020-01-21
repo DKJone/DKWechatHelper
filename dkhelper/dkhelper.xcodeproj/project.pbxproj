@@ -462,7 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = /opt/MonkeyDev/Tools/pack.sh;
+			shellScript = "/opt/MonkeyDev/Tools/pack.sh\n";
 		};
 		114CCC2521F817D500A4646E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -479,7 +479,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/opt/MonkeyDev/Tools/pack.sh codesign";
+			shellScript = "/opt/MonkeyDev/Tools/pack.sh codesign\n";
 		};
 		114CCC3321F817D500A4646E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -496,7 +496,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/opt/MonkeyDev/bin/md --xcbp-logos";
+			shellScript = "/opt/MonkeyDev/bin/md --xcbp-logos\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -662,8 +662,9 @@
 		114CCC8321F817D500A4646E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NL54V6A3P5;
+				DEVELOPMENT_TEAM = J4GV357594;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -686,6 +687,7 @@
 					"$(MonkeyDevPath)/include",
 					"$(MonkeyDevTheosPath)/vendor/include/**",
 				);
+				INFOPLIST_FILE = "$(SRCROOT)/dkhelper/Info.plist";
 				INSTALL_PATH = "@executable_path/Frameworks/libdkhelperDylib.dylib";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -715,6 +717,7 @@
 					RevealServer,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
 			};
@@ -723,9 +726,10 @@
 		114CCC8421F817D500A4646E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = NL54V6A3P5;
+				DEVELOPMENT_TEAM = J4GV357594;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -747,6 +751,7 @@
 					"$(MonkeyDevPath)/include",
 					"$(MonkeyDevTheosPath)/vendor/include/**",
 				);
+				INFOPLIST_FILE = "$(SRCROOT)/dkhelper/Info.plist";
 				INSTALL_PATH = "@executable_path/Frameworks/libdkhelperDylib.dylib";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -773,6 +778,7 @@
 					"$(MonkeyDevPath)/Frameworks/libsubstrate.dylib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -785,14 +791,14 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = dkhelper/Info.plist;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
-				MONKEYDEV_CLASS_DUMP = NO;
+				MONKEYDEV_CLASS_DUMP = YES;
 				MONKEYDEV_DEFAULT_BUNDLEID = YES;
 				MONKEYDEV_INSERT_DYLIB = YES;
 				MONKEYDEV_RESTORE_SYMBOL = NO;
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sinoroad.dkhelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dkjone.test11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -806,14 +812,14 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = dkhelper/Info.plist;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
-				MONKEYDEV_CLASS_DUMP = NO;
+				MONKEYDEV_CLASS_DUMP = YES;
 				MONKEYDEV_DEFAULT_BUNDLEID = YES;
 				MONKEYDEV_INSERT_DYLIB = YES;
 				MONKEYDEV_RESTORE_SYMBOL = NO;
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sinoroad.dkhelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dkjone.test11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

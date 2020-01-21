@@ -6,16 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@interface MMTextFieldAlertController : UIAlertController
-- (UITextField *)getTextField;
-- (void)setTextFieldWithMaxLen:(unsigned int)arg1;
+@interface MMGrowTextView : UITextField
 
 @end
 
+@interface MMTipsViewController : UIAlertController
+- (NSString *)text;
+@end
+
+
 @interface WCUIAlertView : NSObject
-{
-    MMTextFieldAlertController *_alertController;
-}
+
 
 + (id)getTopVc;
 + (id)showAlertWithTitle:(id)arg1 message:(id)arg2 btnTitle:(id)arg3 handler:(id)arg4 btnTitle:(id)arg5 handler:(id)arg6;

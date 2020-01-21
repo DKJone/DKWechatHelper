@@ -5,7 +5,7 @@
 	<key>MethodTrace</key>
 	<dict>
 		<key>LogLevel</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>LogWhen</key>
 		<integer>0</integer>
 		<key>LogRegexString</key>
@@ -13,7 +13,7 @@
 		<key>TraceFlag</key>
 		<integer>2</integer>
 		<key>TraceObject</key>
-		<integer>0</integer>
+		<integer>2</integer>
 		<key>ClassRegexString</key>
 		<string></string>
 		<key>CORE_CLASS_LIST</key>
@@ -129,33 +129,7 @@
 			<dict/>
 		</dict>
 		<key>USER_CLASS_LIST</key>
-		<dict>
-			<key>BaseMsgContentViewController</key>
-			<dict>
-				<key>TraceMode</key>
-				<integer>1</integer>
-				<key>TraceFlag</key>
-				<integer>0</integer>
-				<key>MethodWhiteList</key>
-				<array/>
-				<key>MethodBlackList</key>
-				<array/>
-			</dict>
-			<key>CMessageMgr</key>
-			<dict>
-				<key>TraceMode</key>
-				<integer>2</integer>
-				<key>TraceFlag</key>
-				<integer>0</integer>
-				<key>MethodWhiteList</key>
-				<array>
-					<string>AsyncOnAddMsg:MsgWrap:</string>
-					<string>onRevokeMsg:</string>
-				</array>
-				<key>MethodBlackList</key>
-				<array/>
-			</dict>
-		</dict>
+		<dict/>
 	</dict>
 	<key>Cycript</key>
 	<dict>

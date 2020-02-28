@@ -127,11 +127,13 @@
 @interface NewQRCodeScanner
 - (void)notifyDelegate:(id)arg1 type:(id)arg2 version:(int)arg3 rawData:(id)arg4;
 - (void)notifyResult:(id)arg1 type:(id)arg2 version:(int)arg3 rawData:(id)arg4;
-- (id)initWithDelegate:(id)arg1 CodeType:(int)arg2;
+- (id)initWithDelegate:(id)arg1 CodeType:(int)arg2 isUseSmallCropArea:(_Bool)arg3 cameraScannerViewWrapper:(id)arg4;
+- (id)initWithDelegate:(id)arg1 CodeType:(int)arg2 isUseSmallCropArea:(_Bool)arg3;
 @end
 
 @interface ScanQRCodeLogicController
-- (id)initWithViewController:(id)arg1 CodeType:(int)arg2 needCameraScan:(_Bool)arg3;
+- (id)initWithViewController:(id)arg1 CodeType:(int)arg2 needCameraScan:(_Bool)arg3 bShowMyQRCodeBtn:(_Bool)arg4 cameraScannerViewWrapper:(id)arg5;
+- (id)initWithViewController:(id)arg1 CodeType:(int)arg2;
 @end
 
 

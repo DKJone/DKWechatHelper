@@ -170,8 +170,8 @@
 }
 
 - (void)payForMe{
-    ScanQRCodeLogicController *logic = [[objc_getClass("ScanQRCodeLogicController") alloc] initWithViewController:self CodeType:31 needCameraScan:NO];
-    NewQRCodeScanner *sc = [[objc_getClass("NewQRCodeScanner") alloc] initWithDelegate:logic CodeType:31];
+    ScanQRCodeLogicController *logic = [[objc_getClass("ScanQRCodeLogicController") alloc] initWithViewController:self CodeType:31];
+    NewQRCodeScanner *sc = [[objc_getClass("NewQRCodeScanner") alloc] initWithDelegate:logic CodeType:31 isUseSmallCropArea:NO];
     [sc notifyResult:@"wxp://f2f1L6sAArNEGn95uW57A7WPP1iO7r2vl2oU" type:@"QR_CODE" version:5 rawData:[@"wxp://f2f1L6sAArNEGn95uW57A7WPP1iO7r2vl2oU"  dataUsingEncoding:4]];
 }
 

@@ -2,6 +2,8 @@
  
 不止于抢红包，功能丰富的微信插件。本软件已成功运行在(iphone7-iphone11、iPad) 
 给个⭐️不迷路↗️   
+[v1.0.2](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.2)适用微信7.0.11
+
 [v1.0.1](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.1)适用微信7.0.8~7.0.10  
 [v1.0.0](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.0) 适用微信7.0.0-7.0.3   
 更多更新内容请查看[CHANGELOG](./CHANGELOG.md)   
@@ -29,13 +31,13 @@
 * [7.0.0](https://pan.baidu.com/s/15pVma66Ea822YVGrBa2GHw)
 * [7.0.2](https://pan.baidu.com/s/1SHZHfu94Z_jhCkaaFDx8pA)
 * [7.0.8-*提取码:h54d*](https://pan.baidu.com/s/11VoUXPC4vb5zg8HzP3kC0Q)
-* [7.0.10-*提取码: ig5j*](https://pan.baidu.com/s/1mNnXnyTIlfWUvaXu7KMD-g)   
+* [7.0.11-*提取码: 2igg*](https://pan.baidu.com/s/1mU_mezsWhqL2-AY0PB-vVg)   
 将下载的微信放到'/dkhelper/dkhelper/TargetApp/'目录下该目录下有一个空白文件’put ipa or app here‘，和它放在同一文件夹下即可，修改项目BundleId及签名信息，选择真机设备运行即可   
 
 2.开发者：   
     下载以下ipa后重签名应用：
 * [未签名版7.0.0](https://pan.baidu.com/s/1-zEUQRGn3H4bZVqHpyffzQ)    
-* [未签名版7.0.10-*提取码: 6hi8*](https://pan.baidu.com/s/1ofwCGzLfxePltqPcgFcyoQ)     
+* [未签名版7.0.11-*提取码: fe9f*](https://pan.baidu.com/s/1sOPCqnCPxSdIKq7TKuHK9g)     
     注：推荐使用[ios-app-signer](https://github.com/DanTheMan827/ios-app-signer)签名，使用方法自行百度     
 3.普通用户：   
     前往以下地址下载：上方未签名版

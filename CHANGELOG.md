@@ -1,6 +1,15 @@
 # DKWechatHelper ChangeLog
 
-[v1.0.1]()2020-01-21
+
+[v1.0.2](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.2) / 2020-01-29
+what's new
+* 修复请我喝咖啡闪退
+* 支持7.0.11
+* 更新越狱包7.0.11
+* 更新已注入助手的7.0.11未签名包
+
+
+[v1.0.1](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.1) / 2020-01-21
 what's new
 
 * 修复微信7.0.8~7.0.10设置步数和抢红包延迟闪退

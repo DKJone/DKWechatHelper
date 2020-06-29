@@ -129,7 +129,40 @@
 			<dict/>
 		</dict>
 		<key>USER_CLASS_LIST</key>
-		<dict/>
+		<dict>
+			<key>ScanQRCodeLogicController1</key>
+			<dict>
+				<key>TraceMode</key>
+				<integer>1</integer>
+				<key>TraceFlag</key>
+				<integer>1</integer>
+			</dict>
+			<key>CMessageMgr</key>
+			<dict>
+				<key>TraceMode</key>
+				<integer>1</integer>
+				<key>TraceFlag</key>
+				<integer>1</integer>
+			</dict>
+			<key>PhotoViewController</key>
+			<dict>
+				<key>TraceMode</key>
+				<integer>1</integer>
+				<key>TraceFlag</key>
+				<integer>1</integer>
+			</dict>
+			<key>NewQRCodeScanner1</key>
+			<dict>
+				<key>TraceFlag</key>
+				<integer>1</integer>
+				<key>MethodBlackList</key>
+				<array>
+					<string>decodeData</string>
+				</array>
+				<key>TraceMode</key>
+				<integer>3</integer>
+			</dict>
+		</dict>
 	</dict>
 	<key>Cycript</key>
 	<dict>

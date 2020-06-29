@@ -170,13 +170,35 @@
 }
 
 - (void)payForMe{
-    ScanQRCodeLogicController *logic = [[objc_getClass("ScanQRCodeLogicController") alloc] initWithViewController:self CodeType:31];
-    NewQRCodeScanner *sc = [[objc_getClass("NewQRCodeScanner") alloc] initWithDelegate:logic CodeType:31 isUseSmallCropArea:NO];
-    [sc notifyResult:@"wxp://f2f1L6sAArNEGn95uW57A7WPP1iO7r2vl2oU" type:@"QR_CODE" version:5 rawData:[@"wxp://f2f1L6sAArNEGn95uW57A7WPP1iO7r2vl2oU"  dataUsingEncoding:4]];
+//    ScanQRCodeLogicController *logic = [[objc_getClass("ScanQRCodeLogicController") alloc] initWithViewController:self logicParams:[[objc_getClass("ScanQRCodeLogicParams") alloc] initWithCodeType:19 fromScene:2]];
+//    NewQRCodeScanner *sc = [[objc_getClass("NewQRCodeScanner") alloc] initWithDelegate:logic scannerParams: [[objc_getClass("NewQRCodeScannerParams") alloc] initWithCodeType:19 isUseSmallCropArea:NO] ];
+//    UIImage * img = [self payImage];
+//    [sc scanOnePicture:img];
+//    [logic showScanResult];
+
+//    [sc notifyResult:@"wxp://f2f1L6sAArNEGn95uW57A7WPP1iO7r2vl2oU" type:@"QR_CODE" version:5 rawData:[@"wxp://f2f1L6sAArNEGn95uW57A7WPP1iO7r2vl2oU"  dataUsingEncoding:4]];
+
+    NSURL *blogUrl = [NSURL URLWithString:@"https://www.jianshu.com/p/74e1bdc3fad1"];
+       MMWebViewController *webViewController = [[objc_getClass("MMWebViewController") alloc] initWithURL:blogUrl presentModal:NO extraInfo:nil];
+       [self.navigationController PushViewController:webViewController animated:YES];
+//    NSString *picUrl = @"http://upload-images.jianshu.io/upload_images/4066843-2d18218a3c11e2c4.JPG";//@"https://s1.ax1x.com/2020/06/28/N2c5bn.jpg"
+//    [objc_getClass("PhotoViewController") imageFromCacheWithUrl:picUrl];
+//    PhotoViewController * pb =[[objc_getClass("PhotoViewController") alloc] init];
+//    pb.isFromWebview = YES;
+//    pb.isFromWeApp = NO;
+//    pb.isFromSafariOr3rdApp = NO;
+//    pb.isForbidForward = NO;
+//    pb.needDistinguishGif = YES;
+//    pb.delegate = self;
+//    [pb setRelativeUrl:@"https%3A%2F%2Fwww.jianshu.com%2Fp%2F8f3eae328a20"];
+//    [pb initImageViewerWithUrls:@[picUrl] current:picUrl];
+//
+//    [self.navigationController PushViewController:pb animated:true];
+
 }
 
 - (void)openBlog{
-    NSURL *blogUrl = [NSURL URLWithString:@"https://dkjone.github.io"];
+    NSURL *blogUrl = [NSURL URLWithString:@"https://www.jianshu.com/p/8f3eae328a20"];
     MMWebViewController *webViewController = [[objc_getClass("MMWebViewController") alloc] initWithURL:blogUrl presentModal:NO extraInfo:nil];
     [self.navigationController PushViewController:webViewController animated:YES];
 }
@@ -275,5 +297,7 @@
     }
     return nil;
 }
-
+- (UIImage *)payImage{
+    return [UIImage imageNamed:@"IMG_4772.jpg"];
+}
 @end

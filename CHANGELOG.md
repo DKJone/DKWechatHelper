@@ -1,5 +1,12 @@
 # DKWechatHelper ChangeLog
 
+[v1.0.3](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.3) / 2020-06-29
+what's new
+* 适配新版本微信
+* 支持7.0.13
+* 更新越狱包7.0.13
+* 更新已注入助手的7.0.13未签名包
+* 增加越狱方式安装包
 
 [v1.0.2](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.2) / 2020-01-29
 what's new

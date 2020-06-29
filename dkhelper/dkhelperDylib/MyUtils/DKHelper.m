@@ -101,7 +101,25 @@
     act2(array[1]);
 
 }
+      // 发送消息
++ (void)sendMsg:(NSString *)msg toContactUsrName:(NSString *)userName {
+    [DKHelper sendMsg:msg toContactUsrName:userName uiMsgType:1];
+}
++ (void)sendMsg:(NSString *)msg toContactUsrName:(NSString *)userName uiMsgType:(int)type{
+    CMessageWrap *wrap = [[objc_getClass("CMessageWrap") alloc] initWithMsgType:type];
+    id usrName = [objc_getClass("SettingUtil") getLocalUsrName:0];
+    [wrap setM_nsFromUsr:usrName];
+    [wrap setM_nsContent:msg];
+    [wrap setM_nsToUsr:userName];
+    wrap.m_uiMesLocalID = 11;
 
+    MMNewSessionMgr *sessionMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:objc_getClass("MMNewSessionMgr")];
+    [wrap setM_uiCreateTime:[sessionMgr GenSendMsgTime]];
+    [wrap setM_uiStatus:YES];
+
+    CMessageMgr *chatMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:objc_getClass("CMessageMgr")];
+    [chatMgr AddMsg:userName MsgWrap:wrap];
+}
 @end
 
 

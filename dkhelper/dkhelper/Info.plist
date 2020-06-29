@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>18G95</string>
+	<string>18E226</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
@@ -152,7 +152,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>7.0.8</string>
+	<string>7.0.13</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -181,29 +181,33 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>7.0.8.65</string>
+	<string>7.0.13.35</string>
+	<key>DTAppStoreToolsBuild</key>
+	<string>11E608a</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>16G73</string>
+	<string>17B102</string>
 	<key>DTPlatformName</key>
 	<string>iphoneos</string>
 	<key>DTPlatformVersion</key>
-	<string>12.4</string>
+	<string>13.2</string>
 	<key>DTSDKBuild</key>
-	<string>16G73</string>
+	<string>17B102</string>
 	<key>DTSDKName</key>
-	<string>iphoneos12.4</string>
+	<string>iphoneos13.2</string>
 	<key>DTXcode</key>
-	<string>1030</string>
+	<string>1130</string>
 	<key>DTXcodeBuild</key>
-	<string>10G8</string>
+	<string>11C29</string>
 	<key>FacebookAppID</key>
 	<string>290293790992170</string>
 	<key>FacebookAutoInitEnabled</key>
 	<false/>
 	<key>FacebookAutoLogAppEventsEnabled</key>
 	<false/>
+	<key>ITSDRMScheme</key>
+	<string>v2</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>qqnews</string>
@@ -255,13 +259,19 @@
 		<string>webank</string>
 		<string>weiyun</string>
 		<string>weishi</string>
+		<string>wemeet</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<false/>
+	<key>MidasConfig</key>
+	<dict>
+		<key>HideLoading</key>
+		<true/>
+	</dict>
 	<key>MinimumOSVersion</key>
-	<string>9.0</string>
+	<string>13.0</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -353,22 +363,24 @@
 	<key>UISupportsDocumentBrowser</key>
 	<false/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 	<key>WeChatBundleVersion</key>
-	<string>7.0.8.65</string>
+	<string>7.0.13.35</string>
+	<key>WeChatFeatureIdentifier</key>
+	<string>release_appstore_7.0.13</string>
 	<key>build_time</key>
-	<string></string>
+	<string>2020-05-27 22:42:30</string>
 	<key>by</key>
 	<string>wx_ios_code_helper</string>
 	<key>path</key>
-	<string>origin/release_channel_7.0.8_2019_9_20_15_15_56</string>
+	<string>release_appstore_7.0.13_2020_5_15_15_35_25</string>
 	<key>rev</key>
-	<string>d81f4f4f2876fecbd20de762107bf29e6ee7b22a</string>
+	<string>bc848d3237033ebcc0fcaba58efd2b8fdee7881e</string>
 	<key>tag</key>
-	<string>release_channel #249</string>
+	<string>release_appstore_7.0.13 #36</string>
 	<key>uuid</key>
-	<string>3cdc04729fa234a8a9f9ef11d036f092</string>
+	<string>9990dee0603a387c81ee52b357b4c33c</string>
 	<key>ver</key>
-	<string>0x17000841</string>
+	<string>0x17000d23</string>
 </dict>
 </plist>

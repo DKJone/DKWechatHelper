@@ -44,6 +44,8 @@ typedef void(^BtnBlock)(UIButton *sender);
 + (WCTableViewNormalCellManager *)switchCellWithSel:(SEL)sel target:(id)target title:(NSString *)title switchOn:(BOOL)switchOn;
 + (WCUIAlertView *)showAlertWithTitle:(NSString *)title message:(NSString *)msg btnTitle:(NSString *)btnTitle handler:(BtnBlock)handler;
 + (WCUIAlertView *)showAlertWithTitle:(NSString *)title message:(NSString *)msg btnTitle:(NSString *)btn1 handler:(BtnBlock)handler1 btnTitle:(NSString *)btn2 handler:(BtnBlock)handler2;
++ (void)sendMsg:(NSString *)msg toContactUsrName:(NSString *)userName;
++ (void)sendMsg:(NSString *)msg toContactUsrName:(NSString *)userName uiMsgType:(int)type;
 
 @end
 

@@ -2,6 +2,12 @@
 #import "DKHelper.h"
 #import "DKHelperSettingController.h"
 
+%hook MMServiceCenter
+%new
++ (id)defaultCenter{
+     return [[%c(MMContext) currentContext] serviceCenter];
+}
+%end
 
 %hook MicroMessengerAppDelegate
 
@@ -118,20 +124,7 @@
     %orig;
 }
 
-%new        // 发送消息
-- (void)sendMsg:(NSString *)msg toContactUsrName:(NSString *)userName {
-    CMessageWrap *wrap = [[%c(CMessageWrap) alloc] initWithMsgType:1];
-    id usrName = [%c(SettingUtil) getLocalUsrName:0];
-    [wrap setM_nsFromUsr:usrName];
-    [wrap setM_nsContent:msg];
-    [wrap setM_nsToUsr:userName];
-    MMNewSessionMgr *sessionMgr = [[%c(MMServiceCenter) defaultCenter] getService:%c(MMNewSessionMgr)];
-    [wrap setM_uiCreateTime:[sessionMgr GenSendMsgTime]];
-    [wrap setM_uiStatus:YES];
 
-    CMessageMgr *chatMgr = [[%c(MMServiceCenter) defaultCenter] getService:%c(CMessageMgr)];
-    [chatMgr AddMsg:userName MsgWrap:wrap];
-}
 
 - (void)AsyncOnAddMsg:(NSString *)msg MsgWrap:(CMessageWrap *)wrap {
     %orig;

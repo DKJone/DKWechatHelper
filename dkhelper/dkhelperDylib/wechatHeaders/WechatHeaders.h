@@ -123,21 +123,42 @@
 
 @end
 
+@interface PhotoViewController:UIViewController
+- (void)initImageViewerWithUrls:(id)arg1 current:(id)arg2;
++ (id)imageFromCacheWithUrl:(id)arg1;
++ (id)imageDataFromCacheWithUrl:(id)arg1;
++ (id)genKeyForUrl:(id)arg1;
+@property(nonatomic) __weak id delegate;
+@property(copy, nonatomic) NSString *relativeUrl;
+@property(nonatomic) BOOL needDistinguishGif; // @synthesize needDistinguishGif=_needDistinguishGif;
+@property(nonatomic) BOOL isFromSafariOr3rdApp; // @synthesize isFromSafariOr3rdApp=_isFromSafariOr3rdApp;
+@property(nonatomic) BOOL isFromWeApp; // @synthesize isFromWeApp=_isFromWeApp;
+@property(nonatomic) BOOL isForbidForward; // @synthesize isForbidForward=_isForbidForward;
+@property(nonatomic) BOOL isFromWebview; // @synthesize isFromWebview=m_isFromWebview;
+@end
+
+@interface NewQRCodeScannerParams
+- (id)initWithCodeType:(int)arg1;
+- (id)initWithCodeType:(int)arg1 isUseSmallCropArea:(BOOL)arg2;
+@end
+
 
 @interface NewQRCodeScanner
-- (void)notifyDelegate:(id)arg1 type:(id)arg2 version:(int)arg3 rawData:(id)arg4;
-- (void)notifyResult:(id)arg1 type:(id)arg2 version:(int)arg3 rawData:(id)arg4;
-- (id)initWithDelegate:(id)arg1 CodeType:(int)arg2 isUseSmallCropArea:(_Bool)arg3 cameraScannerViewWrapper:(id)arg4;
-- (id)initWithDelegate:(id)arg1 CodeType:(int)arg2 isUseSmallCropArea:(_Bool)arg3;
+- (BOOL)scanOnePicture:(id)arg1;
+- (id)initWithDelegate:(id)arg1 scannerParams:(NewQRCodeScannerParams *)arg2;
 @end
 
 @interface ScanQRCodeLogicController
-- (id)initWithViewController:(id)arg1 CodeType:(int)arg2 needCameraScan:(_Bool)arg3 bShowMyQRCodeBtn:(_Bool)arg4 cameraScannerViewWrapper:(id)arg5;
-- (id)initWithViewController:(id)arg1 CodeType:(int)arg2;
+- (id)initWithViewController:(id)arg1 logicParams:(id)arg2;
+@property(readonly, nonatomic) NSDictionary *tryScanExtraInfo;
+- (void)showScanResult;
+- (void)reportEngineStatWithScene:(unsigned int)arg1 scanType:(long long)arg2;
+- (void)startScan;
+- (void)doScanQRCode:(id)img;
 @end
 
 
-@interface MMWebViewController: NSObject
+@interface MMWebViewController: UIViewController
 - (id)initWithURL:(id)arg1 presentModal:(_Bool)arg2 extraInfo:(id)arg3;
 @end
 
@@ -208,6 +229,22 @@
 
 @end
 
+@interface MMContext : NSObject
+
++ (id)activeUserContext;
++ (id)rootContext;
++ (id)currentContext;
+- (id)getService:(Class)arg1;
+@property(readonly, nonatomic) MMServiceCenter *serviceCenter;
+
+@end
+
+@interface ScanQRCodeLogicParams 
+- (id)initWithCodeType:(int)arg1 fromScene:(unsigned int)arg2 enterScene:(unsigned long long)arg3 bNeedCameraScan:(_Bool)arg4 bShowMyQRCodeBtn:(_Bool)arg5 wrapper:(id)arg6;
+- (id)initWithCodeType:(int)arg1 fromScene:(unsigned int)arg2;
+
+@end
+
 @interface CMessageWrap : NSObject
 @property (retain, nonatomic) WCPayInfoItem *m_oWCPayInfoItem;
 @property(nonatomic, assign) NSInteger m_uiGameType;  // 1、猜拳; 2、骰子; 0、自定义表情
@@ -224,6 +261,8 @@
 @property (nonatomic, copy) NSString *m_nsRealChatUsr;
 @property (nonatomic, copy) NSString *m_nsPushContent;
 - (id)initWithMsgType:(long long)arg1;
+
+@property(nonatomic) unsigned int m_uiMesLocalID;
 @end
 
 @interface CBaseContact : NSObject
@@ -246,6 +285,7 @@
 - (id)GetHelloUsers:(id)arg1 Limit:(unsigned int)arg2 OnlyUnread:(BOOL)arg3;
 - (void)AddEmoticonMsg:(NSString *)msg MsgWrap:(CMessageWrap *)msgWrap;
 - (void)DelMsg:(id)arg1 MsgWrap:(id)arg2;
+- (void)ResendMsg:(id)arg1 MsgWrap:(id)arg2;
 
 
 @end

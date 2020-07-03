@@ -339,6 +339,18 @@
 
 %end
 
+// Enable CallKit
+%hook VoipCXMgr
+
++ (BOOL)isCallkitAvailable{
+    return DKHelperConfig.enableCallKit;
+}
++ (BOOL)isDeviceCallkitAvailable{
+    return DKHelperConfig.enableCallKit;
+}
+
+%end
+
 %hook UIViewController
 - (void)viewWillAppear:(BOOL)animated{
     %orig;

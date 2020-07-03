@@ -40,10 +40,12 @@
 * [未签名版7.0.0](https://pan.baidu.com/s/1-zEUQRGn3H4bZVqHpyffzQ)    
 * [未签名版7.0.11-*提取码: fe9f*](https://pan.baidu.com/s/1sOPCqnCPxSdIKq7TKuHK9g)     
 * [未签名版7.0.13-*提取码: fhes*](https://pan.baidu.com/s/1DgSl5u0Gip3cNdqZmRFEWw)  
-    注：推荐使用[ios-app-signer](https://github.com/DanTheMan827/ios-app-signer)签名，使用方法自行百度     
+    注：推荐使用[ios-app-signer](https://github.com/DanTheMan827/ios-app-signer)签名，使用方法自行百度  
+
 3.普通用户：   
     前往以下地址下载：上方未签名版
     下载后使用 [Cydia Impactor](http://www.cydiaimpactor.com/)安装  
+    
 4.越狱用户：  
 [deb安装包地址 - *提取码: dq53*](https://pan.baidu.com/s/1NyDrM_VF3JYv7PAyW_VkcQ)  
 

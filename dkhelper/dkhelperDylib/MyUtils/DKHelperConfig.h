@@ -55,6 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(BOOL)hasShowTips;
 +(void)setHasShowTips:(BOOL)value;
+
++(BOOL)enableCallKit;
++(void)setEnableCallKit:(BOOL)value;
 @end
 
 NS_ASSUME_NONNULL_END

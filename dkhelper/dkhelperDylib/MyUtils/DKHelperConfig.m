@@ -52,6 +52,13 @@ NSString* cmdString(SEL sel){
     [NSUserDefaults.standardUserDefaults synchronize];
 }
 
++(BOOL)enableCallKit{
+    return [NSUserDefaults.standardUserDefaults boolForKey:cmdString(_cmd)];
+}
++(void)setEnableCallKit:(BOOL)value{
+    [NSUserDefaults.standardUserDefaults setBool:value forKey: cmdString(_cmd)];
+    [NSUserDefaults.standardUserDefaults synchronize];
+}
 
 +(BOOL)changeSteps{
     return [NSUserDefaults.standardUserDefaults boolForKey:cmdString(_cmd)];

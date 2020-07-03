@@ -83,6 +83,9 @@
     WCTableViewCellManager *gamePlugCell = [DKHelper switchCellWithSel:@selector(gamePlugEnable:) target:self title:@"小游戏作弊" switchOn:[DKHelperConfig gamePlugEnable]];
     [toBeNO1Section addCell:gamePlugCell];
 
+    WCTableViewCellManager *callKitCell = [DKHelper switchCellWithSel:@selector(enableCallKit:) target:self title:@"使用CallKit" switchOn:[DKHelperConfig enableCallKit]];
+    [toBeNO1Section addCell:callKitCell];
+
 
 
     //MARK: 支持作者
@@ -166,6 +169,13 @@
     DKHelperConfig.gamePlugEnable = sender.isOn;
     if (sender.isOn){
         [DKHelper showAlertWithTitle:@"" message:@"小游戏作弊暂只支持掷骰子和剪刀石头布" btnTitle:@"知道了" handler:^(UIButton *sender) { }];
+    }
+}
+
+-(void)enableCallKit:(UISwitch *)sender{
+    DKHelperConfig.enableCallKit = sender.isOn;
+    if (sender.isOn){
+        [DKHelper showAlertWithTitle:@"" message:@"现在可以在锁屏状态下，接听微信电话了！" btnTitle:@"太棒了" handler:^(UIButton *sender) { }];
     }
 }
 
@@ -296,8 +306,5 @@
         return helper;
     }
     return nil;
-}
-- (UIImage *)payImage{
-    return [UIImage imageNamed:@"IMG_4772.jpg"];
 }
 @end

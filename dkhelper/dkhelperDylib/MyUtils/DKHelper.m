@@ -10,6 +10,7 @@
 @interface DKHelper(){
     BtnBlock act1;
     BtnBlock act2;
+    NSArray* allFriends;
 }
 @end
 
@@ -51,6 +52,68 @@
 
 }
 
++ (NSArray<CContact*> *)allFriends{
+    // 好友缓存为空时去数据库加载
+    if (!DKHelper.shared->allFriends.count){
+        NSMutableArray * friends = [NSMutableArray array];
+        CContactMgr *contactMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("CContactMgr") class]];
+        NSArray* contacts = [contactMgr getContactList:1 contactType:0];
+        for(CContact* contact in contacts){
+            if (!contact.isBrandContact && contact.m_uiSex != 0) {
+                [friends addObject:contact];
+            }
+        }
+        DKHelper.shared->allFriends = friends;
+    }
+    return DKHelper.shared->allFriends;
+}
+
++ (NSMutableArray<WCUserComment *>*)commentUsers{
+    NSMutableArray* likeCommentUsers = [NSMutableArray array];
+    [DKHelper.allFriends enumerateObjectsUsingBlock:^(CContact * curAddContact, NSUInteger idx, BOOL * _Nonnull stop) {
+        WCUserComment* likeComment = [[objc_getClass("WCUserComment") alloc] init];
+        likeComment.username = curAddContact.m_nsUsrName;
+        likeComment.nickname = curAddContact.m_nsNickName;
+        likeComment.type = 2;
+        likeComment.commentID = [NSString stringWithFormat:@"%lu", (unsigned long)idx];
+        likeComment.createTime = [[NSDate date] timeIntervalSince1970];
+        [likeCommentUsers addObject:likeComment];
+        *stop = (DKHelperConfig.likeCount.integerValue == idx);
+    }];
+    return likeCommentUsers;
+}
+
++ (NSMutableArray<WCUserComment *>*)commentWith:(WCDataItem *) origItem{
+
+    NSMutableArray* origComment = origItem.commentUsers;
+    if (origComment.count >= DKHelperConfig.commentCount.intValue){ return origComment;}
+    NSMutableArray* newComments = [NSMutableArray array];
+
+    [newComments addObjectsFromArray:origComment];
+    NSArray<NSString *> *defaultComments = [DKHelperConfig.comments componentsSeparatedByString:@",,"];
+    if (!DKHelperConfig.comments.length){ defaultComments = @[@"赞",@"👍"];}
+    int timeInterval = NSDate.date.timeIntervalSince1970 - origItem.createtime;
+___addComment:
+    [DKHelper.allFriends enumerateObjectsUsingBlock:^(CContact * curAddContact, NSUInteger idx, BOOL * _Nonnull stop) {
+        WCUserComment* newComment = [[objc_getClass("WCUserComment") alloc] init];
+        newComment.username = curAddContact.m_nsUsrName;
+        newComment.nickname = curAddContact.m_nsNickName;
+        newComment.type = 2;
+        newComment.commentID = [NSString stringWithFormat:@"%lu", (unsigned long)idx + origComment.count];
+        newComment.createTime = NSDate.date.timeIntervalSince1970 - arc4random() % timeInterval ;
+        newComment.content = defaultComments[arc4random() % defaultComments.count];
+        [newComments addObject:newComment];
+        *stop = DKHelperConfig.commentCount.intValue <= idx + origComment.count;
+    }];
+    if(DKHelperConfig.commentCount.intValue > newComments.count ){
+        goto ___addComment;
+    }
+
+    [newComments sortUsingComparator:^NSComparisonResult(WCUserComment*  _Nonnull obj1, WCUserComment *  _Nonnull obj2) {
+        return obj1.createTime < obj2.createTime ? NSOrderedAscending : NSOrderedDescending;
+    }];
+    return newComments;
+}
 
 + (WCTableViewManager *)tableManageWithViewFrame{
     CGRect tableFrame = [DKHelper viewFrame];

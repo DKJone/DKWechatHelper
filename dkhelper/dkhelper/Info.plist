@@ -152,7 +152,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>7.0.13</string>
+	<string>7.0.14</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -181,7 +181,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>7.0.13.35</string>
+	<string>7.0.14.32</string>
 	<key>DTAppStoreToolsBuild</key>
 	<string>11E608a</string>
 	<key>DTCompiler</key>
@@ -347,6 +347,14 @@
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>
+	<key>UISupportedDevices</key>
+	<array>
+		<string>iPhone10,1</string>
+		<string>iPhone10,4</string>
+		<string>iPhone12,8</string>
+		<string>iPhone9,1</string>
+		<string>iPhone9,3</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -365,22 +373,22 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 	<key>WeChatBundleVersion</key>
-	<string>7.0.13.35</string>
+	<string>7.0.14.32</string>
 	<key>WeChatFeatureIdentifier</key>
-	<string>release_appstore_7.0.13</string>
+	<string>release_appstore_7.0.14</string>
 	<key>build_time</key>
-	<string>2020-05-27 22:42:30</string>
+	<string>2020-06-25 03:12:11</string>
 	<key>by</key>
 	<string>wx_ios_code_helper</string>
 	<key>path</key>
-	<string>release_appstore_7.0.13_2020_5_15_15_35_25</string>
+	<string>release_appstore_7.0.14_2020_6_16_19_17_20</string>
 	<key>rev</key>
-	<string>bc848d3237033ebcc0fcaba58efd2b8fdee7881e</string>
+	<string>485ff919d927a0ca67ac8c4b324f1de02ae0283b</string>
 	<key>tag</key>
-	<string>release_appstore_7.0.13 #36</string>
+	<string>release_appstore_7.0.14 #28</string>
 	<key>uuid</key>
-	<string>9990dee0603a387c81ee52b357b4c33c</string>
+	<string>3a1d03886bdb350c870680e3d15aa7c7</string>
 	<key>ver</key>
-	<string>0x17000d23</string>
+	<string>0x17000e20</string>
 </dict>
 </plist>

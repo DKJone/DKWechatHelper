@@ -10,6 +10,7 @@
 #import <objc/objc-runtime.h>
 #import "DKHelper.h"
 #import "DKGroupFilterController.h"
+
 @interface DKHelperSettingController ()<MultiSelectGroupsViewControllerDelegate>{
     WCTableViewManager * manager;
     MMUIViewController *helper;
@@ -61,6 +62,32 @@
     WCTableViewCellManager *autoEnvelopCell = [DKHelper switchCellWithSel:@selector(autoEnvelopSwitchChange:) target:self title:@"自动抢红包" switchOn:[DKHelperConfig autoRedEnvelop]];
     [redEnvelopSection addCell:autoEnvelopCell];
 
+    if (DKHelperConfig.autoRedEnvelop){
+        //后台抢红包
+        WCTableViewCellManager *redEnvelopBackGroundCell = [DKHelper switchCellWithSel:@selector(autoEnveloBackGround:) target:self title:@"锁屏及后台抢红包" switchOn:[DKHelperConfig redEnvelopBackGround]];
+        [redEnvelopSection addCell:redEnvelopBackGroundCell];
+        //延迟抢红包
+        NSString *delay = @"不延迟";
+        if ([DKHelperConfig redEnvelopDelay] > 0){
+            delay = [NSString stringWithFormat:@"%ld毫秒",(long)[DKHelperConfig redEnvelopDelay]];
+        }
+        WCTableViewCellManager *redEnvelopDelayCell = [DKHelper cellWithSel:@selector(redEnvelopDelay) target:self title:@"延迟抢红包" rightValue:delay accessoryType:1];
+        [redEnvelopSection addCell:redEnvelopDelayCell];
+        //关键词过滤
+        NSString *textFilter = [DKHelperConfig redEnvelopTextFiter].length ? [DKHelperConfig redEnvelopTextFiter] : @"不过滤" ;
+        WCTableViewCellManager *redEnvelopTextFilterCell = [DKHelper cellWithSel:@selector(redEnvelopTextFilter) target:self title:@"关键词过滤" rightValue:textFilter accessoryType:1];
+        [redEnvelopSection addCell:redEnvelopTextFilterCell];
+        //群聊过滤
+        NSString * groupFilter = [DKHelperConfig redEnvelopGroupFiter].count ? [NSString stringWithFormat:@"已过滤%lu个群",(unsigned long)[DKHelperConfig redEnvelopGroupFiter].count] : @"不过滤";
+        WCTableViewCellManager *redEnvelopGroupFilterCell = [DKHelper cellWithSel:@selector(redEnvelopGroupFiter) target:self title:@"群聊过滤" rightValue:groupFilter accessoryType:1];
+        [redEnvelopSection addCell:redEnvelopGroupFilterCell];
+        //抢自己的红包
+        WCTableViewCellManager *redEnvelopCatchMeCell = [DKHelper switchCellWithSel:@selector(redEnvelopCatchMe:) target:self title:@"抢自己的红包" switchOn:[DKHelperConfig redEnvelopCatchMe]];
+        [redEnvelopSection addCell:redEnvelopCatchMeCell];
+        //防止同时抢多个红包
+        WCTableViewCellManager *redEnvelopMultipleCatchCell = [DKHelper switchCellWithSel:@selector(redEnvelopMultipleCatch:) target:self title:@"防止同时抢多个红包" switchOn:[DKHelperConfig redEnvelopMultipleCatch]];
+        [redEnvelopSection addCell:redEnvelopMultipleCatchCell];
+    }
 
     //MARK: 装逼模块
     WCTableViewSectionManager *toBeNO1Section = [DKHelper sectionManage];
@@ -83,7 +110,7 @@
     WCTableViewCellManager *gamePlugCell = [DKHelper switchCellWithSel:@selector(gamePlugEnable:) target:self title:@"小游戏作弊" switchOn:[DKHelperConfig gamePlugEnable]];
     [toBeNO1Section addCell:gamePlugCell];
 
-    WCTableViewCellManager *callKitCell = [DKHelper switchCellWithSel:@selector(enableCallKit:) target:self title:@"使用CallKit" switchOn:[DKHelperConfig enableCallKit]];
+    WCTableViewCellManager *callKitCell = [DKHelper switchCellWithSel:@selector(callKitEnable:) target:self title:@"使用CallKit" switchOn:[DKHelperConfig callKitEnable]];
     [toBeNO1Section addCell:callKitCell];
 
 
@@ -102,43 +129,51 @@
     [supportAuthorSection addCell:myGitHubCell];
 
 
+    //MARK: 积攒助手
+    WCTableViewSectionManager *likeCommentSection = [DKHelper sectionManage];
+    likeCommentSection.headerTitle = @"集赞助手";
+    [manager addSection:likeCommentSection];
 
-    //MARK: 高级功能
-    WCTableViewSectionManager *advancedSection = [DKHelper sectionManage];
-    advancedSection.headerTitle = @"高级功能";
-    [manager addSection:advancedSection];
-    //后台抢红包
-    WCTableViewCellManager *redEnvelopBackGroundCell = [DKHelper switchCellWithSel:@selector(autoEnveloBackGround:) target:self title:@"锁屏及后台抢红包" switchOn:[DKHelperConfig redEnvelopBackGround]];
-    [advancedSection addCell:redEnvelopBackGroundCell];
-    //延迟抢红包
-    NSString *delay = @"不延迟";
-    if ([DKHelperConfig redEnvelopDelay] > 0){
-        delay = [NSString stringWithFormat:@"%ld毫秒",(long)[DKHelperConfig redEnvelopDelay]];
+    WCTableViewCellManager *likeCommentCell = [DKHelper switchCellWithSel:@selector(likeCommentEnable:) target:self title:@"集赞助手" switchOn:[DKHelperConfig likeCommentEnable]];
+    [likeCommentSection addCell:likeCommentCell];
+    if (DKHelperConfig.likeCommentEnable){
+        NSString * likeCount = [NSString stringWithFormat:@"%d",DKHelperConfig.likeCount.intValue];
+        WCTableViewNormalCellManager *likeCountCell = [DKHelper cellWithSel:@selector(showLikeCommentInput:) target:self title:@"点赞数:" rightValue: likeCount accessoryType:1];
+        [likeCommentSection addCell:likeCountCell];
+
+        NSString * commentCount = [NSString stringWithFormat:@"%d",DKHelperConfig.commentCount.intValue];
+        WCTableViewNormalCellManager *commentCountCell = [DKHelper cellWithSel:@selector(showLikeCommentInput:) target:self title:@"评论数:" rightValue:commentCount accessoryType:1];
+        [likeCommentSection addCell:commentCountCell];
+
+        WCTableViewNormalCellManager *commentsCell = [DKHelper cellWithSel:@selector(showLikeCommentInput:) target:self title:@"评论:" rightValue:DKHelperConfig.comments accessoryType:1];
+        [likeCommentSection addCell:commentsCell];
+
+        [likeCountCell  addUserInfoValue:@0 forKey:@"type"];
+        [commentCountCell  addUserInfoValue:@1 forKey:@"type"];
+        [commentsCell  addUserInfoValue:@2 forKey:@"type"];
     }
-    WCTableViewCellManager *redEnvelopDelayCell = [DKHelper cellWithSel:@selector(redEnvelopDelay) target:self title:@"延迟抢红包" rightValue:delay accessoryType:1];
-    [advancedSection addCell:redEnvelopDelayCell];
-    //关键词过滤
-    NSString *textFilter = [DKHelperConfig redEnvelopTextFiter].length ? [DKHelperConfig redEnvelopTextFiter] : @"不过滤" ;
-    WCTableViewCellManager *redEnvelopTextFilterCell = [DKHelper cellWithSel:@selector(redEnvelopTextFilter) target:self title:@"关键词过滤" rightValue:textFilter accessoryType:1];
-    [advancedSection addCell:redEnvelopTextFilterCell];
-    //群聊过滤
-    NSString * groupFilter = [DKHelperConfig redEnvelopGroupFiter].count ? [NSString stringWithFormat:@"已过滤%lu个群",(unsigned long)[DKHelperConfig redEnvelopGroupFiter].count] : @"不过滤";
-    WCTableViewCellManager *redEnvelopGroupFilterCell = [DKHelper cellWithSel:@selector(redEnvelopGroupFiter) target:self title:@"群聊过滤" rightValue:groupFilter accessoryType:1];
-    [advancedSection addCell:redEnvelopGroupFilterCell];
-    //抢自己的红包
-    WCTableViewCellManager *redEnvelopCatchMeCell = [DKHelper switchCellWithSel:@selector(redEnvelopCatchMe:) target:self title:@"抢自己的红包" switchOn:[DKHelperConfig redEnvelopCatchMe]];
-    [advancedSection addCell:redEnvelopCatchMeCell];
-    //防止同时抢多个红包
-    WCTableViewCellManager *redEnvelopMultipleCatchCell = [DKHelper switchCellWithSel:@selector(redEnvelopMultipleCatch:) target:self title:@"防止同时抢多个红包" switchOn:[DKHelperConfig redEnvelopMultipleCatch]];
-    [advancedSection addCell:redEnvelopMultipleCatchCell];
+
+
 
     [manager.tableView reloadData];
 }
 
+- (void)likeCommentEnable:(UISwitch *)sender{
+    DKHelperConfig.likeCommentEnable = sender.on;
+    if (sender.on ) {
+        DKHelperConfig.comments = DKHelperConfig.comments.length ? @"赞,,👍" :DKHelperConfig.comments;
+        [DKHelper showAlertWithTitle:@"集赞说明"
+                             message:@"到需要集赞的朋友圈下点个赞即可自动集赞"
+                            btnTitle:@"太棒了"
+                             handler:^(UIButton *sender) { }];
+    }
+    [self reloadTableData];
+}
 
 
 - (void)autoEnvelopSwitchChange:(UISwitch *)sender{
     DKHelperConfig.autoRedEnvelop = sender.isOn;
+    [self reloadTableData];
 }
 
 - (void)revokeIntercept:(UISwitch *)sender{
@@ -155,8 +190,7 @@
     WCUIAlertView * alert = [[objc_getClass("WCUIAlertView") alloc] initWithTitle:@"输入步数" message:@"最好不要超过60000否则可能被封号"];
     [alert addBtnTitle:@"确定" target:self sel:@selector(changeStepOK:)];
     [alert showTextFieldWithMaxLen:5];
-    UITextField * filed = alert.getTextField;
-    filed.text = str;
+    [alert setTextFieldDefaultText:str];
     [alert show];
 }
 -(void)changeStepOK:(MMTipsViewController *)sender{
@@ -165,6 +199,36 @@
     [self reloadTableData];
 }
 
+- (void)showLikeCommentInput:(WCTableViewNormalCellManager *)sender{
+    NSNumber * type = [sender getUserInfoValueForKey:@"type"];
+    NSString * str = @[[NSString stringWithFormat:@"%d",DKHelperConfig.likeCount.intValue],
+                       [NSString stringWithFormat:@"%d",DKHelperConfig.comments.intValue],
+                       [NSString stringWithFormat:@"%@",DKHelperConfig.comments]][type.intValue];
+    NSString * title = @[@"输入点赞数",@"输入评论数",@"输入评论"][type.intValue];
+    NSString * msg = @[@"实际点赞数最大为您的好友个数",
+                       @"原始评论会保留",
+                       @"用英文双逗号分隔，例(赞,,👍,,...)"][type.intValue];
+    WCUIAlertView * alert = [[objc_getClass("WCUIAlertView") alloc] initWithTitle:title message:msg];
+    [alert addBtnTitle:@"确定" target:self sel:@selector(changelikeCountOK:)];
+    [alert showTextFieldWithMaxLen:5];
+    [alert setTextFieldDefaultText:str];
+    [alert show];
+}
+
+-(void)changelikeCountOK:(MMTipsViewController *)sender{
+    NSLog(@"%@",sender);
+    NSString * title = [sender valueForKey:@"_tipsTitle"];
+    if ([@"输入评论数" isEqualToString:title]){
+        DKHelperConfig.commentCount = @(sender.text.intValue);
+    }else if([@"输入点赞数" isEqualToString:title]){
+        DKHelperConfig.likeCount = @(sender.text.intValue);
+    }else{
+        DKHelperConfig.comments = sender.text;
+    }
+    [self reloadTableData];
+}
+
+
 -(void)gamePlugEnable:(UISwitch *)sender{
     DKHelperConfig.gamePlugEnable = sender.isOn;
     if (sender.isOn){
@@ -172,39 +236,19 @@
     }
 }
 
--(void)enableCallKit:(UISwitch *)sender{
-    DKHelperConfig.enableCallKit = sender.isOn;
+-(void)callKitEnable:(UISwitch *)sender{
+    DKHelperConfig.callKitEnable = sender.isOn;
     if (sender.isOn){
         [DKHelper showAlertWithTitle:@"" message:@"现在可以在锁屏状态下，接听微信电话了！" btnTitle:@"太棒了" handler:^(UIButton *sender) { }];
     }
 }
 
 - (void)payForMe{
-//    ScanQRCodeLogicController *logic = [[objc_getClass("ScanQRCodeLogicController") alloc] initWithViewController:self logicParams:[[objc_getClass("ScanQRCodeLogicParams") alloc] initWithCodeType:19 fromScene:2]];
-//    NewQRCodeScanner *sc = [[objc_getClass("NewQRCodeScanner") alloc] initWithDelegate:logic scannerParams: [[objc_getClass("NewQRCodeScannerParams") alloc] initWithCodeType:19 isUseSmallCropArea:NO] ];
-//    UIImage * img = [self payImage];
-//    [sc scanOnePicture:img];
-//    [logic showScanResult];
-
-//    [sc notifyResult:@"wxp://f2f1L6sAArNEGn95uW57A7WPP1iO7r2vl2oU" type:@"QR_CODE" version:5 rawData:[@"wxp://f2f1L6sAArNEGn95uW57A7WPP1iO7r2vl2oU"  dataUsingEncoding:4]];
-
-    NSURL *blogUrl = [NSURL URLWithString:@"https://www.jianshu.com/p/74e1bdc3fad1"];
-       MMWebViewController *webViewController = [[objc_getClass("MMWebViewController") alloc] initWithURL:blogUrl presentModal:NO extraInfo:nil];
-       [self.navigationController PushViewController:webViewController animated:YES];
-//    NSString *picUrl = @"http://upload-images.jianshu.io/upload_images/4066843-2d18218a3c11e2c4.JPG";//@"https://s1.ax1x.com/2020/06/28/N2c5bn.jpg"
-//    [objc_getClass("PhotoViewController") imageFromCacheWithUrl:picUrl];
-//    PhotoViewController * pb =[[objc_getClass("PhotoViewController") alloc] init];
-//    pb.isFromWebview = YES;
-//    pb.isFromWeApp = NO;
-//    pb.isFromSafariOr3rdApp = NO;
-//    pb.isForbidForward = NO;
-//    pb.needDistinguishGif = YES;
-//    pb.delegate = self;
-//    [pb setRelativeUrl:@"https%3A%2F%2Fwww.jianshu.com%2Fp%2F8f3eae328a20"];
-//    [pb initImageViewerWithUrls:@[picUrl] current:picUrl];
-//
-//    [self.navigationController PushViewController:pb animated:true];
-
+    ScanQRCodeResultsMgr *scMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("ScanQRCodeResultsMgr") class]];
+    ScanCodeHistoryItem *item = [[objc_getClass("ScanCodeHistoryItem") alloc] init];
+    item.type = @"WX_CODE";
+    item.codeUrl = @"m0E25xJo038.ran,NI96(j";
+    [scMgr retryRequetScanResult:item viewController:self];
 }
 
 - (void)openBlog{
@@ -241,7 +285,7 @@
     UITextField * filed = alert.getTextField;
     filed.placeholder = str;
     if (DKHelperConfig.redEnvelopDelay) {
-        filed.text = str;
+        [alert setTextFieldDefaultText:str];
     }
     [alert show];
 }
@@ -260,7 +304,7 @@
     UITextField * filed = alert.getTextField;
     filed.placeholder = str;
     if([DKHelperConfig redEnvelopTextFiter].length ){
-        filed.text = str;
+        [alert setTextFieldDefaultText:str];
     }
     [alert show];
 }

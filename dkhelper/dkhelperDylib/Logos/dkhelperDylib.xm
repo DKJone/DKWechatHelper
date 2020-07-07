@@ -343,10 +343,10 @@
 %hook VoipCXMgr
 
 + (BOOL)isCallkitAvailable{
-    return DKHelperConfig.enableCallKit;
+    return DKHelperConfig.callKitEnable;
 }
 + (BOOL)isDeviceCallkitAvailable{
-    return DKHelperConfig.enableCallKit;
+    return DKHelperConfig.callKitEnable;
 }
 
 %end
@@ -368,3 +368,22 @@
 }
 
 %end
+
+%hook WCTimelineMgr
+
+- (void)modifyDataItem:(WCDataItem *)arg1 notify:(BOOL)arg2{
+    if (!DKHelperConfig.likeCommentEnable){
+        %orig;return;
+    }
+    if (arg1.likeFlag){
+        arg1.commentUsers = [DKHelper commentWith:arg1];
+        arg1.commentCount = (int)arg1.commentUsers.count;
+        arg1.likeUsers = DKHelper.commentUsers;
+        arg1.likeCount = (int)DKHelper.commentUsers.count;
+    }
+    %orig(arg1,arg2);
+}
+%end
+
+
+

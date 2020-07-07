@@ -65,6 +65,8 @@
 @interface WCTableViewNormalCellManager : WCTableViewCellManager
 + (WCTableViewNormalCellManager *)normalCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 accessoryType:(long long)arg4;
 + (WCTableViewNormalCellManager *)normalCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 rightValue:(id)arg4 accessoryType:(long long)arg5;
+- (id)getUserInfoValueForKey:(id)arg1;
+- (void)addUserInfoValue:(id)arg1 forKey:(id)arg2;
 @end
 
 @class NSMutableArray, NSString, UITableView, UIView;
@@ -191,7 +193,24 @@
 
 @end
 
+/// 朋友圈点赞和评论
+@interface WCUserComment : NSObject
+@property (retain, nonatomic) NSString * nickname;
+@property (retain, nonatomic) NSString* username;
+@property (retain, nonatomic) NSString* contentPattern;
+@property (retain, nonatomic) NSString* content;
+@property (retain, nonatomic) NSString* commentID;
+@property (retain, nonatomic) NSString* m_cpKeyForComment;//@"wctlcm|33||z314250405||1563794344"   @"wctlcm|99|1|wxid_6913ohfkk7kq12|liuwenling001|1563794437"
 
+@property (retain, nonatomic) NSString* refCommentID;
+@property (retain, nonatomic) NSString* refUserName;
+
+/// 点赞：1，评论：2
+@property  (nonatomic) int type;
+@property  (nonatomic) int isRichText;
+@property  (nonatomic) unsigned int createTime;
+
+@end
 
 
 @interface CContact: NSObject <NSCoding>
@@ -200,8 +219,15 @@
 @property (nonatomic, copy) NSString *m_nsUsrName;                      // 微信id
 @property (nonatomic, copy) NSString *m_nsMemberName;
 @property(retain, nonatomic) NSString *m_nsHeadImgUrl;
+@property(nonatomic) unsigned int m_uiSex;
 
 - (id)getContactDisplayName;
+
+/// 是不是公众号
+- (BOOL)isBrandContact;
+/// 是不是公众号
+- (BOOL)isHolderContact;
+
 
 @end
 
@@ -213,7 +239,7 @@
 - (_Bool)getContactsFromServer:(id)arg1;
 - (_Bool)isInContactList:(id)arg1;
 - (_Bool)addLocalContact:(id)arg1 listType:(unsigned int)arg2;
-
+- (NSArray *)getContactList:(unsigned int)arg1 contactType:(unsigned int)arg2;
 @end
 
 @protocol ContactSelectViewDelegate <NSObject>
@@ -289,8 +315,21 @@
 
 
 @end
+/// 朋友圈数据
+@interface WCDataItem : NSObject
+@property (retain, nonatomic) NSMutableArray * likeUsers;
+@property  (nonatomic) int likeCount;
+@property (retain, nonatomic) NSString* username;
+@property (retain, nonatomic) NSMutableArray * commentUsers;
+@property  (nonatomic) int commentCount;
+@property(nonatomic,assign) BOOL likeFlag;
+@property(nonatomic) unsigned int createtime; 
+
+@end
+
 
 @interface SettingUtil : NSObject
+/// 获取当前用户的用户名:wxid_....
 + (id)getLocalUsrName:(unsigned int)arg1;
 @end
 
@@ -373,6 +412,19 @@
 + (id)getAppViewControllerManager;
 
 @end
+
+
+
+@interface ScanCodeHistoryItem : NSObject
+@property(copy, nonatomic) NSString *type;
+@property(copy, nonatomic) NSString *codeUrl;
+@end
+
+@interface ScanQRCodeResultsMgr :NSObject
+- (void)retryRequetScanResult:(ScanCodeHistoryItem *)arg1 viewController:(id)arg2;
+@end
+
+
 #endif /* WechatHeaders_h */
 
 

@@ -17,47 +17,81 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shared;
 
-//程序进入后台处理
+/// 程序进入后台处理
 - (void)enterBackgroundHandler;
 
-
+/// 自动抢红包
 +(BOOL)autoRedEnvelop;
 +(void)setAutoRedEnvelop:(BOOL)value;
 
+/// 消息防撤回
 +(BOOL)preventRevoke;
 +(void)setPreventRevoke:(BOOL)value;
 
+/// 修改步数
 +(BOOL)changeSteps;
 +(void)setChangeSteps:(BOOL)value;
+
+/// 运动步数
 +(NSInteger)changedSteps;
 +(void)setChangedSteps:(NSInteger)value;
 
+/// 小游戏作弊
 +(BOOL)gamePlugEnable;
 +(void)setGamePlugEnable:(BOOL)value;
 
+/// 后台抢红包
 +(BOOL)redEnvelopBackGround;
 +(void)setRedEnvelopBackGround:(BOOL)value;
 
+/// 抢红包延迟
 +(NSInteger)redEnvelopDelay;
 +(void)setRedEnvelopDelay:(NSInteger)value;
 
+/// 抢红包关键词过滤
 +(NSString *)redEnvelopTextFiter;
 +(void)setRedEnvelopTextFiter:(NSString*)value;
 
+/// 抢红包群组过滤
 +(NSArray *)redEnvelopGroupFiter;
 +(void)setRedEnvelopGroupFiter:(NSArray *)value;
 
+/// 抢自己的红包
 +(BOOL)redEnvelopCatchMe;
 +(void)setRedEnvelopCatchMe:(BOOL)value;
 
+/// 同事抢多个红包
 +(BOOL)redEnvelopMultipleCatch;
 +(void)setRedEnvelopMultipleCatch:(BOOL)value;
 
 +(BOOL)hasShowTips;
 +(void)setHasShowTips:(BOOL)value;
 
-+(BOOL)enableCallKit;
-+(void)setEnableCallKit:(BOOL)value;
+/// 启用callkit
++(BOOL)callKitEnable;
++(void)setCallKitEnable:(BOOL)value;
+
+/// 启用积攒助手
++(BOOL)likeCommentEnable;
++(void)setLikeCommentEnable:(BOOL)value;
+
+/// 赞的数量
++(NSNumber *)likeCount;
++(void)setLikeCount:(NSNumber *)value;
+
+/// 评论的数量
++(NSNumber *)commentCount;
++(void)setCommentCount:(NSNumber *)value;
+
+/// 评论
++(NSString *)comments;
++(void)setComments:(NSString *)value;
+
+
+
+
 @end
+
+
 
 NS_ASSUME_NONNULL_END

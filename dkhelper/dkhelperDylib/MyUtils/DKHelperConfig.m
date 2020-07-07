@@ -35,13 +35,56 @@ NSString* cmdString(SEL sel){
     return str;
 }
 
++ (NSMethodSignature *)methodSignatureForSelector:(SEL)selector{
+    BOOL isSetMethod = [NSStringFromSelector(selector) rangeOfString:@"set"].location == 0;
+    return [NSMethodSignature signatureWithObjCTypes:isSetMethod ? "v@:@" : "@@:"];
+}
+
++(void)forwardInvocation:(NSInvocation *)anInvocation{
+    NSString * sel = NSStringFromSelector(anInvocation.selector);
+    if ([sel rangeOfString:@"set"].location == 0){
+        //设置值
+        if ([sel rangeOfString:@"Enable"].location != NSNotFound){
+            // 存储BOOL值
+            BOOL *value = (BOOL *)malloc(sizeof(BOOL));
+            [anInvocation getArgument:value atIndex:2];
+            [NSUserDefaults.standardUserDefaults setBool:*value forKey: cmdString(anInvocation.selector)];
+            [NSUserDefaults.standardUserDefaults synchronize];
+                free(value);
+        }else{
+            // 存储对象
+            NSObject *value ;
+            [anInvocation getArgument:&value atIndex:2];
+            [NSUserDefaults.standardUserDefaults setValue:value forKey: cmdString(anInvocation.selector)];
+            [NSUserDefaults.standardUserDefaults synchronize];
+        }
+
+    }else{
+        //返回值
+        if ([sel rangeOfString:@"Enable"].location != NSNotFound){
+            // 返回BOOL值
+            BOOL *retValue = (BOOL *)malloc(sizeof(BOOL));
+            *retValue = [NSUserDefaults.standardUserDefaults boolForKey:cmdString(anInvocation.selector)];
+            [NSUserDefaults.standardUserDefaults synchronize];
+            [anInvocation setReturnValue:retValue];
+            free(retValue);
+        }else{
+            // 返回对象
+            NSObject *retValue ;
+            retValue = [NSUserDefaults.standardUserDefaults valueForKey:cmdString(anInvocation.selector)];
+            [anInvocation setReturnValue:&retValue];
+        }
+    }
+}
 
 +(BOOL)autoRedEnvelop{
     return [NSUserDefaults.standardUserDefaults boolForKey:cmdString(_cmd)];
 }
+
 +(void)setAutoRedEnvelop:(BOOL)value{
     [NSUserDefaults.standardUserDefaults setBool:value forKey: cmdString(_cmd)];
     [NSUserDefaults.standardUserDefaults synchronize];
+
 }
 
 +(BOOL)preventRevoke{
@@ -52,10 +95,10 @@ NSString* cmdString(SEL sel){
     [NSUserDefaults.standardUserDefaults synchronize];
 }
 
-+(BOOL)enableCallKit{
++(BOOL)callKitEnable{
     return [NSUserDefaults.standardUserDefaults boolForKey:cmdString(_cmd)];
 }
-+(void)setEnableCallKit:(BOOL)value{
++(void)setCallKitEnable:(BOOL)value{
     [NSUserDefaults.standardUserDefaults setBool:value forKey: cmdString(_cmd)];
     [NSUserDefaults.standardUserDefaults synchronize];
 }

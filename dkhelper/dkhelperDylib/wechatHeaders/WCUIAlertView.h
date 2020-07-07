@@ -40,6 +40,7 @@
 - (void)addCancelBtnTitle:(id)arg1 target:(id)arg2 sel:(SEL)arg3;
 - (void)addBtnTitle:(id)arg1 target:(id)arg2 sel:(SEL)arg3;
 - (id)getTextField;
+- (void)setTextFieldDefaultText:(id)arg1;
 - (void)showTextFieldWithMaxLen:(unsigned int)arg1;
 - (id)initWithTitle:(id)arg1 message:(id)arg2;
 - (void)dealloc;

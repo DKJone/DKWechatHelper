@@ -27,6 +27,15 @@ typedef void(^BtnBlock)(UIButton *sender);
 
 @interface DKHelper : NSObject
 
+/// 所有好友(不包含公众号)
++ (NSArray<CContact*> *)allFriends;
+
+/// 朋友圈点赞用户集合
++ (NSMutableArray<WCUserComment *>*)commentUsers;
+
+/// 朋友圈评论
++ (NSMutableArray<WCUserComment *>*)commentWith:(WCDataItem *) origItem;
+
 + (UIBarButtonItem *)leftNavigationItem;
 
 + (UINavigationController *)navigationContrioller;
@@ -92,4 +101,3 @@ typedef void(^BtnBlock)(UIButton *sender);
 - (BOOL)serialQueueIsEmpty;
 
 @end
-

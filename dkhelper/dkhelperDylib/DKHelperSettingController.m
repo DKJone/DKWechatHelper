@@ -210,7 +210,7 @@
                        @"用英文双逗号分隔，例(赞,,👍,,...)"][type.intValue];
     WCUIAlertView * alert = [[objc_getClass("WCUIAlertView") alloc] initWithTitle:title message:msg];
     [alert addBtnTitle:@"确定" target:self sel:@selector(changelikeCountOK:)];
-    [alert showTextFieldWithMaxLen:5];
+    [alert showTextFieldWithMaxLen:type.intValue == 2 ? 10000: 5];
     [alert setTextFieldDefaultText:str];
     [alert show];
 }

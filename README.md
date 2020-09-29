@@ -2,7 +2,7 @@
  
 不止于抢红包，功能丰富的微信插件。本软件已成功运行在(iphone7-iphone11、iPad) 
 给个⭐️不迷路↗️   
-[v1.0.5](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.5)适用微信7.0.14~7.0.15  
+[v1.0.5](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.5)适用微信7.0.15  
 [v1.0.4](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.4)适用微信7.0.14  
 [v1.0.3](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.3)适用微信7.0.13  
 [v1.0.2](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.2)适用微信7.0.11  

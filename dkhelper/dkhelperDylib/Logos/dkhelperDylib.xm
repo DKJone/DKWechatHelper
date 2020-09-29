@@ -1,3 +1,14 @@
+// Created by 朱德坤 on 2019/1/22.
+// Copyright © 2019 DKJone. All rights reserved.
+//
+//                    ██████╗ ██╗  ██╗     ██╗ ██████╗ ███╗   ██╗███████╗
+//                    ██╔══██╗██║ ██╔╝     ██║██╔═══██╗████╗  ██║██╔════╝
+//                    ██║  ██║█████╔╝      ██║██║   ██║██╔██╗ ██║█████╗
+//                    ██║  ██║██╔═██╗ ██   ██║██║   ██║██║╚██╗██║██╔══╝
+//                    ██████╔╝██║  ██╗╚█████╔╝╚██████╔╝██║ ╚████║███████╗
+//                    ╚═════╝ ╚═╝  ╚═╝ ╚════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+//
+// 更新微信版本删除dkhelper/info.plist 重新运行版本号就会更新
 #import <UIKit/UIKit.h>
 #import "DKHelper.h"
 #import "DKHelperSettingController.h"
@@ -131,6 +142,18 @@
 
     switch(wrap.m_uiMessageType) {
         case 49: { // AppNode
+            CContactMgr *contactManager = [[%c(MMServiceCenter) defaultCenter] getService:[%c(CContactMgr) class]];
+            CContact *selfContact = [contactManager getSelfContact];
+            BOOL (^isSender)() = ^BOOL() {
+                return [wrap.m_nsFromUsr isEqualToString:selfContact.m_nsUsrName];
+            };
+
+            if (!DKHelper.shared.checkFriendsEnd && isSender()){
+                [self RevokeMsg:wrap.m_nsToUsr MsgWrap:wrap Counter:0];
+                NSMutableArray *validArr = DKHelper.shared.validFriends.mutableCopy;
+                [validArr addObject:[contactManager getContactByName:wrap.m_nsToUsr]];
+                DKHelper.shared.validFriends = validArr.copy;
+            }
 
             /** 是否为红包消息 */
             BOOL (^isRedEnvelopMessage)() = ^BOOL() {
@@ -138,13 +161,6 @@
             };
 
             if (isRedEnvelopMessage()) { // 红包
-                CContactMgr *contactManager = [[%c(MMServiceCenter) defaultCenter] getService:[%c(CContactMgr) class]];
-                CContact *selfContact = [contactManager getSelfContact];
-
-                BOOL (^isSender)() = ^BOOL() {
-                    return [wrap.m_nsFromUsr isEqualToString:selfContact.m_nsUsrName];
-                };
-
                 /** 是否别人在群聊中发消息 */
                 BOOL (^isGroupReceiver)() = ^BOOL() {
                     return [wrap.m_nsFromUsr rangeOfString:@"@chatroom"].location != NSNotFound;
@@ -186,8 +202,9 @@
                     if (!DKHelperConfig.autoRedEnvelop) { return NO; }
                     if (isGroupInBlackList()) { return NO; }
                     if (isContaintKeyWords()) { return NO; }
-
-                    return isGroupReceiver() || (isGroupSender() && isReceiveSelfRedEnvelop());
+                    return isGroupReceiver() ||
+                           (isGroupSender() && isReceiveSelfRedEnvelop()) ||
+                           (!isGroupReceiver() && DKHelperConfig.personalRedEnvelopEnable);
                 };
 
                 NSDictionary *(^parseNativeUrl)(NSString *nativeUrl) = ^(NSString *nativeUrl) {
@@ -384,6 +401,40 @@
     %orig(arg1,arg2);
 }
 %end
+
+%hook CGroupMgr
+
+// 需要验证
+- (void)addChatMemberNeedVerifyMsg:(id)arg1 ContactList:(id)arg2{
+    %orig(arg1,arg2);
+    if (!DKHelper.shared.checkFriendsEnd){
+        DKHelper.shared.groupContact = arg1;
+        DKHelper.shared.notFriends = [arg2 allValues];
+        dispatch_group_leave(DKHelper.shared.checkFriendGroup);
+    }
+}
+
+- (void)addCreateMsg:(id)arg1 ContactList:(id)arg2{
+    %orig(arg1,arg2);
+    if (!DKHelper.shared.checkFriendsEnd){
+        DKHelper.shared.groupContact = arg1;
+        NSMutableArray *validArr = DKHelper.shared.validFriends.mutableCopy;
+        [validArr addObjectsFromArray:arg2];
+        DKHelper.shared.validFriends = validArr.copy;
+        dispatch_group_leave(DKHelper.shared.checkFriendGroup);
+    }
+}
+%end
+
+%hook CContact
+- (BOOL)isEqual:(CContact *)other
+{
+    return [other.m_nsUsrName isEqual: self.m_nsUsrName];
+}
+%end
+
+
+
 
 
 

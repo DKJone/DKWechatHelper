@@ -21,8 +21,66 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         helper = [[DKHelper alloc] init];
+        helper.checkFriendsEnd = true;
     });
     return helper;
+}
+
+
+- (void)setCheckNotify{
+    self.checkFriendGroup = dispatch_group_create();
+    DKHelper.shared.invalidFriends = @[];
+    DKHelper.shared.validFriends = @[];
+    DKHelper.shared.notFriends = @[];
+    dispatch_group_enter(DKHelper.shared.checkFriendGroup);
+    dispatch_group_enter(DKHelper.shared.checkFriendGroup);
+
+    dispatch_group_notify(self.checkFriendGroup, dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [DKHelper endCheck];
+        });
+    });
+    
+}
++ (void)endCheck{
+    DKHelper.shared.checkFriendsEnd = true;
+    CContactMgr *contactMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("CContactMgr") class]];
+    if (DKHelper.shared.validFriends.count + DKHelper.shared.notFriends.count > 0) {
+        ///检测完成了
+        DKHelper.shared.notFriends = [DKHelper.shared.notFriends _filter:^BOOL(id obj) {
+            return ![[[contactMgr getSelfContact] m_nsUsrName] isEqualToString:((CContact*)obj).m_nsUsrName];
+        }];
+       NSArray<CContact*> *invalidFriends = DKHelper.allFriends.copy;
+        NSMutableArray *addSelf =  DKHelper.shared.validFriends.mutableCopy;
+        [addSelf addObject:[contactMgr getSelfContact]];
+        DKHelper.shared.validFriends = addSelf;
+       invalidFriends = [invalidFriends _filter:^BOOL(id obj) {
+            return ![DKHelper.shared.notFriends _contains:^BOOL(id obj2) {
+                return  [((CContact*)obj).m_nsUsrName isEqualToString: ((CContact*)obj2).m_nsUsrName];
+            }];
+        }];
+        invalidFriends = [invalidFriends _filter:^BOOL(id obj) {
+             return ![DKHelper.shared.validFriends _contains:^BOOL(id obj2) {
+                 return  [((CContact*)obj).m_nsUsrName isEqualToString: ((CContact*)obj2).m_nsUsrName];
+             }];
+         }];
+        DKHelper.shared.invalidFriends = invalidFriends;
+        [NSNotificationCenter.defaultCenter postNotificationName:@"checkFriendsEnd" object:nil userInfo:@{@"success":@YES}];
+    }else{
+        /// 检测超时结束
+        DKHelper.shared.invalidFriends = @[];
+        DKHelper.shared.validFriends = @[];
+        DKHelper.shared.notFriends = @[];
+        [NSNotificationCenter.defaultCenter postNotificationName:@"checkFriendsEnd" object:nil userInfo:@{@"success":@NO}];
+    }
+    // 删除群聊
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        MMNewSessionMgr * sm =[[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("MMNewSessionMgr") class]];
+        unsigned int idx = [sm getSessionIndexOfUser:DKHelper.shared.groupContact.m_nsUsrName];
+        if (idx != (unsigned int)(NSNotFound)){
+            [sm deleteSessionAtIndex:idx forceDelete:false];
+        }
+    });
 }
 
 
@@ -59,7 +117,7 @@
         CContactMgr *contactMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("CContactMgr") class]];
         NSArray* contacts = [contactMgr getContactList:1 contactType:0];
         for(CContact* contact in contacts){
-            if (!contact.isBrandContact && contact.m_uiSex != 0) {
+            if (!contact.isBrandContact && contact.m_uiSex != 0 && ![contact.m_nsUsrName containsString:@"@openim"]) {
                 [friends addObject:contact];
             }
         }

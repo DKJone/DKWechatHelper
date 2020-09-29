@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>18E226</string>
+	<string>19F101</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
@@ -152,7 +152,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>7.0.14</string>
+	<string>7.0.15</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -177,29 +177,30 @@
 				<string>prefs</string>
 				<string>wx703</string>
 				<string>weixinULAPI</string>
+				<string>wx7015</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>7.0.14.32</string>
+	<string>7.0.15.33</string>
 	<key>DTAppStoreToolsBuild</key>
-	<string>11E608a</string>
+	<string>11E707</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>17B102</string>
+	<string>17F65</string>
 	<key>DTPlatformName</key>
 	<string>iphoneos</string>
 	<key>DTPlatformVersion</key>
-	<string>13.2</string>
+	<string>13.5</string>
 	<key>DTSDKBuild</key>
-	<string>17B102</string>
+	<string>17F65</string>
 	<key>DTSDKName</key>
-	<string>iphoneos13.2</string>
+	<string>iphoneos13.5</string>
 	<key>DTXcode</key>
-	<string>1130</string>
+	<string>1150</string>
 	<key>DTXcodeBuild</key>
-	<string>11C29</string>
+	<string>11E608c</string>
 	<key>FacebookAppID</key>
 	<string>290293790992170</string>
 	<key>FacebookAutoInitEnabled</key>
@@ -347,14 +348,6 @@
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>
-	<key>UISupportedDevices</key>
-	<array>
-		<string>iPhone10,1</string>
-		<string>iPhone10,4</string>
-		<string>iPhone12,8</string>
-		<string>iPhone9,1</string>
-		<string>iPhone9,3</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -373,22 +366,22 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 	<key>WeChatBundleVersion</key>
-	<string>7.0.14.32</string>
+	<string>7.0.15.33</string>
 	<key>WeChatFeatureIdentifier</key>
-	<string>release_appstore_7.0.14</string>
+	<string>release_appstore_7.0.15</string>
 	<key>build_time</key>
-	<string>2020-06-25 03:12:11</string>
+	<string>2020-08-03 23:07:27</string>
 	<key>by</key>
 	<string>wx_ios_code_helper</string>
 	<key>path</key>
-	<string>release_appstore_7.0.14_2020_6_16_19_17_20</string>
+	<string>release_appstore_7.0.15_2020_7_30_23_1_0</string>
 	<key>rev</key>
-	<string>485ff919d927a0ca67ac8c4b324f1de02ae0283b</string>
+	<string>8a2d4b8b37a11de738ace1ec126991085c057907</string>
 	<key>tag</key>
-	<string>release_appstore_7.0.14 #28</string>
+	<string>release_appstore_7.0.15 #29</string>
 	<key>uuid</key>
-	<string>3a1d03886bdb350c870680e3d15aa7c7</string>
+	<string>2ccd1b78fb963cb1af6f0e1ec2864066</string>
 	<key>ver</key>
-	<string>0x17000e20</string>
+	<string>0x17000f21</string>
 </dict>
 </plist>

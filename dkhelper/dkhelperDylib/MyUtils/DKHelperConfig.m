@@ -52,8 +52,8 @@ NSString* cmdString(SEL sel){
             [NSUserDefaults.standardUserDefaults synchronize];
                 free(value);
         }else{
-            // 存储对象
-            NSObject *value ;
+            // 存储对象 使用NSObject* 定义value导致崩溃，默认强引用参数但未retain，方法结束后release，参数被提前回收导致坏内存访问
+            id __unsafe_unretained value = nil;
             [anInvocation getArgument:&value atIndex:2];
             [NSUserDefaults.standardUserDefaults setValue:value forKey: cmdString(anInvocation.selector)];
             [NSUserDefaults.standardUserDefaults synchronize];

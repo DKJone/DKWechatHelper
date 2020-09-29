@@ -37,7 +37,7 @@
 + (id)normalCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 accessoryType:(long long)arg4;
 + (id)switchCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 on:(BOOL)arg4;
 + (id)normalCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 rightValue:(id)arg4 accessoryType:(long long)arg5;
-+ (id)editorCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 margin:(double)arg4 tip:(id)arg5 focus:(_Bool)arg6 text:(id)arg7;
++ (id)editorCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 margin:(double)arg4 tip:(id)arg5 focus:(BOOL)arg6 text:(id)arg7;
 + (id)normalCellForTitle:(id)arg1 rightValue:(id)arg2;
 + (id)urlCellForTitle:(id)arg1 url:(id)arg2;
 @property(nonatomic) long long editStyle; // @synthesize editStyle=_editStyle;
@@ -57,7 +57,7 @@
 + (id)loadingCell;
 + (id)ActivityIndicatorCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3;
 + (id)detailDisclosureButtonCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3;
-+ (id)switchCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 on:(_Bool)arg4;
++ (id)switchCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 on:(BOOL)arg4;
 
 @end
 
@@ -161,26 +161,28 @@
 
 
 @interface MMWebViewController: UIViewController
-- (id)initWithURL:(id)arg1 presentModal:(_Bool)arg2 extraInfo:(id)arg3;
+- (id)initWithURL:(id)arg1 presentModal:(BOOL)arg2 extraInfo:(id)arg3;
 @end
 
 @interface UINavigationController (LogicController)
-- (void)PushViewController:(id)arg1 animated:(_Bool)arg2;
+- (void)PushViewController:(id)arg1 animated:(BOOL)arg2;
 @end
 
 
 @interface ContactSelectView : UIView
 
 @property(nonatomic) unsigned int m_uiGroupScene; // @synthesize m_uiGroupScene;
-@property(nonatomic) _Bool m_bMultiSelect; // @synthesize m_bMultiSelect;
-@property(nonatomic) _Bool m_bShowHistoryGroup;
-@property(nonatomic) _Bool m_bShowRadarCreateRoom;
+@property(nonatomic) BOOL m_bMultiSelect; // @synthesize m_bMultiSelect;
+@property(nonatomic) BOOL m_bShowHistoryGroup;
+@property(nonatomic) BOOL m_bShowRadarCreateRoom;
 @property(retain, nonatomic) NSMutableDictionary *m_dicMultiSelect; // @synthesize m_dicMultiSelect;
 
 - (id)initWithFrame:(struct CGRect)arg1 delegate:(id)arg2;
 - (void)initData:(unsigned int)arg1;
 - (void)initView;
 - (void)addSelect:(id)arg1;
+- (void)removeSelect:(id)arg1;
+- (void)setM_dicExistContact:(id)arg1;
 @end
 
 @interface MMUINavigationController : UINavigationController
@@ -218,6 +220,7 @@
 @property (nonatomic, copy) NSString *m_nsNickName;                     // 用户昵称
 @property (nonatomic, copy) NSString *m_nsUsrName;                      // 微信id
 @property (nonatomic, copy) NSString *m_nsMemberName;
+@property (nonatomic, copy) NSString *m_nsRemark;
 @property(retain, nonatomic) NSString *m_nsHeadImgUrl;
 @property(nonatomic) unsigned int m_uiSex;
 
@@ -236,10 +239,12 @@
 - (id)getSelfContact;
 - (id)getContactByName:(id)arg1;
 - (id)getContactForSearchByName:(id)arg1;
-- (_Bool)getContactsFromServer:(id)arg1;
-- (_Bool)isInContactList:(id)arg1;
-- (_Bool)addLocalContact:(id)arg1 listType:(unsigned int)arg2;
+- (BOOL)getContactsFromServer:(id)arg1;
+- (BOOL)isInContactList:(id)arg1;
+- (BOOL)addLocalContact:(id)arg1 listType:(unsigned int)arg2;
 - (NSArray *)getContactList:(unsigned int)arg1 contactType:(unsigned int)arg2;
+- (BOOL)deleteContactLocal:(id)arg1 listType:(unsigned int)arg2;
+- (BOOL)deleteContact:(id)arg1 listType:(unsigned int)arg2;
 @end
 
 @protocol ContactSelectViewDelegate <NSObject>
@@ -266,7 +271,7 @@
 @end
 
 @interface ScanQRCodeLogicParams 
-- (id)initWithCodeType:(int)arg1 fromScene:(unsigned int)arg2 enterScene:(unsigned long long)arg3 bNeedCameraScan:(_Bool)arg4 bShowMyQRCodeBtn:(_Bool)arg5 wrapper:(id)arg6;
+- (id)initWithCodeType:(int)arg1 fromScene:(unsigned int)arg2 enterScene:(unsigned long long)arg3 bNeedCameraScan:(BOOL)arg4 bShowMyQRCodeBtn:(BOOL)arg5 wrapper:(id)arg6;
 - (id)initWithCodeType:(int)arg1 fromScene:(unsigned int)arg2;
 
 @end
@@ -306,12 +311,13 @@
 - (id)GetMsg:(id)arg1 n64SvrID:(long long)arg2;
 - (void)onRevokeMsg:(id)msg;
 - (void)AddMsg:(id)arg1 MsgWrap:(id)arg2;
-- (void)AddLocalMsg:(id)arg1 MsgWrap:(id)arg2 fixTime:(_Bool)arg3 NewMsgArriveNotify:(_Bool)arg4;
+- (void)AddLocalMsg:(id)arg1 MsgWrap:(id)arg2 fixTime:(BOOL)arg3 NewMsgArriveNotify:(BOOL)arg4;
 - (void)AsyncOnSpecialSession:(id)arg1 MsgList:(id)arg2;
 - (id)GetHelloUsers:(id)arg1 Limit:(unsigned int)arg2 OnlyUnread:(BOOL)arg3;
 - (void)AddEmoticonMsg:(NSString *)msg MsgWrap:(CMessageWrap *)msgWrap;
 - (void)DelMsg:(id)arg1 MsgWrap:(id)arg2;
 - (void)ResendMsg:(id)arg1 MsgWrap:(id)arg2;
+- (_Bool)RevokeMsg:(id)arg1 MsgWrap:(id)arg2 Counter:(unsigned int)arg3;
 
 
 @end
@@ -335,6 +341,8 @@
 
 @interface MMNewSessionMgr : NSObject
 - (unsigned int)GenSendMsgTime;
+- (void)deleteSessionAtIndex:(unsigned int)arg1 forceDelete:(_Bool)arg2;
+- (unsigned int)getSessionIndexOfUser:(id)arg1;
 @end
 
 @interface WCBizUtil : NSObject
@@ -424,7 +432,32 @@
 - (void)retryRequetScanResult:(ScanCodeHistoryItem *)arg1 viewController:(id)arg2;
 @end
 
+@interface CGroupMgr :NSObject
++ (BOOL)isSupportOpenIMGroup;
+- (BOOL)CreateGroup:(id)arg1 withMemberList:(id)arg2;
+@end
 
+/// 群组成员
+@interface GroupMember : NSObject
+@property(retain, nonatomic) NSString *m_nsMemberName;
+- (id)init;
+@end
+
+@interface MMLoadingView : UIView
+- (void)ShowTipView:(id)arg1 Title:(id)arg2 Delay:(double)arg3;
+- (void)stopLoadingAndShowOK;
+- (void)stopLoadingAndShowError:(id)arg1 withDelay:(double)arg2;
+- (void)stopLoadingAndShowError:(id)arg1;
+- (void)stopLoadingAndShowOK:(id)arg1 withDelay:(double)arg2;
+- (void)stopLoadingAndShowOK:(id)arg1;
+- (void)StopLoadingTimerFired:(id)arg1;
+- (void)stopLoading;
+- (void)startLoadingButAnimatingAfterDelay:(double)arg1;
+- (void)startLoading;
+- (void)setLabelText:(id)arg1;
+- (void)ShowTipView:(id)arg1 Title:(id)arg2 Delay:(double)arg3;
+
+@end
 #endif /* WechatHeaders_h */
 
 

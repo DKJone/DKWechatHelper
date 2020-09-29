@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1138B1C7251D9049008A6629 /* DKCleanFriendsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1138B1C5251D9049008A6629 /* DKCleanFriendsController.h */; };
+		1138B1C8251D9049008A6629 /* DKCleanFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1138B1C6251D9049008A6629 /* DKCleanFriendsController.m */; };
 		114CCC2F21F817D500A4646E /* MDConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 114CCC2E21F817D500A4646E /* MDConfig.plist */; };
 		114CCC3921F817D500A4646E /* libdkhelperDylib.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 114CCC3821F817D500A4646E /* libdkhelperDylib.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		114CCC3E21F817D500A4646E /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 114CCC3D21F817D500A4646E /* JavaScriptCore.framework */; };
@@ -49,6 +51,8 @@
 		114CCC9D21F831EB00A4646E /* DKHelperSettingController.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC9B21F831EA00A4646E /* DKHelperSettingController.h */; };
 		114CCCA021F8323E00A4646E /* DKGroupFilterController.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC9E21F8323D00A4646E /* DKGroupFilterController.h */; };
 		114CCCA121F8323E00A4646E /* DKGroupFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC9F21F8323D00A4646E /* DKGroupFilterController.m */; };
+		11D27C9E25208FC800AE6337 /* NSArray+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D27C9C25208FC800AE6337 /* NSArray+Utils.h */; };
+		11D27C9F25208FC800AE6337 /* NSArray+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D27C9D25208FC800AE6337 /* NSArray+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,12 +79,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1138B1C5251D9049008A6629 /* DKCleanFriendsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKCleanFriendsController.h; sourceTree = "<group>"; };
+		1138B1C6251D9049008A6629 /* DKCleanFriendsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKCleanFriendsController.m; sourceTree = "<group>"; };
 		114CCC2721F817D500A4646E /* dkhelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dkhelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		114CCC2A21F817D500A4646E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		114CCC2C21F817D500A4646E /* quick-resign.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "quick-resign.sh"; path = "Scripts/quick-resign.sh"; sourceTree = "<group>"; };
 		114CCC2E21F817D500A4646E /* MDConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MDConfig.plist; path = Config/MDConfig.plist; sourceTree = "<group>"; };
 		114CCC3121F817D500A4646E /* put ipa or app here */ = {isa = PBXFileReference; lastKnownFileType = text; name = "put ipa or app here"; path = "TargetApp/put ipa or app here"; sourceTree = "<group>"; };
-		114CCC3221F817D500A4646E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		114CCC3821F817D500A4646E /* libdkhelperDylib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libdkhelperDylib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		114CCC3D21F817D500A4646E /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		114CCC3F21F817D500A4646E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -125,6 +130,8 @@
 		114CCC9B21F831EA00A4646E /* DKHelperSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHelperSettingController.h; sourceTree = "<group>"; };
 		114CCC9E21F8323D00A4646E /* DKGroupFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKGroupFilterController.h; sourceTree = "<group>"; };
 		114CCC9F21F8323D00A4646E /* DKGroupFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKGroupFilterController.m; sourceTree = "<group>"; };
+		11D27C9C25208FC800AE6337 /* NSArray+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utils.h"; sourceTree = "<group>"; };
+		11D27C9D25208FC800AE6337 /* NSArray+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				114CCC2A21F817D500A4646E /* icon.png */,
-				114CCC3221F817D500A4646E /* Info.plist */,
 				114CCC2B21F817D500A4646E /* Scripts */,
 				114CCC2D21F817D500A4646E /* Config */,
 				114CCC3021F817D500A4646E /* TargetApp */,
@@ -224,6 +230,8 @@
 				114CCC9A21F831EA00A4646E /* DKHelperSettingController.m */,
 				114CCC9E21F8323D00A4646E /* DKGroupFilterController.h */,
 				114CCC9F21F8323D00A4646E /* DKGroupFilterController.m */,
+				1138B1C5251D9049008A6629 /* DKCleanFriendsController.h */,
+				1138B1C6251D9049008A6629 /* DKCleanFriendsController.m */,
 				114CCC4421F817D500A4646E /* Logos */,
 				114CCC4821F817D500A4646E /* Config */,
 				114CCC5521F817D500A4646E /* Trace */,
@@ -317,6 +325,8 @@
 				114CCC9721F831D400A4646E /* DKHelperConfig.m */,
 				114CCC9221F831C200A4646E /* DKHelper.h */,
 				114CCC9321F831C200A4646E /* DKHelper.m */,
+				11D27C9C25208FC800AE6337 /* NSArray+Utils.h */,
+				11D27C9D25208FC800AE6337 /* NSArray+Utils.m */,
 			);
 			path = MyUtils;
 			sourceTree = "<group>";
@@ -348,12 +358,14 @@
 				114CCC9421F831C200A4646E /* DKHelper.h in Headers */,
 				114CCC9021F830D200A4646E /* WechatHeaders.h in Headers */,
 				114CCC9D21F831EB00A4646E /* DKHelperSettingController.h in Headers */,
+				11D27C9E25208FC800AE6337 /* NSArray+Utils.h in Headers */,
 				114CCC8F21F830D200A4646E /* WCUIAlertView.h in Headers */,
 				114CCC7B21F817D500A4646E /* fishhook.h in Headers */,
 				114CCC6F21F817D500A4646E /* LLDBTools.h in Headers */,
 				114CCC4A21F817D500A4646E /* MDConfigManager.h in Headers */,
 				114CCC6921F817D500A4646E /* OCSelectorTrampolines.h in Headers */,
 				114CCC9121F830D200A4646E /* UiUtil.h in Headers */,
+				1138B1C7251D9049008A6629 /* DKCleanFriendsController.h in Headers */,
 				114CCC6521F817D500A4646E /* OCMethodTrace.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,10 +528,12 @@
 				114CCC5921F817D500A4646E /* a1a2-selectortramps-arm64.s in Sources */,
 				114CCC5721F817D500A4646E /* a1a2-selectortramps-arm.s in Sources */,
 				114CCC5D21F817D500A4646E /* a1a2-selectortramps-x86_64.s in Sources */,
+				11D27C9F25208FC800AE6337 /* NSArray+Utils.m in Sources */,
 				114CCC6721F817D500A4646E /* OCMethodTrace.m in Sources */,
 				114CCC9921F831D400A4646E /* DKHelperConfig.m in Sources */,
 				114CCC4C21F817D500A4646E /* MDConfigManager.m in Sources */,
 				114CCC9C21F831EB00A4646E /* DKHelperSettingController.m in Sources */,
+				1138B1C8251D9049008A6629 /* DKCleanFriendsController.m in Sources */,
 				114CCC7921F817D500A4646E /* fishhook.c in Sources */,
 				114CCC7621F817D500A4646E /* AntiAntiDebug.m in Sources */,
 				114CCC6B21F817D500A4646E /* OCSelectorTrampolines.mm in Sources */,
@@ -790,11 +804,12 @@
 				DEVELOPMENT_TEAM = NL54V6A3P5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = dkhelper/Info.plist;
+				MARKETING_VERSION = 7.0.14;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
 				MONKEYDEV_CLASS_DUMP = NO;
 				MONKEYDEV_DEFAULT_BUNDLEID = YES;
 				MONKEYDEV_INSERT_DYLIB = YES;
-				MONKEYDEV_RESTORE_SYMBOL = NO;
+				MONKEYDEV_RESTORE_SYMBOL = YES;
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
@@ -811,11 +826,12 @@
 				DEVELOPMENT_TEAM = NL54V6A3P5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = dkhelper/Info.plist;
+				MARKETING_VERSION = 7.0.14;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
 				MONKEYDEV_CLASS_DUMP = NO;
 				MONKEYDEV_DEFAULT_BUNDLEID = YES;
 				MONKEYDEV_INSERT_DYLIB = YES;
-				MONKEYDEV_RESTORE_SYMBOL = NO;
+				MONKEYDEV_RESTORE_SYMBOL = YES;
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";

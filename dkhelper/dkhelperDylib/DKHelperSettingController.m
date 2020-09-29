@@ -10,10 +10,12 @@
 #import <objc/objc-runtime.h>
 #import "DKHelper.h"
 #import "DKGroupFilterController.h"
-
+#import "DKCleanFriendsController.h"
+#import <NotificationCenter/NotificationCenter.h>
 @interface DKHelperSettingController ()<MultiSelectGroupsViewControllerDelegate>{
     WCTableViewManager * manager;
     MMUIViewController *helper;
+    MMLoadingView *m_MMLoadingView;
 }
 
 @end
@@ -24,7 +26,26 @@
     if (self = [super init]) {
         helper = [[objc_getClass("MMUIViewController") alloc] init];
     }
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(checkFriendsEnd:) name:@"checkFriendsEnd" object:nil];
+    m_MMLoadingView = [[NSClassFromString(@"MMLoadingView") alloc] init];
     return self;
+}
+- (void)dealloc
+{
+    [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
+- (void)checkFriendsEnd:(NSNotification *)notify{
+
+    Boolean isSuccess = notify.userInfo[@"success"];
+    if (isSuccess){
+        [m_MMLoadingView stopLoadingAndShowOK];
+        [self reloadTableData];
+        CGPoint bottomOffset = CGPointMake(0, manager.tableView.contentSize.height - manager.tableView.bounds.size.height + manager.tableView.contentInset.bottom);
+        [manager.tableView setContentOffset:bottomOffset animated:YES];
+    }else{
+        [m_MMLoadingView stopLoadingAndShowError:@"检测失败"];
+    }
 }
 
 - (void)viewDidLoad {
@@ -35,6 +56,8 @@
     [manager addTableViewToSuperView:self.view];
     manager.tableView.frame = tableFrame;
     self.view.backgroundColor = [DKHelper backgroundColor];
+    [m_MMLoadingView setLabelText:@"正在检测..."];
+    [self.view addSubview:m_MMLoadingView];
     [self reloadTableData];
     self.navigationItem.leftBarButtonItem = [DKHelper leftNavigationItem];
 
@@ -66,6 +89,8 @@
         //后台抢红包
         WCTableViewCellManager *redEnvelopBackGroundCell = [DKHelper switchCellWithSel:@selector(autoEnveloBackGround:) target:self title:@"锁屏及后台抢红包" switchOn:[DKHelperConfig redEnvelopBackGround]];
         [redEnvelopSection addCell:redEnvelopBackGroundCell];
+        WCTableViewCellManager *personalRedEnvelopEnableCell = [DKHelper switchCellWithSel:@selector(personalRedEnvelopEnableChange:) target:self title:@"接收个人红包" switchOn:[DKHelperConfig personalRedEnvelopEnable]];
+        [redEnvelopSection addCell:personalRedEnvelopEnableCell];
         //延迟抢红包
         NSString *delay = @"不延迟";
         if ([DKHelperConfig redEnvelopDelay] > 0){
@@ -153,9 +178,37 @@
         [commentsCell  addUserInfoValue:@2 forKey:@"type"];
     }
 
+    //MARK: 好友检测
+    WCTableViewSectionManager *clearFriendsSection = [DKHelper sectionManage];
+    clearFriendsSection.headerTitle = @"好友关系检测";
+    [manager addSection:clearFriendsSection];
 
+    DKHelperConfig.cleanFriendsEnable = DKHelper.shared.validFriends.count + DKHelper.shared.notFriends.count > 0;
+    WCTableViewCellManager *cleanFriendCell = [DKHelper switchCellWithSel:@selector(cleanFriends:) target:self title:@"检测好友关系" switchOn:[DKHelperConfig cleanFriendsEnable]];
+    [clearFriendsSection addCell:cleanFriendCell];
+    if (DKHelperConfig.cleanFriendsEnable){
+        NSString * notFriendCount = [NSString stringWithFormat:@"共%lu人",(unsigned long)DKHelper.shared.notFriends.count];
+        WCTableViewNormalCellManager *notFriendCountCell = [DKHelper cellWithSel:@selector(showSelectContactVC:) target:self title:@"已将你删除" rightValue:notFriendCount accessoryType:1];
+        [notFriendCountCell addUserInfoValue:@0 forKey:@"type"];
+        [clearFriendsSection addCell:notFriendCountCell];
+
+        NSString * invalidFriendsCount = [NSString stringWithFormat:@"共%lu人",(unsigned long)DKHelper.shared.invalidFriends.count];
+        WCTableViewNormalCellManager *invalidFriendsCell = [DKHelper cellWithSel:@selector(showSelectContactVC:) target:self title:@"账号被封禁" rightValue:invalidFriendsCount accessoryType:1];
+        [invalidFriendsCell addUserInfoValue:@1 forKey:@"type"];
+        [clearFriendsSection addCell:invalidFriendsCell];
+    }
 
     [manager.tableView reloadData];
+
+}
+
+- (void)showSelectContactVC:(WCTableViewNormalCellManager *)sender{
+    NSNumber * type = [sender getUserInfoValueForKey:@"type"];
+    //1:被封账号 , 0:已将你删除
+    NSArray *contactList = [type isEqual:@1] ? DKHelper.shared.invalidFriends : DKHelper.shared.notFriends;
+    NSString *contactDesc = [type isEqual:@1] ? @"账号被封" :@"已将你删除";
+    DKCleanFriendsController *vc = [[DKCleanFriendsController alloc] initWithContactList:contactList contactDesc:contactDesc];
+    [self.navigationController pushViewController:vc animated:true ];
 }
 
 - (void)likeCommentEnable:(UISwitch *)sender{
@@ -168,6 +221,7 @@
                              handler:^(UIButton *sender) { }];
     }
     [self reloadTableData];
+    
 }
 
 
@@ -175,6 +229,27 @@
     DKHelperConfig.autoRedEnvelop = sender.isOn;
     [self reloadTableData];
 }
+
+- (void)personalRedEnvelopEnableChange:(UISwitch *)sender{
+    DKHelperConfig.personalRedEnvelopEnable = sender.isOn;
+    [self reloadTableData];
+}
+
+- (void)cleanFriends:(UISwitch *)sender{
+    if (!sender.isOn){
+        DKHelperConfig.cleanFriendsEnable = false;
+        return;
+    }
+    __block UISwitch *s = sender;
+    WS(weakSelf)
+    [DKHelper showAlertWithTitle:@"重要提示" message:@"好友关系检测会新建一个包含您所有好友的群组，检测完成后会帮您自动删除，正常情况下您的好友不会收到任何消息。部分好友可能会收到进群邀请！(会自动帮您撤回该邀请信息)如果你想排除某些好友不做检测，请先将其添加到黑名单，待检测完成再将其从黑名单的移除！" btnTitle:@"开始检测" handler:^(UIButton *sender) {
+        DKHelperConfig.cleanFriendsEnable = true;
+        [weakSelf createCheckGroupe];
+    } btnTitle:@"取消" handler:^(UIButton *sender) {
+        s.on = false;
+    }];
+}
+
 
 - (void)revokeIntercept:(UISwitch *)sender{
     DKHelperConfig.preventRevoke = sender.isOn;
@@ -202,7 +277,7 @@
 - (void)showLikeCommentInput:(WCTableViewNormalCellManager *)sender{
     NSNumber * type = [sender getUserInfoValueForKey:@"type"];
     NSString * str = @[[NSString stringWithFormat:@"%d",DKHelperConfig.likeCount.intValue],
-                       [NSString stringWithFormat:@"%d",DKHelperConfig.comments.intValue],
+                       [NSString stringWithFormat:@"%d",DKHelperConfig.commentCount.intValue],
                        [NSString stringWithFormat:@"%@",DKHelperConfig.comments]][type.intValue];
     NSString * title = @[@"输入点赞数",@"输入评论数",@"输入评论"][type.intValue];
     NSString * msg = @[@"实际点赞数最大为您的好友个数",
@@ -351,4 +426,37 @@
     }
     return nil;
 }
+
+- (void)createCheckGroupe{
+    [m_MMLoadingView startLoading];
+    BOOL canCreateGroup = [objc_getClass("CGroupMgr") isSupportOpenIMGroup];
+    if (!canCreateGroup) {
+        [DKHelper showAlertWithTitle:@"检测失败" message:@"您当前无法创建群聊！" btnTitle:@"确定" handler:^(UIButton *sender) {
+            NSLog(@"检测失败 - 无法创建群聊");
+        }];
+    }else{
+        CGroupMgr *groupMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("CGroupMgr") class]];
+        DKHelper.shared.checkFriendsEnd = false;
+        NSMutableArray<GroupMember *> * groupMembers = @[].mutableCopy;
+        [DKHelper.allFriends enumerateObjectsUsingBlock:^(CContact *obj, NSUInteger idx, BOOL *stop) {
+            if ([obj.m_nsUsrName containsString:@"@openim"] ){
+
+            }else{
+                GroupMember *gm = [[objc_getClass("GroupMember") alloc] init];
+                gm.m_nsMemberName = obj.m_nsUsrName;
+                [groupMembers addObject:gm];
+            }
+        }];
+        [DKHelper.shared setCheckNotify];
+        [groupMgr CreateGroup:@"DKWechatHelper-friendsCheck" withMemberList:groupMembers];
+
+        // 设置超时时间，超过10秒，不在检测
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW , 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            if (!DKHelper.shared.checkFriendsEnd) {
+                [DKHelper endCheck];
+            }
+        });
+    }
+}
+
 @end

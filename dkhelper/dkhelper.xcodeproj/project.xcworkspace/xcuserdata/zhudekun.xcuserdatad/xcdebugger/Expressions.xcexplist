@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "+[DKHelperConfig methodSignatureForSelector:]:DKHelperConfig.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DKCleanFriendsController initWithContactList:]:DKCleanFriendsController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DKCleanFriendsController onDone:]:DKCleanFriendsController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.selectView.m_dicMultiSelect">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__45-[DKHelperSettingController testCreateGroupe]_block_invoke.469:DKHelperSettingController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "DKHelper.shared.checkFriendGroup">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[DKHelper commentUSers]:DKHelper.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[DKHelper shared]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__24+[DKHelper commentUSers]_block_invoke:DKHelper.m">
+      </ContextState>
+      <ContextState
+         contextName = "_logos_method$_ungrouped$CContactMgr$getContactList$contactType$(CContactMgr*, objc_selector*, unsigned int, unsigned int):dkhelperDylib.xm">
+         <PersistentStrings>
+            <PersistentString
+               value = "[DKHelper shared]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

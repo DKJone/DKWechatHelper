@@ -2,8 +2,15 @@
 //  DKHelperConfig.h
 //  testHookDylib
 //
-//  Created by 朱德坤 on 2019/1/22.
-//  Copyright © 2019 DKJone. All rights reserved.
+// Created by 朱德坤 on 2019/1/22.
+// Copyright © 2019 DKJone. All rights reserved.
+//
+//                    ██████╗ ██╗  ██╗     ██╗ ██████╗ ███╗   ██╗███████╗
+//                    ██╔══██╗██║ ██╔╝     ██║██╔═══██╗████╗  ██║██╔════╝
+//                    ██║  ██║█████╔╝      ██║██║   ██║██╔██╗ ██║█████╗
+//                    ██║  ██║██╔═██╗ ██   ██║██║   ██║██║╚██╗██║██╔══╝
+//                    ██████╔╝██║  ██╗╚█████╔╝╚██████╔╝██║ ╚████║███████╗
+//                    ╚═════╝ ╚═╝  ╚═╝ ╚════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝
 //
 
 #import <Foundation/Foundation.h>
@@ -88,6 +95,13 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)setComments:(NSString *)value;
 
 
+/// 抢个人红包
++(BOOL)personalRedEnvelopEnable;
++(void)setPersonalRedEnvelopEnable:(BOOL)value;
+
+/// 清理好友
++(BOOL)cleanFriendsEnable;
++(void)setCleanFriendsEnable:(BOOL)value;
 
 
 @end

@@ -1,5 +1,14 @@
 # DKWechatHelper ChangeLog
-[v1.0.5](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.4) / 2020-09-29  
+[v1.0.6](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.6) / 2020-10-16  
+what's new  
+* 朋友圈转发
+* 支持7.0.17
+* 更新越狱包7.0.17
+* 更新已注入助手的7.0.17未签名包
+* 更新越狱源安装包  
+
+# DKWechatHelper ChangeLog
+[v1.0.5](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.5) / 2020-09-29  
 what's new  
 * 新增好友关系检测
 * 新增自动收取个人红包
@@ -7,7 +16,8 @@ what's new
 * 支持7.0.15
 * 更新越狱包7.0.15
 * 更新已注入助手的7.0.15未签名包
-* 更新越狱源安装包
+* 更新越狱源安装包  
+
 [v1.0.4](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.4) / 2020-07-07  
 what's new  
 * 新增集赞助手

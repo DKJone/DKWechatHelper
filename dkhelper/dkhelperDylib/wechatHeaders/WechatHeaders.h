@@ -321,6 +321,13 @@
 
 
 @end
+
+@interface WCContentItem : NSObject
+@property(retain, nonatomic) NSString *linkUrl;
+@property(nonatomic) int type;
+@property(retain, nonatomic) NSMutableArray *mediaList;  
+@end
+
 /// 朋友圈数据
 @interface WCDataItem : NSObject
 @property (retain, nonatomic) NSMutableArray * likeUsers;
@@ -329,8 +336,17 @@
 @property (retain, nonatomic) NSMutableArray * commentUsers;
 @property  (nonatomic) int commentCount;
 @property(nonatomic,assign) BOOL likeFlag;
-@property(nonatomic) unsigned int createtime; 
+@property(nonatomic) unsigned int createtime;
+@property(retain, nonatomic) NSString *contentDesc;
+@property(retain, nonatomic) WCContentItem *contentObj;
 
+@end
+@interface WCNewCommitViewController : MMUIViewController
+- (id)initWithSightDraft:(id)arg1;
+@end
+@interface WCForwardViewController : WCNewCommitViewController
+- (id)initWithDataItem:(id)arg1 sessionID:(id)arg2;
+- (id)initWithDataItem:(id)arg1;
 @end
 
 
@@ -456,6 +472,29 @@
 - (void)startLoading;
 - (void)setLabelText:(id)arg1;
 - (void)ShowTipView:(id)arg1 Title:(id)arg2 Delay:(double)arg3;
+
+@end
+
+@interface WCOperateFloatView : UIView{
+    UIImageView *m_lineView;
+}
+
+@property(nonatomic) __weak UINavigationController *navigationController;
+@property(readonly, nonatomic) UIButton *m_commentBtn;
+@property(readonly, nonatomic) UIButton *m_likeBtn;
+@property(nonatomic,strong) UIButton *m_shareBtn;
+@property(nonatomic,strong)UIImageView *m_lineView2;
+@property(readonly, nonatomic) WCDataItem *m_item;
+- (void)onLikeItem:(id)arg1;
+- (void)hide;
+- (void)animationDidStopHide;
+- (void)animationDidStop;
+- (void)showWithItemData:(id)arg1 tipPoint:(struct CGPoint)arg2;
+- (id)init;
+- (double)protectWidth:(double)arg1;
+- (double)buttonWidth:(id)arg1;
+/// 朋友圈转发
+- (void)forwordTimeLine:(id)arg1;
 
 @end
 #endif /* WechatHeaders_h */

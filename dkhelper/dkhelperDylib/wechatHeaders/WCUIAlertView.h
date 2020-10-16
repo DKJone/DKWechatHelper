@@ -47,3 +47,19 @@
 
 @end
 
+@interface WCUIActionSheet : UIWindow
+
+- (void)addDestructiveButtonTitle:(id)arg1 target:(id)arg2 sel:(SEL)arg3;
+- (void)addCancelBtnTitle:(id)arg1 target:(id)arg2 sel:(SEL)arg3;
+- (void)addBtnTitle:(id)arg1 target:(id)arg2 sel:(SEL)arg3;
+- (id)initWithTitle:(id)arg1;
+- (id)init;
+- (void)showInView:(id)arg1;
+
+@end
+
+//WCUIActionSheet *actionSheet = [[objc_getClass("WCUIActionSheet") alloc] initWithTitle:@"朋友圈转发"];
+//for (NSString* str in @[@"转发给好友",@"转发到朋友圈"]){
+//    [actionSheet addBtnTitle:str target:self sel:@selector(startForword:)];
+//}
+//[actionSheet showInView:self];

@@ -77,6 +77,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 启用callkit
 +(BOOL)callKitEnable;
 +(void)setCallKitEnable:(BOOL)value;
+/// 启用朋友圈转发
++(BOOL)timeLineForwardEnable;
++(void)setTimeLineForwardEnable:(BOOL)value;
 
 /// 启用积攒助手
 +(BOOL)likeCommentEnable;

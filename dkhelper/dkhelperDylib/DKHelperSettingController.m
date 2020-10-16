@@ -12,6 +12,8 @@
 #import "DKGroupFilterController.h"
 #import "DKCleanFriendsController.h"
 #import <NotificationCenter/NotificationCenter.h>
+#import <WebKit/WebKit.h>
+#import <CoreGraphics/CGGeometry.h>
 @interface DKHelperSettingController ()<MultiSelectGroupsViewControllerDelegate>{
     WCTableViewManager * manager;
     MMUIViewController *helper;
@@ -66,7 +68,7 @@
     [super viewDidAppear:animated];
 
     if(DKHelperConfig.hasShowTips){return;}
-    [DKHelper showAlertWithTitle:@"重要提示" message:@"本软件完全免费，插件功能仅供学习，由本软件产生的任何利益纠纷须有使用者自行承担。在收到微信团队\"非法客户端提示后\"继续使用可能有封号风险，需使用者自行承担。如遇到提醒，请卸载本软件，更换官方微信客户端" btnTitle:@"我明白了" handler:^(UIButton *sender) {
+    [DKHelper showAlertWithTitle:@"重要提示" message:@"本软件完全免费，插件功能仅供学习，由本软件产生的任何利益纠纷须有使用者自行承担。在收到微信团队\"非法客户端提示后\"继续使用可能有封号风险，需使用者自行承担。如遇到提醒，请卸载本软件，更换官方微信客户端！\n插件开发占用了作者的大量业余时间，同时部分越狱软件源盗用插件，甚至修改插件名称，如果在使用后觉得有用还请支持！" btnTitle:@"我明白了" handler:^(UIButton *sender) {
         DKHelperConfig.hasShowTips = true;
     } btnTitle:@"有风险我不使用了" handler:^(UIButton *sender) {
         exit(0);
@@ -138,20 +140,25 @@
     WCTableViewCellManager *callKitCell = [DKHelper switchCellWithSel:@selector(callKitEnable:) target:self title:@"使用CallKit" switchOn:[DKHelperConfig callKitEnable]];
     [toBeNO1Section addCell:callKitCell];
 
+    WCTableViewCellManager *timelineForwardCell = [DKHelper switchCellWithSel:@selector(forwardTimeline:) target:self title:@"朋友圈转发" switchOn:[DKHelperConfig timeLineForwardEnable]];
+    [toBeNO1Section addCell:timelineForwardCell];
+
 
 
     //MARK: 支持作者
     WCTableViewSectionManager *supportAuthorSection = [DKHelper sectionManage];
     supportAuthorSection.headerTitle = @"支持作者";
     [manager addSection:supportAuthorSection];
-    WCTableViewNormalCellManager * payMeCell = [DKHelper cellWithSel:@selector(payForMe) target:self title:@"请作者喝杯咖啡"];
+    WCTableViewNormalCellManager * payMeCell = [DKHelper cellWithSel:@selector(payForMe) target:self title:@"给作者倒一杯卡布奇诺"];
     [supportAuthorSection addCell:payMeCell];
 
-    WCTableViewNormalCellManager *myBlogCell = [DKHelper cellWithSel:@selector(openBlog) target:self title:@"我的博客"];
+    WCTableViewNormalCellManager *myBlogCell = [DKHelper cellWithSel:@selector(openBlog) target:self title:@"关于本软件"];
     [supportAuthorSection addCell:myBlogCell];
 
     WCTableViewNormalCellManager *myGitHubCell = [DKHelper cellWithSel:@selector(openGitHub) target:self title:@"本项目GitHub" rightValue:@"请给个⭐️" accessoryType:1];
     [supportAuthorSection addCell:myGitHubCell];
+    WCTableViewNormalCellManager *joinGroupCell = [DKHelper cellWithSel:@selector(joinGroup) target:self title:@"加入交流群"];
+    [supportAuthorSection addCell:joinGroupCell];
 
 
     //MARK: 积攒助手
@@ -255,6 +262,10 @@
     DKHelperConfig.preventRevoke = sender.isOn;
 }
 
+- (void)forwardTimeline:(UISwitch *)sender{
+    DKHelperConfig.timeLineForwardEnable = sender.isOn;
+}
+
 - (void)changedSteps:(UISwitch *)sender{
     DKHelperConfig.changeSteps = sender.isOn;
     [self reloadTableData];
@@ -323,6 +334,13 @@
     ScanCodeHistoryItem *item = [[objc_getClass("ScanCodeHistoryItem") alloc] init];
     item.type = @"WX_CODE";
     item.codeUrl = @"m0E25xJo038.ran,NI96(j";
+    [scMgr retryRequetScanResult:item viewController:self];
+}
+- (void)joinGroup{
+    ScanQRCodeResultsMgr *scMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("ScanQRCodeResultsMgr") class]];
+    ScanCodeHistoryItem *item = [[objc_getClass("ScanCodeHistoryItem") alloc] init];
+    item.type = @"QR_CODE";
+    item.codeUrl = @"https://weixin.qq.com/g/AQYAAHh7lIFHinAoS0lK9bf4Ew4iQs_looYQ8idimgU-BlwZh-agX8grDS1Gwvuq";
     [scMgr retryRequetScanResult:item viewController:self];
 }
 

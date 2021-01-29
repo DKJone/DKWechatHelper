@@ -1,4 +1,13 @@
 # DKWechatHelper ChangeLog
+[v1.0.7](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.7) / 2021-01-29  
+what's new  
+* 动态启动图
+* 动态聊天背景
+* 支持8.0.1  
+* 更新越狱包8.0.1 
+* 更新已注入助手的8.0.1未签名包
+* 更新越狱源安装包  
+
 [v1.0.6](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.6) / 2020-10-16  
 what's new  
 * 朋友圈转发
@@ -7,7 +16,6 @@ what's new
 * 更新已注入助手的7.0.17未签名包
 * 更新越狱源安装包  
 
-# DKWechatHelper ChangeLog
 [v1.0.5](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.5) / 2020-09-29  
 what's new  
 * 新增好友关系检测

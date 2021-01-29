@@ -460,18 +460,15 @@
 @end
 
 @interface MMLoadingView : UIView
-- (void)ShowTipView:(id)arg1 Title:(id)arg2 Delay:(double)arg3;
+@property(retain, nonatomic) NSString *text;
 - (void)stopLoadingAndShowOK;
 - (void)stopLoadingAndShowError:(id)arg1 withDelay:(double)arg2;
 - (void)stopLoadingAndShowError:(id)arg1;
 - (void)stopLoadingAndShowOK:(id)arg1 withDelay:(double)arg2;
 - (void)stopLoadingAndShowOK:(id)arg1;
-- (void)StopLoadingTimerFired:(id)arg1;
 - (void)stopLoading;
-- (void)startLoadingButAnimatingAfterDelay:(double)arg1;
 - (void)startLoading;
-- (void)setLabelText:(id)arg1;
-- (void)ShowTipView:(id)arg1 Title:(id)arg2 Delay:(double)arg3;
+
 
 @end
 

@@ -479,8 +479,60 @@
 
 %end
 
-//%hook ScanQRCodeResultsMgr
-//- (void)retryRequetScanResult:(id)arg1 viewController:(id)arg2{
-//    %orig;
-//}
-//%end
+
+@interface BaseMsgContentViewController:UIViewController
+- (id)getMsgTableView;
+- (id)getParentTableView;
+@end
+
+%hook BaseMsgContentViewController
+- (void)viewDidLoad{
+    %orig;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    %orig;
+    UIView * annimView = [self.view viewWithTag:66666];
+    if (!DKHelperConfig.dkChatBgEnable){
+        [annimView removeFromSuperview];
+        [annimView stopHWDMP4];
+        return;
+    }
+    if (annimView == nil){
+        annimView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.width *16/9)];
+        annimView.tag = 66666;
+        annimView.backgroundColor = UIColor.clearColor;
+        [self.view insertSubview:annimView belowSubview:[self getMsgTableView]];
+    }
+
+    annimView.center = self.view.center;
+    NSString *animaName = DKLaunchHelper.animaNames[DKHelperConfig.dkChatBGIndex.intValue][@"name"];
+    NSString* path = [NSBundle.mainBundle pathForResource:[NSString stringWithFormat:@"%@Vap", animaName] ofType:@"mp4"];
+    [annimView playHWDMP4:path repeatCount:-1 delegate:nil];
+    
+}
+
+%end
+
+@interface MicroMessengerAppDelegate
++ (id)GlobalInstance;
+@property(retain, nonatomic) UIWindow *window;
+@property (nonatomic, retain) UIWindow *launchWindow;
+@end
+
+%hook MicroMessengerAppDelegate
+%property (nonatomic, retain) UIWindow *launchWindow;
+
+- (_Bool)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2{
+    if (!DKHelperConfig.dkLaunchEnable){return %orig; }
+    BOOL end = %orig;
+    DKLaunchViewController * launchVC = [[DKLaunchViewController alloc] init];
+    UIWindow *launchWindow = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    self.launchWindow = launchWindow;
+    launchWindow.windowLevel = UIWindowLevelAlert + 1;
+    launchWindow.rootViewController = launchVC;
+    [launchWindow makeKeyAndVisible];
+    return end;
+    
+}
+%end

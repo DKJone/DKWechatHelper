@@ -51,6 +51,116 @@
 		114CCC9D21F831EB00A4646E /* DKHelperSettingController.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC9B21F831EA00A4646E /* DKHelperSettingController.h */; };
 		114CCCA021F8323E00A4646E /* DKGroupFilterController.h in Headers */ = {isa = PBXBuildFile; fileRef = 114CCC9E21F8323D00A4646E /* DKGroupFilterController.h */; };
 		114CCCA121F8323E00A4646E /* DKGroupFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CCC9F21F8323D00A4646E /* DKGroupFilterController.m */; };
+		116B4CF925BE91990079C6FE /* DKLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4CF525BE91980079C6FE /* DKLaunchViewController.m */; };
+		116B4CFA25BE91990079C6FE /* DKLaunchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4CF625BE91980079C6FE /* DKLaunchHelper.m */; };
+		116B4CFB25BE91990079C6FE /* DKLaunchHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4CF725BE91980079C6FE /* DKLaunchHelper.h */; };
+		116B4CFC25BE91990079C6FE /* DKLaunchViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4CF825BE91990079C6FE /* DKLaunchViewController.h */; };
+		116B4D7825BE92470079C6FE /* QGHWDShaderTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D1D25BE92460079C6FE /* QGHWDShaderTypes.h */; };
+		116B4D7925BE92470079C6FE /* QGHWDShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D1E25BE92460079C6FE /* QGHWDShaders.metal */; };
+		116B4D7A25BE92470079C6FE /* QGHWDMetalShaderSourceDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D1F25BE92460079C6FE /* QGHWDMetalShaderSourceDefine.h */; };
+		116B4D7B25BE92470079C6FE /* QGMP4Box.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D2225BE92460079C6FE /* QGMP4Box.m */; };
+		116B4D7C25BE92470079C6FE /* QGMP4Parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D2325BE92460079C6FE /* QGMP4Parser.h */; };
+		116B4D7D25BE92470079C6FE /* QGMP4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D2425BE92460079C6FE /* QGMP4Parser.m */; };
+		116B4D7E25BE92470079C6FE /* QGMP4Box.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D2525BE92460079C6FE /* QGMP4Box.h */; };
+		116B4D7F25BE92470079C6FE /* UIView+VAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D2625BE92460079C6FE /* UIView+VAP.m */; };
+		116B4D8025BE92470079C6FE /* QGVAPMetalShaderFunctionLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D2825BE92460079C6FE /* QGVAPMetalShaderFunctionLoader.m */; };
+		116B4D8125BE92470079C6FE /* QGVAPMetalUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D2925BE92460079C6FE /* QGVAPMetalUtil.h */; };
+		116B4D8225BE92470079C6FE /* QGVAPSafeMutableDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D2A25BE92460079C6FE /* QGVAPSafeMutableDictionary.h */; };
+		116B4D8325BE92470079C6FE /* QGVAPSafeMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D2B25BE92460079C6FE /* QGVAPSafeMutableArray.h */; };
+		116B4D8425BE92470079C6FE /* QGVAPLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D2D25BE92460079C6FE /* QGVAPLogger.m */; };
+		116B4D8525BE92470079C6FE /* QGVAPLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D2E25BE92460079C6FE /* QGVAPLogger.h */; };
+		116B4D8625BE92470079C6FE /* QGVAPWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D2F25BE92460079C6FE /* QGVAPWeakProxy.m */; };
+		116B4D8725BE92470079C6FE /* QGVAPMetalUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D3025BE92460079C6FE /* QGVAPMetalUtil.m */; };
+		116B4D8825BE92470079C6FE /* QGVAPMetalShaderFunctionLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D3125BE92460079C6FE /* QGVAPMetalShaderFunctionLoader.h */; };
+		116B4D8925BE92470079C6FE /* QGVAPSafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D3225BE92460079C6FE /* QGVAPSafeMutableArray.m */; };
+		116B4D8A25BE92470079C6FE /* QGVAPSafeMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D3325BE92460079C6FE /* QGVAPSafeMutableDictionary.m */; };
+		116B4D8B25BE92470079C6FE /* QGVAPWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D3425BE92460079C6FE /* QGVAPWeakProxy.h */; };
+		116B4D8C25BE92470079C6FE /* NSDictionary+VAPUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D3625BE92470079C6FE /* NSDictionary+VAPUtil.h */; };
+		116B4D8D25BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D3725BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.m */; };
+		116B4D8E25BE92470079C6FE /* NSArray+VAPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D3825BE92470079C6FE /* NSArray+VAPUtil.m */; };
+		116B4D8F25BE92470079C6FE /* UIDevice+VAPUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D3925BE92470079C6FE /* UIDevice+VAPUtil.h */; };
+		116B4D9025BE92470079C6FE /* UIColor+VAPUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D3A25BE92470079C6FE /* UIColor+VAPUtil.h */; };
+		116B4D9125BE92470079C6FE /* UIView+MP4HWDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D3B25BE92470079C6FE /* UIView+MP4HWDecode.h */; };
+		116B4D9225BE92470079C6FE /* UIGestureRecognizer+VAPUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D3C25BE92470079C6FE /* UIGestureRecognizer+VAPUtil.h */; };
+		116B4D9325BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D3D25BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.h */; };
+		116B4D9425BE92470079C6FE /* NSDictionary+VAPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D3E25BE92470079C6FE /* NSDictionary+VAPUtil.m */; };
+		116B4D9525BE92470079C6FE /* UIDevice+VAPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D3F25BE92470079C6FE /* UIDevice+VAPUtil.m */; };
+		116B4D9625BE92470079C6FE /* NSArray+VAPUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D4025BE92470079C6FE /* NSArray+VAPUtil.h */; };
+		116B4D9725BE92470079C6FE /* UIColor+VAPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D4125BE92470079C6FE /* UIColor+VAPUtil.m */; };
+		116B4D9825BE92470079C6FE /* UIView+MP4HWDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D4225BE92470079C6FE /* UIView+MP4HWDecode.m */; };
+		116B4D9925BE92470079C6FE /* UIGestureRecognizer+VAPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D4325BE92470079C6FE /* UIGestureRecognizer+VAPUtil.m */; };
+		116B4D9A25BE92470079C6FE /* QGMP4AnimatedImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D4525BE92470079C6FE /* QGMP4AnimatedImageFrame.m */; };
+		116B4D9B25BE92470079C6FE /* QGBaseDFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D4625BE92470079C6FE /* QGBaseDFileInfo.h */; };
+		116B4D9C25BE92470079C6FE /* QGVAPMaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D4725BE92470079C6FE /* QGVAPMaskInfo.m */; };
+		116B4D9D25BE92470079C6FE /* QGBaseAnimatedImageFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D4825BE92470079C6FE /* QGBaseAnimatedImageFrame.h */; };
+		116B4D9E25BE92470079C6FE /* QGVAPTextureLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D4925BE92470079C6FE /* QGVAPTextureLoader.m */; };
+		116B4D9F25BE92470079C6FE /* QGMP4HWDFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D4A25BE92470079C6FE /* QGMP4HWDFileInfo.m */; };
+		116B4DA025BE92470079C6FE /* QGVAPConfigModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D4B25BE92470079C6FE /* QGVAPConfigModel.h */; };
+		116B4DA125BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D4C25BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.h */; };
+		116B4DA225BE92470079C6FE /* QGBaseDFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D4D25BE92470079C6FE /* QGBaseDFileInfo.m */; };
+		116B4DA325BE92470079C6FE /* QGMP4AnimatedImageFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D4E25BE92470079C6FE /* QGMP4AnimatedImageFrame.h */; };
+		116B4DA425BE92470079C6FE /* QGVAPMaskInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D4F25BE92470079C6FE /* QGVAPMaskInfo.h */; };
+		116B4DA525BE92470079C6FE /* QGVAPConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D5025BE92470079C6FE /* QGVAPConfigModel.m */; };
+		116B4DA625BE92470079C6FE /* QGMP4HWDFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5125BE92470079C6FE /* QGMP4HWDFileInfo.h */; };
+		116B4DA725BE92470079C6FE /* QGVAPTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5225BE92470079C6FE /* QGVAPTextureLoader.h */; };
+		116B4DA825BE92470079C6FE /* QGBaseAnimatedImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D5325BE92470079C6FE /* QGBaseAnimatedImageFrame.m */; };
+		116B4DA925BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D5425BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.m */; };
+		116B4DAA25BE92470079C6FE /* VAPMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5525BE92470079C6FE /* VAPMacros.h */; };
+		116B4DAB25BE92470079C6FE /* UIView+VAP.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5625BE92470079C6FE /* UIView+VAP.h */; };
+		116B4DAC25BE92470079C6FE /* QGVAPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5725BE92470079C6FE /* QGVAPlayer.h */; };
+		116B4DAD25BE92470079C6FE /* QGAnimatedImageDecodeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D5925BE92470079C6FE /* QGAnimatedImageDecodeConfig.m */; };
+		116B4DAE25BE92470079C6FE /* QGVAPConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D5A25BE92470079C6FE /* QGVAPConfigManager.m */; };
+		116B4DAF25BE92470079C6FE /* QGAnimatedImageDecodeThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5B25BE92470079C6FE /* QGAnimatedImageDecodeThread.h */; };
+		116B4DB025BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5C25BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.h */; };
+		116B4DB125BE92470079C6FE /* QGAnimatedImageBufferManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5D25BE92470079C6FE /* QGAnimatedImageBufferManager.h */; };
+		116B4DB225BE92470079C6FE /* QGAnimatedImageDecodeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5E25BE92470079C6FE /* QGAnimatedImageDecodeManager.h */; };
+		116B4DB325BE92470079C6FE /* QGAnimatedImageDecodeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D5F25BE92470079C6FE /* QGAnimatedImageDecodeConfig.h */; };
+		116B4DB425BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D6025BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.m */; };
+		116B4DB525BE92470079C6FE /* QGBaseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D6225BE92470079C6FE /* QGBaseDecoder.m */; };
+		116B4DB625BE92470079C6FE /* QGMP4FrameHWDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D6325BE92470079C6FE /* QGMP4FrameHWDecoder.m */; };
+		116B4DB725BE92470079C6FE /* QGBaseDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D6425BE92470079C6FE /* QGBaseDecoder.h */; };
+		116B4DB825BE92470079C6FE /* QGMP4FrameHWDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D6525BE92470079C6FE /* QGMP4FrameHWDecoder.h */; };
+		116B4DB925BE92470079C6FE /* QGAnimatedImageDecodeThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D6625BE92470079C6FE /* QGAnimatedImageDecodeThread.m */; };
+		116B4DBA25BE92470079C6FE /* QGVAPConfigManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D6725BE92470079C6FE /* QGVAPConfigManager.h */; };
+		116B4DBB25BE92470079C6FE /* QGAnimatedImageBufferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D6825BE92470079C6FE /* QGAnimatedImageBufferManager.m */; };
+		116B4DBC25BE92470079C6FE /* QGAnimatedImageDecodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D6925BE92470079C6FE /* QGAnimatedImageDecodeManager.m */; };
+		116B4DBD25BE92470079C6FE /* QGHWDMetalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D6C25BE92470079C6FE /* QGHWDMetalView.m */; };
+		116B4DBE25BE92470079C6FE /* QGVAPMetalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D6E25BE92470079C6FE /* QGVAPMetalView.m */; };
+		116B4DBF25BE92470079C6FE /* QGVAPMetalRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D6F25BE92470079C6FE /* QGVAPMetalRenderer.m */; };
+		116B4DC025BE92470079C6FE /* QGVAPMetalView.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D7025BE92470079C6FE /* QGVAPMetalView.h */; };
+		116B4DC125BE92470079C6FE /* QGVAPMetalRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D7125BE92470079C6FE /* QGVAPMetalRenderer.h */; };
+		116B4DC225BE92470079C6FE /* QGHWDMetalRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D7225BE92470079C6FE /* QGHWDMetalRenderer.m */; };
+		116B4DC325BE92470079C6FE /* QGHWDMetalView.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D7325BE92470079C6FE /* QGHWDMetalView.h */; };
+		116B4DC425BE92470079C6FE /* QGHWDMetalRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D7425BE92470079C6FE /* QGHWDMetalRenderer.h */; };
+		116B4DC525BE92470079C6FE /* QGHWDMP4OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D7625BE92470079C6FE /* QGHWDMP4OpenGLView.m */; };
+		116B4DC625BE92470079C6FE /* QGHWDMP4OpenGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D7725BE92470079C6FE /* QGHWDMP4OpenGLView.h */; };
+		116B4DE425BE98030079C6FE /* uranus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DC925BE98030079C6FE /* uranus.jpg */; };
+		116B4DE525BE98030079C6FE /* venus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DCA25BE98030079C6FE /* venus.jpg */; };
+		116B4DE625BE98030079C6FE /* nepture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DCB25BE98030079C6FE /* nepture.jpg */; };
+		116B4DE725BE98030079C6FE /* venusVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DCC25BE98030079C6FE /* venusVap.mp4 */; };
+		116B4DE825BE98030079C6FE /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DCD25BE98030079C6FE /* mars.jpg */; };
+		116B4DE925BE98030079C6FE /* sature.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DCE25BE98030079C6FE /* sature.jpg */; };
+		116B4DEA25BE98030079C6FE /* launchBgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DCF25BE98030079C6FE /* launchBgm.mp3 */; };
+		116B4DEB25BE98030079C6FE /* marsVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD025BE98030079C6FE /* marsVap.mp4 */; };
+		116B4DEC25BE98030079C6FE /* blackholeVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD125BE98030079C6FE /* blackholeVap.mp4 */; };
+		116B4DED25BE98030079C6FE /* moonVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD225BE98030079C6FE /* moonVap.mp4 */; };
+		116B4DEE25BE98030079C6FE /* earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD325BE98030079C6FE /* earth.jpg */; };
+		116B4DEF25BE98030079C6FE /* blackhole.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD425BE98030079C6FE /* blackhole.jpg */; };
+		116B4DF025BE98030079C6FE /* earthVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD525BE98030079C6FE /* earthVap.mp4 */; };
+		116B4DF125BE98030079C6FE /* moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD625BE98030079C6FE /* moon.jpg */; };
+		116B4DF225BE98030079C6FE /* uranusVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD725BE98030079C6FE /* uranusVap.mp4 */; };
+		116B4DF325BE98030079C6FE /* satureVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD825BE98030079C6FE /* satureVap.mp4 */; };
+		116B4DF425BE98030079C6FE /* neptureVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DD925BE98030079C6FE /* neptureVap.mp4 */; };
+		116B4DF525BE98030079C6FE /* pluto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DDA25BE98030079C6FE /* pluto.jpg */; };
+		116B4DF625BE98030079C6FE /* sedna.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DDB25BE98030079C6FE /* sedna.jpg */; };
+		116B4DF725BE98030079C6FE /* sun.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DDC25BE98030079C6FE /* sun.jpg */; };
+		116B4DF825BE98030079C6FE /* jupitreVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DDD25BE98030079C6FE /* jupitreVap.mp4 */; };
+		116B4DF925BE98030079C6FE /* mercuryVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DDE25BE98030079C6FE /* mercuryVap.mp4 */; };
+		116B4DFA25BE98030079C6FE /* sednaVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DDF25BE98030079C6FE /* sednaVap.mp4 */; };
+		116B4DFB25BE98030079C6FE /* mercury.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DE025BE98030079C6FE /* mercury.jpg */; };
+		116B4DFC25BE98030079C6FE /* sunVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DE125BE98030079C6FE /* sunVap.mp4 */; };
+		116B4DFD25BE98030079C6FE /* plutoVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DE225BE98030079C6FE /* plutoVap.mp4 */; };
+		116B4DFE25BE98030079C6FE /* jupitre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 116B4DE325BE98030079C6FE /* jupitre.jpg */; };
 		11D27C9E25208FC800AE6337 /* NSArray+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D27C9C25208FC800AE6337 /* NSArray+Utils.h */; };
 		11D27C9F25208FC800AE6337 /* NSArray+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D27C9D25208FC800AE6337 /* NSArray+Utils.m */; };
 /* End PBXBuildFile section */
@@ -130,6 +240,116 @@
 		114CCC9B21F831EA00A4646E /* DKHelperSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHelperSettingController.h; sourceTree = "<group>"; };
 		114CCC9E21F8323D00A4646E /* DKGroupFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKGroupFilterController.h; sourceTree = "<group>"; };
 		114CCC9F21F8323D00A4646E /* DKGroupFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKGroupFilterController.m; sourceTree = "<group>"; };
+		116B4CF525BE91980079C6FE /* DKLaunchViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = DKLaunchViewController.m; sourceTree = "<group>"; };
+		116B4CF625BE91980079C6FE /* DKLaunchHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKLaunchHelper.m; sourceTree = "<group>"; };
+		116B4CF725BE91980079C6FE /* DKLaunchHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKLaunchHelper.h; sourceTree = "<group>"; };
+		116B4CF825BE91990079C6FE /* DKLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKLaunchViewController.h; sourceTree = "<group>"; };
+		116B4D1D25BE92460079C6FE /* QGHWDShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGHWDShaderTypes.h; sourceTree = "<group>"; };
+		116B4D1E25BE92460079C6FE /* QGHWDShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = QGHWDShaders.metal; sourceTree = "<group>"; };
+		116B4D1F25BE92460079C6FE /* QGHWDMetalShaderSourceDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGHWDMetalShaderSourceDefine.h; sourceTree = "<group>"; };
+		116B4D2225BE92460079C6FE /* QGMP4Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGMP4Box.m; sourceTree = "<group>"; };
+		116B4D2325BE92460079C6FE /* QGMP4Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGMP4Parser.h; sourceTree = "<group>"; };
+		116B4D2425BE92460079C6FE /* QGMP4Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGMP4Parser.m; sourceTree = "<group>"; };
+		116B4D2525BE92460079C6FE /* QGMP4Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGMP4Box.h; sourceTree = "<group>"; };
+		116B4D2625BE92460079C6FE /* UIView+VAP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VAP.m"; sourceTree = "<group>"; };
+		116B4D2825BE92460079C6FE /* QGVAPMetalShaderFunctionLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPMetalShaderFunctionLoader.m; sourceTree = "<group>"; };
+		116B4D2925BE92460079C6FE /* QGVAPMetalUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPMetalUtil.h; sourceTree = "<group>"; };
+		116B4D2A25BE92460079C6FE /* QGVAPSafeMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPSafeMutableDictionary.h; sourceTree = "<group>"; };
+		116B4D2B25BE92460079C6FE /* QGVAPSafeMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPSafeMutableArray.h; sourceTree = "<group>"; };
+		116B4D2D25BE92460079C6FE /* QGVAPLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPLogger.m; sourceTree = "<group>"; };
+		116B4D2E25BE92460079C6FE /* QGVAPLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPLogger.h; sourceTree = "<group>"; };
+		116B4D2F25BE92460079C6FE /* QGVAPWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPWeakProxy.m; sourceTree = "<group>"; };
+		116B4D3025BE92460079C6FE /* QGVAPMetalUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPMetalUtil.m; sourceTree = "<group>"; };
+		116B4D3125BE92460079C6FE /* QGVAPMetalShaderFunctionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPMetalShaderFunctionLoader.h; sourceTree = "<group>"; };
+		116B4D3225BE92460079C6FE /* QGVAPSafeMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPSafeMutableArray.m; sourceTree = "<group>"; };
+		116B4D3325BE92460079C6FE /* QGVAPSafeMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPSafeMutableDictionary.m; sourceTree = "<group>"; };
+		116B4D3425BE92460079C6FE /* QGVAPWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPWeakProxy.h; sourceTree = "<group>"; };
+		116B4D3625BE92470079C6FE /* NSDictionary+VAPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+VAPUtil.h"; sourceTree = "<group>"; };
+		116B4D3725BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+VAPThreadSafe.m"; sourceTree = "<group>"; };
+		116B4D3825BE92470079C6FE /* NSArray+VAPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+VAPUtil.m"; sourceTree = "<group>"; };
+		116B4D3925BE92470079C6FE /* UIDevice+VAPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+VAPUtil.h"; sourceTree = "<group>"; };
+		116B4D3A25BE92470079C6FE /* UIColor+VAPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VAPUtil.h"; sourceTree = "<group>"; };
+		116B4D3B25BE92470079C6FE /* UIView+MP4HWDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MP4HWDecode.h"; sourceTree = "<group>"; };
+		116B4D3C25BE92470079C6FE /* UIGestureRecognizer+VAPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+VAPUtil.h"; sourceTree = "<group>"; };
+		116B4D3D25BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+VAPThreadSafe.h"; sourceTree = "<group>"; };
+		116B4D3E25BE92470079C6FE /* NSDictionary+VAPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+VAPUtil.m"; sourceTree = "<group>"; };
+		116B4D3F25BE92470079C6FE /* UIDevice+VAPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+VAPUtil.m"; sourceTree = "<group>"; };
+		116B4D4025BE92470079C6FE /* NSArray+VAPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+VAPUtil.h"; sourceTree = "<group>"; };
+		116B4D4125BE92470079C6FE /* UIColor+VAPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VAPUtil.m"; sourceTree = "<group>"; };
+		116B4D4225BE92470079C6FE /* UIView+MP4HWDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MP4HWDecode.m"; sourceTree = "<group>"; };
+		116B4D4325BE92470079C6FE /* UIGestureRecognizer+VAPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+VAPUtil.m"; sourceTree = "<group>"; };
+		116B4D4525BE92470079C6FE /* QGMP4AnimatedImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGMP4AnimatedImageFrame.m; sourceTree = "<group>"; };
+		116B4D4625BE92470079C6FE /* QGBaseDFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGBaseDFileInfo.h; sourceTree = "<group>"; };
+		116B4D4725BE92470079C6FE /* QGVAPMaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPMaskInfo.m; sourceTree = "<group>"; };
+		116B4D4825BE92470079C6FE /* QGBaseAnimatedImageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGBaseAnimatedImageFrame.h; sourceTree = "<group>"; };
+		116B4D4925BE92470079C6FE /* QGVAPTextureLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPTextureLoader.m; sourceTree = "<group>"; };
+		116B4D4A25BE92470079C6FE /* QGMP4HWDFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGMP4HWDFileInfo.m; sourceTree = "<group>"; };
+		116B4D4B25BE92470079C6FE /* QGVAPConfigModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPConfigModel.h; sourceTree = "<group>"; };
+		116B4D4C25BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QGBaseAnimatedImageFrame+Displaying.h"; sourceTree = "<group>"; };
+		116B4D4D25BE92470079C6FE /* QGBaseDFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGBaseDFileInfo.m; sourceTree = "<group>"; };
+		116B4D4E25BE92470079C6FE /* QGMP4AnimatedImageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGMP4AnimatedImageFrame.h; sourceTree = "<group>"; };
+		116B4D4F25BE92470079C6FE /* QGVAPMaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPMaskInfo.h; sourceTree = "<group>"; };
+		116B4D5025BE92470079C6FE /* QGVAPConfigModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPConfigModel.m; sourceTree = "<group>"; };
+		116B4D5125BE92470079C6FE /* QGMP4HWDFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGMP4HWDFileInfo.h; sourceTree = "<group>"; };
+		116B4D5225BE92470079C6FE /* QGVAPTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPTextureLoader.h; sourceTree = "<group>"; };
+		116B4D5325BE92470079C6FE /* QGBaseAnimatedImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGBaseAnimatedImageFrame.m; sourceTree = "<group>"; };
+		116B4D5425BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QGBaseAnimatedImageFrame+Displaying.m"; sourceTree = "<group>"; };
+		116B4D5525BE92470079C6FE /* VAPMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPMacros.h; sourceTree = "<group>"; };
+		116B4D5625BE92470079C6FE /* UIView+VAP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VAP.h"; sourceTree = "<group>"; };
+		116B4D5725BE92470079C6FE /* QGVAPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPlayer.h; sourceTree = "<group>"; };
+		116B4D5925BE92470079C6FE /* QGAnimatedImageDecodeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGAnimatedImageDecodeConfig.m; sourceTree = "<group>"; };
+		116B4D5A25BE92470079C6FE /* QGVAPConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPConfigManager.m; sourceTree = "<group>"; };
+		116B4D5B25BE92470079C6FE /* QGAnimatedImageDecodeThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGAnimatedImageDecodeThread.h; sourceTree = "<group>"; };
+		116B4D5C25BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGAnimatedImageDecodeThreadPool.h; sourceTree = "<group>"; };
+		116B4D5D25BE92470079C6FE /* QGAnimatedImageBufferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGAnimatedImageBufferManager.h; sourceTree = "<group>"; };
+		116B4D5E25BE92470079C6FE /* QGAnimatedImageDecodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGAnimatedImageDecodeManager.h; sourceTree = "<group>"; };
+		116B4D5F25BE92470079C6FE /* QGAnimatedImageDecodeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGAnimatedImageDecodeConfig.h; sourceTree = "<group>"; };
+		116B4D6025BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGAnimatedImageDecodeThreadPool.m; sourceTree = "<group>"; };
+		116B4D6225BE92470079C6FE /* QGBaseDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGBaseDecoder.m; sourceTree = "<group>"; };
+		116B4D6325BE92470079C6FE /* QGMP4FrameHWDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGMP4FrameHWDecoder.m; sourceTree = "<group>"; };
+		116B4D6425BE92470079C6FE /* QGBaseDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGBaseDecoder.h; sourceTree = "<group>"; };
+		116B4D6525BE92470079C6FE /* QGMP4FrameHWDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGMP4FrameHWDecoder.h; sourceTree = "<group>"; };
+		116B4D6625BE92470079C6FE /* QGAnimatedImageDecodeThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGAnimatedImageDecodeThread.m; sourceTree = "<group>"; };
+		116B4D6725BE92470079C6FE /* QGVAPConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPConfigManager.h; sourceTree = "<group>"; };
+		116B4D6825BE92470079C6FE /* QGAnimatedImageBufferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGAnimatedImageBufferManager.m; sourceTree = "<group>"; };
+		116B4D6925BE92470079C6FE /* QGAnimatedImageDecodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGAnimatedImageDecodeManager.m; sourceTree = "<group>"; };
+		116B4D6C25BE92470079C6FE /* QGHWDMetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGHWDMetalView.m; sourceTree = "<group>"; };
+		116B4D6E25BE92470079C6FE /* QGVAPMetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPMetalView.m; sourceTree = "<group>"; };
+		116B4D6F25BE92470079C6FE /* QGVAPMetalRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPMetalRenderer.m; sourceTree = "<group>"; };
+		116B4D7025BE92470079C6FE /* QGVAPMetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPMetalView.h; sourceTree = "<group>"; };
+		116B4D7125BE92470079C6FE /* QGVAPMetalRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPMetalRenderer.h; sourceTree = "<group>"; };
+		116B4D7225BE92470079C6FE /* QGHWDMetalRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGHWDMetalRenderer.m; sourceTree = "<group>"; };
+		116B4D7325BE92470079C6FE /* QGHWDMetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGHWDMetalView.h; sourceTree = "<group>"; };
+		116B4D7425BE92470079C6FE /* QGHWDMetalRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGHWDMetalRenderer.h; sourceTree = "<group>"; };
+		116B4D7625BE92470079C6FE /* QGHWDMP4OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGHWDMP4OpenGLView.m; sourceTree = "<group>"; };
+		116B4D7725BE92470079C6FE /* QGHWDMP4OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGHWDMP4OpenGLView.h; sourceTree = "<group>"; };
+		116B4DC925BE98030079C6FE /* uranus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = uranus.jpg; sourceTree = "<group>"; };
+		116B4DCA25BE98030079C6FE /* venus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = venus.jpg; sourceTree = "<group>"; };
+		116B4DCB25BE98030079C6FE /* nepture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nepture.jpg; sourceTree = "<group>"; };
+		116B4DCC25BE98030079C6FE /* venusVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = venusVap.mp4; sourceTree = "<group>"; };
+		116B4DCD25BE98030079C6FE /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
+		116B4DCE25BE98030079C6FE /* sature.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sature.jpg; sourceTree = "<group>"; };
+		116B4DCF25BE98030079C6FE /* launchBgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = launchBgm.mp3; sourceTree = "<group>"; };
+		116B4DD025BE98030079C6FE /* marsVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = marsVap.mp4; sourceTree = "<group>"; };
+		116B4DD125BE98030079C6FE /* blackholeVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = blackholeVap.mp4; sourceTree = "<group>"; };
+		116B4DD225BE98030079C6FE /* moonVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moonVap.mp4; sourceTree = "<group>"; };
+		116B4DD325BE98030079C6FE /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
+		116B4DD425BE98030079C6FE /* blackhole.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blackhole.jpg; sourceTree = "<group>"; };
+		116B4DD525BE98030079C6FE /* earthVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = earthVap.mp4; sourceTree = "<group>"; };
+		116B4DD625BE98030079C6FE /* moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moon.jpg; sourceTree = "<group>"; };
+		116B4DD725BE98030079C6FE /* uranusVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = uranusVap.mp4; sourceTree = "<group>"; };
+		116B4DD825BE98030079C6FE /* satureVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = satureVap.mp4; sourceTree = "<group>"; };
+		116B4DD925BE98030079C6FE /* neptureVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = neptureVap.mp4; sourceTree = "<group>"; };
+		116B4DDA25BE98030079C6FE /* pluto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pluto.jpg; sourceTree = "<group>"; };
+		116B4DDB25BE98030079C6FE /* sedna.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sedna.jpg; sourceTree = "<group>"; };
+		116B4DDC25BE98030079C6FE /* sun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpg; sourceTree = "<group>"; };
+		116B4DDD25BE98030079C6FE /* jupitreVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = jupitreVap.mp4; sourceTree = "<group>"; };
+		116B4DDE25BE98030079C6FE /* mercuryVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mercuryVap.mp4; sourceTree = "<group>"; };
+		116B4DDF25BE98030079C6FE /* sednaVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sednaVap.mp4; sourceTree = "<group>"; };
+		116B4DE025BE98030079C6FE /* mercury.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mercury.jpg; sourceTree = "<group>"; };
+		116B4DE125BE98030079C6FE /* sunVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sunVap.mp4; sourceTree = "<group>"; };
+		116B4DE225BE98030079C6FE /* plutoVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = plutoVap.mp4; sourceTree = "<group>"; };
+		116B4DE325BE98030079C6FE /* jupitre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jupitre.jpg; sourceTree = "<group>"; };
 		11D27C9C25208FC800AE6337 /* NSArray+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utils.h"; sourceTree = "<group>"; };
 		11D27C9D25208FC800AE6337 /* NSArray+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,10 +442,14 @@
 		114CCC4321F817D500A4646E /* dkhelperDylib */ = {
 			isa = PBXGroup;
 			children = (
+				116B4DC825BE98030079C6FE /* vapFiles */,
+				116B4D1B25BE92460079C6FE /* QGVAPlayer */,
 				114CCC8921F8307500A4646E /* wechatHeaders */,
 				114CCC8821F8306500A4646E /* MyUtils */,
 				114CCC7C21F817D500A4646E /* dkhelperDylib.h */,
 				114CCC7E21F817D500A4646E /* dkhelperDylib.m */,
+				116B4CF825BE91990079C6FE /* DKLaunchViewController.h */,
+				116B4CF525BE91980079C6FE /* DKLaunchViewController.m */,
 				114CCC9B21F831EA00A4646E /* DKHelperSettingController.h */,
 				114CCC9A21F831EA00A4646E /* DKHelperSettingController.m */,
 				114CCC9E21F8323D00A4646E /* DKGroupFilterController.h */,
@@ -321,6 +545,8 @@
 		114CCC8821F8306500A4646E /* MyUtils */ = {
 			isa = PBXGroup;
 			children = (
+				116B4CF725BE91980079C6FE /* DKLaunchHelper.h */,
+				116B4CF625BE91980079C6FE /* DKLaunchHelper.m */,
 				114CCC9621F831D400A4646E /* DKHelperConfig.h */,
 				114CCC9721F831D400A4646E /* DKHelperConfig.m */,
 				114CCC9221F831C200A4646E /* DKHelper.h */,
@@ -342,6 +568,231 @@
 			path = wechatHeaders;
 			sourceTree = "<group>";
 		};
+		116B4D1B25BE92460079C6FE /* QGVAPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D1C25BE92460079C6FE /* Shaders */,
+				116B4D2025BE92460079C6FE /* class */,
+			);
+			path = QGVAPlayer;
+			sourceTree = "<group>";
+		};
+		116B4D1C25BE92460079C6FE /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D1D25BE92460079C6FE /* QGHWDShaderTypes.h */,
+				116B4D1E25BE92460079C6FE /* QGHWDShaders.metal */,
+				116B4D1F25BE92460079C6FE /* QGHWDMetalShaderSourceDefine.h */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		116B4D2025BE92460079C6FE /* class */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D2125BE92460079C6FE /* MP4Parser */,
+				116B4D2625BE92460079C6FE /* UIView+VAP.m */,
+				116B4D2725BE92460079C6FE /* Utils */,
+				116B4D4425BE92470079C6FE /* Models */,
+				116B4D5525BE92470079C6FE /* VAPMacros.h */,
+				116B4D5625BE92470079C6FE /* UIView+VAP.h */,
+				116B4D5725BE92470079C6FE /* QGVAPlayer.h */,
+				116B4D5825BE92470079C6FE /* Controllers */,
+				116B4D6A25BE92470079C6FE /* Views */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
+		116B4D2125BE92460079C6FE /* MP4Parser */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D2225BE92460079C6FE /* QGMP4Box.m */,
+				116B4D2325BE92460079C6FE /* QGMP4Parser.h */,
+				116B4D2425BE92460079C6FE /* QGMP4Parser.m */,
+				116B4D2525BE92460079C6FE /* QGMP4Box.h */,
+			);
+			path = MP4Parser;
+			sourceTree = "<group>";
+		};
+		116B4D2725BE92460079C6FE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D2825BE92460079C6FE /* QGVAPMetalShaderFunctionLoader.m */,
+				116B4D2925BE92460079C6FE /* QGVAPMetalUtil.h */,
+				116B4D2A25BE92460079C6FE /* QGVAPSafeMutableDictionary.h */,
+				116B4D2B25BE92460079C6FE /* QGVAPSafeMutableArray.h */,
+				116B4D2C25BE92460079C6FE /* Logger */,
+				116B4D2F25BE92460079C6FE /* QGVAPWeakProxy.m */,
+				116B4D3025BE92460079C6FE /* QGVAPMetalUtil.m */,
+				116B4D3125BE92460079C6FE /* QGVAPMetalShaderFunctionLoader.h */,
+				116B4D3225BE92460079C6FE /* QGVAPSafeMutableArray.m */,
+				116B4D3325BE92460079C6FE /* QGVAPSafeMutableDictionary.m */,
+				116B4D3425BE92460079C6FE /* QGVAPWeakProxy.h */,
+				116B4D3525BE92470079C6FE /* Categorys */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		116B4D2C25BE92460079C6FE /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D2D25BE92460079C6FE /* QGVAPLogger.m */,
+				116B4D2E25BE92460079C6FE /* QGVAPLogger.h */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		116B4D3525BE92470079C6FE /* Categorys */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D3625BE92470079C6FE /* NSDictionary+VAPUtil.h */,
+				116B4D3725BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.m */,
+				116B4D3825BE92470079C6FE /* NSArray+VAPUtil.m */,
+				116B4D3925BE92470079C6FE /* UIDevice+VAPUtil.h */,
+				116B4D3A25BE92470079C6FE /* UIColor+VAPUtil.h */,
+				116B4D3B25BE92470079C6FE /* UIView+MP4HWDecode.h */,
+				116B4D3C25BE92470079C6FE /* UIGestureRecognizer+VAPUtil.h */,
+				116B4D3D25BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.h */,
+				116B4D3E25BE92470079C6FE /* NSDictionary+VAPUtil.m */,
+				116B4D3F25BE92470079C6FE /* UIDevice+VAPUtil.m */,
+				116B4D4025BE92470079C6FE /* NSArray+VAPUtil.h */,
+				116B4D4125BE92470079C6FE /* UIColor+VAPUtil.m */,
+				116B4D4225BE92470079C6FE /* UIView+MP4HWDecode.m */,
+				116B4D4325BE92470079C6FE /* UIGestureRecognizer+VAPUtil.m */,
+			);
+			path = Categorys;
+			sourceTree = "<group>";
+		};
+		116B4D4425BE92470079C6FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D4525BE92470079C6FE /* QGMP4AnimatedImageFrame.m */,
+				116B4D4625BE92470079C6FE /* QGBaseDFileInfo.h */,
+				116B4D4725BE92470079C6FE /* QGVAPMaskInfo.m */,
+				116B4D4825BE92470079C6FE /* QGBaseAnimatedImageFrame.h */,
+				116B4D4925BE92470079C6FE /* QGVAPTextureLoader.m */,
+				116B4D4A25BE92470079C6FE /* QGMP4HWDFileInfo.m */,
+				116B4D4B25BE92470079C6FE /* QGVAPConfigModel.h */,
+				116B4D4C25BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.h */,
+				116B4D4D25BE92470079C6FE /* QGBaseDFileInfo.m */,
+				116B4D4E25BE92470079C6FE /* QGMP4AnimatedImageFrame.h */,
+				116B4D4F25BE92470079C6FE /* QGVAPMaskInfo.h */,
+				116B4D5025BE92470079C6FE /* QGVAPConfigModel.m */,
+				116B4D5125BE92470079C6FE /* QGMP4HWDFileInfo.h */,
+				116B4D5225BE92470079C6FE /* QGVAPTextureLoader.h */,
+				116B4D5325BE92470079C6FE /* QGBaseAnimatedImageFrame.m */,
+				116B4D5425BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		116B4D5825BE92470079C6FE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D5925BE92470079C6FE /* QGAnimatedImageDecodeConfig.m */,
+				116B4D5A25BE92470079C6FE /* QGVAPConfigManager.m */,
+				116B4D5B25BE92470079C6FE /* QGAnimatedImageDecodeThread.h */,
+				116B4D5C25BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.h */,
+				116B4D5D25BE92470079C6FE /* QGAnimatedImageBufferManager.h */,
+				116B4D5E25BE92470079C6FE /* QGAnimatedImageDecodeManager.h */,
+				116B4D5F25BE92470079C6FE /* QGAnimatedImageDecodeConfig.h */,
+				116B4D6025BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.m */,
+				116B4D6125BE92470079C6FE /* Decoders */,
+				116B4D6625BE92470079C6FE /* QGAnimatedImageDecodeThread.m */,
+				116B4D6725BE92470079C6FE /* QGVAPConfigManager.h */,
+				116B4D6825BE92470079C6FE /* QGAnimatedImageBufferManager.m */,
+				116B4D6925BE92470079C6FE /* QGAnimatedImageDecodeManager.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		116B4D6125BE92470079C6FE /* Decoders */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D6225BE92470079C6FE /* QGBaseDecoder.m */,
+				116B4D6325BE92470079C6FE /* QGMP4FrameHWDecoder.m */,
+				116B4D6425BE92470079C6FE /* QGBaseDecoder.h */,
+				116B4D6525BE92470079C6FE /* QGMP4FrameHWDecoder.h */,
+			);
+			path = Decoders;
+			sourceTree = "<group>";
+		};
+		116B4D6A25BE92470079C6FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D6B25BE92470079C6FE /* Metal */,
+				116B4D7525BE92470079C6FE /* OpenGL */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		116B4D6B25BE92470079C6FE /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D6C25BE92470079C6FE /* QGHWDMetalView.m */,
+				116B4D6D25BE92470079C6FE /* Vapx */,
+				116B4D7225BE92470079C6FE /* QGHWDMetalRenderer.m */,
+				116B4D7325BE92470079C6FE /* QGHWDMetalView.h */,
+				116B4D7425BE92470079C6FE /* QGHWDMetalRenderer.h */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		116B4D6D25BE92470079C6FE /* Vapx */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D6E25BE92470079C6FE /* QGVAPMetalView.m */,
+				116B4D6F25BE92470079C6FE /* QGVAPMetalRenderer.m */,
+				116B4D7025BE92470079C6FE /* QGVAPMetalView.h */,
+				116B4D7125BE92470079C6FE /* QGVAPMetalRenderer.h */,
+			);
+			path = Vapx;
+			sourceTree = "<group>";
+		};
+		116B4D7525BE92470079C6FE /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				116B4D7625BE92470079C6FE /* QGHWDMP4OpenGLView.m */,
+				116B4D7725BE92470079C6FE /* QGHWDMP4OpenGLView.h */,
+			);
+			path = OpenGL;
+			sourceTree = "<group>";
+		};
+		116B4DC825BE98030079C6FE /* vapFiles */ = {
+			isa = PBXGroup;
+			children = (
+				116B4DC925BE98030079C6FE /* uranus.jpg */,
+				116B4DCA25BE98030079C6FE /* venus.jpg */,
+				116B4DCB25BE98030079C6FE /* nepture.jpg */,
+				116B4DCC25BE98030079C6FE /* venusVap.mp4 */,
+				116B4DCD25BE98030079C6FE /* mars.jpg */,
+				116B4DCE25BE98030079C6FE /* sature.jpg */,
+				116B4DCF25BE98030079C6FE /* launchBgm.mp3 */,
+				116B4DD025BE98030079C6FE /* marsVap.mp4 */,
+				116B4DD125BE98030079C6FE /* blackholeVap.mp4 */,
+				116B4DD225BE98030079C6FE /* moonVap.mp4 */,
+				116B4DD325BE98030079C6FE /* earth.jpg */,
+				116B4DD425BE98030079C6FE /* blackhole.jpg */,
+				116B4DD525BE98030079C6FE /* earthVap.mp4 */,
+				116B4DD625BE98030079C6FE /* moon.jpg */,
+				116B4DD725BE98030079C6FE /* uranusVap.mp4 */,
+				116B4DD825BE98030079C6FE /* satureVap.mp4 */,
+				116B4DD925BE98030079C6FE /* neptureVap.mp4 */,
+				116B4DDA25BE98030079C6FE /* pluto.jpg */,
+				116B4DDB25BE98030079C6FE /* sedna.jpg */,
+				116B4DDC25BE98030079C6FE /* sun.jpg */,
+				116B4DDD25BE98030079C6FE /* jupitreVap.mp4 */,
+				116B4DDE25BE98030079C6FE /* mercuryVap.mp4 */,
+				116B4DDF25BE98030079C6FE /* sednaVap.mp4 */,
+				116B4DE025BE98030079C6FE /* mercury.jpg */,
+				116B4DE125BE98030079C6FE /* sunVap.mp4 */,
+				116B4DE225BE98030079C6FE /* plutoVap.mp4 */,
+				116B4DE325BE98030079C6FE /* jupitre.jpg */,
+			);
+			name = vapFiles;
+			path = ../../../../learn/launchDemo/launchDemo/vapFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -349,24 +800,67 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116B4D8125BE92470079C6FE /* QGVAPMetalUtil.h in Headers */,
+				116B4D8325BE92470079C6FE /* QGVAPSafeMutableArray.h in Headers */,
+				116B4DC025BE92470079C6FE /* QGVAPMetalView.h in Headers */,
+				116B4DBA25BE92470079C6FE /* QGVAPConfigManager.h in Headers */,
+				116B4D9125BE92470079C6FE /* UIView+MP4HWDecode.h in Headers */,
+				116B4DAB25BE92470079C6FE /* UIView+VAP.h in Headers */,
 				114CCC7D21F817D500A4646E /* dkhelperDylib.h in Headers */,
+				116B4DAF25BE92470079C6FE /* QGAnimatedImageDecodeThread.h in Headers */,
 				114CCC4E21F817D500A4646E /* MDCycriptManager.h in Headers */,
+				116B4D8C25BE92470079C6FE /* NSDictionary+VAPUtil.h in Headers */,
+				116B4D7C25BE92470079C6FE /* QGMP4Parser.h in Headers */,
+				116B4D8F25BE92470079C6FE /* UIDevice+VAPUtil.h in Headers */,
 				114CCC5221F817D500A4646E /* MDMethodTrace.h in Headers */,
 				114CCC9821F831D400A4646E /* DKHelperConfig.h in Headers */,
 				114CCC8B21F830C800A4646E /* MMUICommonUtil.h in Headers */,
+				116B4DB825BE92470079C6FE /* QGMP4FrameHWDecoder.h in Headers */,
+				116B4D7A25BE92470079C6FE /* QGHWDMetalShaderSourceDefine.h in Headers */,
+				116B4D9025BE92470079C6FE /* UIColor+VAPUtil.h in Headers */,
+				116B4DAA25BE92470079C6FE /* VAPMacros.h in Headers */,
 				114CCCA021F8323E00A4646E /* DKGroupFilterController.h in Headers */,
+				116B4DC625BE92470079C6FE /* QGHWDMP4OpenGLView.h in Headers */,
+				116B4DC325BE92470079C6FE /* QGHWDMetalView.h in Headers */,
+				116B4DB225BE92470079C6FE /* QGAnimatedImageDecodeManager.h in Headers */,
+				116B4DB725BE92470079C6FE /* QGBaseDecoder.h in Headers */,
 				114CCC9421F831C200A4646E /* DKHelper.h in Headers */,
+				116B4DC125BE92470079C6FE /* QGVAPMetalRenderer.h in Headers */,
+				116B4DA125BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.h in Headers */,
 				114CCC9021F830D200A4646E /* WechatHeaders.h in Headers */,
+				116B4D7E25BE92470079C6FE /* QGMP4Box.h in Headers */,
 				114CCC9D21F831EB00A4646E /* DKHelperSettingController.h in Headers */,
 				11D27C9E25208FC800AE6337 /* NSArray+Utils.h in Headers */,
+				116B4CFB25BE91990079C6FE /* DKLaunchHelper.h in Headers */,
+				116B4DA425BE92470079C6FE /* QGVAPMaskInfo.h in Headers */,
 				114CCC8F21F830D200A4646E /* WCUIAlertView.h in Headers */,
+				116B4D8225BE92470079C6FE /* QGVAPSafeMutableDictionary.h in Headers */,
+				116B4DA625BE92470079C6FE /* QGMP4HWDFileInfo.h in Headers */,
+				116B4DA325BE92470079C6FE /* QGMP4AnimatedImageFrame.h in Headers */,
+				116B4DA025BE92470079C6FE /* QGVAPConfigModel.h in Headers */,
 				114CCC7B21F817D500A4646E /* fishhook.h in Headers */,
+				116B4DAC25BE92470079C6FE /* QGVAPlayer.h in Headers */,
 				114CCC6F21F817D500A4646E /* LLDBTools.h in Headers */,
+				116B4D8825BE92470079C6FE /* QGVAPMetalShaderFunctionLoader.h in Headers */,
 				114CCC4A21F817D500A4646E /* MDConfigManager.h in Headers */,
 				114CCC6921F817D500A4646E /* OCSelectorTrampolines.h in Headers */,
+				116B4DC425BE92470079C6FE /* QGHWDMetalRenderer.h in Headers */,
+				116B4D8B25BE92470079C6FE /* QGVAPWeakProxy.h in Headers */,
+				116B4D8525BE92470079C6FE /* QGVAPLogger.h in Headers */,
+				116B4D9D25BE92470079C6FE /* QGBaseAnimatedImageFrame.h in Headers */,
+				116B4DB025BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.h in Headers */,
 				114CCC9121F830D200A4646E /* UiUtil.h in Headers */,
+				116B4D9B25BE92470079C6FE /* QGBaseDFileInfo.h in Headers */,
+				116B4D9225BE92470079C6FE /* UIGestureRecognizer+VAPUtil.h in Headers */,
 				1138B1C7251D9049008A6629 /* DKCleanFriendsController.h in Headers */,
+				116B4D9625BE92470079C6FE /* NSArray+VAPUtil.h in Headers */,
+				116B4DB125BE92470079C6FE /* QGAnimatedImageBufferManager.h in Headers */,
+				116B4D9325BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.h in Headers */,
+				116B4DB325BE92470079C6FE /* QGAnimatedImageDecodeConfig.h in Headers */,
 				114CCC6521F817D500A4646E /* OCMethodTrace.h in Headers */,
+				116B4DA725BE92470079C6FE /* QGVAPTextureLoader.h in Headers */,
+				116B4D7825BE92470079C6FE /* QGHWDShaderTypes.h in Headers */,
+				116B4CFC25BE91990079C6FE /* DKLaunchViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +947,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				114CCC2F21F817D500A4646E /* MDConfig.plist in Resources */,
+				116B4DF825BE98030079C6FE /* jupitreVap.mp4 in Resources */,
+				116B4DF225BE98030079C6FE /* uranusVap.mp4 in Resources */,
+				116B4DF125BE98030079C6FE /* moon.jpg in Resources */,
+				116B4DEC25BE98030079C6FE /* blackholeVap.mp4 in Resources */,
+				116B4DFE25BE98030079C6FE /* jupitre.jpg in Resources */,
+				116B4DFA25BE98030079C6FE /* sednaVap.mp4 in Resources */,
+				116B4DFB25BE98030079C6FE /* mercury.jpg in Resources */,
+				116B4DF325BE98030079C6FE /* satureVap.mp4 in Resources */,
+				116B4DF025BE98030079C6FE /* earthVap.mp4 in Resources */,
+				116B4DE725BE98030079C6FE /* venusVap.mp4 in Resources */,
+				116B4DFD25BE98030079C6FE /* plutoVap.mp4 in Resources */,
+				116B4DF425BE98030079C6FE /* neptureVap.mp4 in Resources */,
+				116B4DE925BE98030079C6FE /* sature.jpg in Resources */,
+				116B4DE625BE98030079C6FE /* nepture.jpg in Resources */,
+				116B4DEA25BE98030079C6FE /* launchBgm.mp3 in Resources */,
+				116B4DFC25BE98030079C6FE /* sunVap.mp4 in Resources */,
+				116B4DF925BE98030079C6FE /* mercuryVap.mp4 in Resources */,
+				116B4DE525BE98030079C6FE /* venus.jpg in Resources */,
+				116B4DED25BE98030079C6FE /* moonVap.mp4 in Resources */,
+				116B4DF525BE98030079C6FE /* pluto.jpg in Resources */,
+				116B4DEE25BE98030079C6FE /* earth.jpg in Resources */,
+				116B4DF725BE98030079C6FE /* sun.jpg in Resources */,
+				116B4DF625BE98030079C6FE /* sedna.jpg in Resources */,
+				116B4DE825BE98030079C6FE /* mars.jpg in Resources */,
+				116B4DEB25BE98030079C6FE /* marsVap.mp4 in Resources */,
+				116B4DE425BE98030079C6FE /* uranus.jpg in Resources */,
+				116B4DEF25BE98030079C6FE /* blackhole.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,28 +1045,68 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116B4D7925BE92470079C6FE /* QGHWDShaders.metal in Sources */,
+				116B4D9725BE92470079C6FE /* UIColor+VAPUtil.m in Sources */,
+				116B4DC225BE92470079C6FE /* QGHWDMetalRenderer.m in Sources */,
+				116B4DB925BE92470079C6FE /* QGAnimatedImageDecodeThread.m in Sources */,
 				114CCC5021F817D500A4646E /* MDCycriptManager.m in Sources */,
+				116B4DA525BE92470079C6FE /* QGVAPConfigModel.m in Sources */,
+				116B4DA225BE92470079C6FE /* QGBaseDFileInfo.m in Sources */,
 				114CCC5921F817D500A4646E /* a1a2-selectortramps-arm64.s in Sources */,
 				114CCC5721F817D500A4646E /* a1a2-selectortramps-arm.s in Sources */,
+				116B4DBF25BE92470079C6FE /* QGVAPMetalRenderer.m in Sources */,
+				116B4D9C25BE92470079C6FE /* QGVAPMaskInfo.m in Sources */,
 				114CCC5D21F817D500A4646E /* a1a2-selectortramps-x86_64.s in Sources */,
+				116B4D9825BE92470079C6FE /* UIView+MP4HWDecode.m in Sources */,
+				116B4DB425BE92470079C6FE /* QGAnimatedImageDecodeThreadPool.m in Sources */,
 				11D27C9F25208FC800AE6337 /* NSArray+Utils.m in Sources */,
 				114CCC6721F817D500A4646E /* OCMethodTrace.m in Sources */,
+				116B4D9525BE92470079C6FE /* UIDevice+VAPUtil.m in Sources */,
+				116B4D9A25BE92470079C6FE /* QGMP4AnimatedImageFrame.m in Sources */,
+				116B4D8A25BE92470079C6FE /* QGVAPSafeMutableDictionary.m in Sources */,
 				114CCC9921F831D400A4646E /* DKHelperConfig.m in Sources */,
+				116B4D8D25BE92470079C6FE /* NSNotificationCenter+VAPThreadSafe.m in Sources */,
+				116B4DBD25BE92470079C6FE /* QGHWDMetalView.m in Sources */,
+				116B4D9925BE92470079C6FE /* UIGestureRecognizer+VAPUtil.m in Sources */,
 				114CCC4C21F817D500A4646E /* MDConfigManager.m in Sources */,
 				114CCC9C21F831EB00A4646E /* DKHelperSettingController.m in Sources */,
 				1138B1C8251D9049008A6629 /* DKCleanFriendsController.m in Sources */,
+				116B4DBE25BE92470079C6FE /* QGVAPMetalView.m in Sources */,
 				114CCC7921F817D500A4646E /* fishhook.c in Sources */,
+				116B4D8725BE92470079C6FE /* QGVAPMetalUtil.m in Sources */,
+				116B4DC525BE92470079C6FE /* QGHWDMP4OpenGLView.m in Sources */,
 				114CCC7621F817D500A4646E /* AntiAntiDebug.m in Sources */,
+				116B4DBC25BE92470079C6FE /* QGAnimatedImageDecodeManager.m in Sources */,
+				116B4D9E25BE92470079C6FE /* QGVAPTextureLoader.m in Sources */,
+				116B4DA925BE92470079C6FE /* QGBaseAnimatedImageFrame+Displaying.m in Sources */,
+				116B4DB525BE92470079C6FE /* QGBaseDecoder.m in Sources */,
+				116B4DB625BE92470079C6FE /* QGMP4FrameHWDecoder.m in Sources */,
+				116B4D8E25BE92470079C6FE /* NSArray+VAPUtil.m in Sources */,
 				114CCC6B21F817D500A4646E /* OCSelectorTrampolines.mm in Sources */,
+				116B4D8025BE92470079C6FE /* QGVAPMetalShaderFunctionLoader.m in Sources */,
+				116B4DAD25BE92470079C6FE /* QGAnimatedImageDecodeConfig.m in Sources */,
 				114CCC5B21F817D500A4646E /* a1a2-selectortramps-i386.s in Sources */,
+				116B4D7F25BE92470079C6FE /* UIView+VAP.m in Sources */,
 				114CCC6121F817D500A4646E /* a2a3-selectortramps-i386.s in Sources */,
+				116B4CFA25BE91990079C6FE /* DKLaunchHelper.m in Sources */,
+				116B4D7B25BE92470079C6FE /* QGMP4Box.m in Sources */,
+				116B4D8925BE92470079C6FE /* QGVAPSafeMutableArray.m in Sources */,
+				116B4D8625BE92470079C6FE /* QGVAPWeakProxy.m in Sources */,
 				114CCC5F21F817D500A4646E /* a2a3-selectortramps-arm.s in Sources */,
 				114CCCA121F8323E00A4646E /* DKGroupFilterController.m in Sources */,
+				116B4DBB25BE92470079C6FE /* QGAnimatedImageBufferManager.m in Sources */,
+				116B4D9425BE92470079C6FE /* NSDictionary+VAPUtil.m in Sources */,
 				114CCC7F21F817D500A4646E /* dkhelperDylib.m in Sources */,
+				116B4D9F25BE92470079C6FE /* QGMP4HWDFileInfo.m in Sources */,
 				114CCC4721F817D500A4646E /* dkhelperDylib.mm in Sources */,
 				114CCC9521F831C200A4646E /* DKHelper.m in Sources */,
+				116B4CF925BE91990079C6FE /* DKLaunchViewController.m in Sources */,
 				114CCC7121F817D500A4646E /* LLDBTools.mm in Sources */,
 				114CCC6321F817D500A4646E /* a2a3-selectortramps-x86_64.s in Sources */,
+				116B4DAE25BE92470079C6FE /* QGVAPConfigManager.m in Sources */,
+				116B4D8425BE92470079C6FE /* QGVAPLogger.m in Sources */,
+				116B4D7D25BE92470079C6FE /* QGMP4Parser.m in Sources */,
+				116B4DA825BE92470079C6FE /* QGBaseAnimatedImageFrame.m in Sources */,
 				114CCC5421F817D500A4646E /* MDMethodTrace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -703,6 +1264,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/dkhelper/Info.plist";
 				INSTALL_PATH = "@executable_path/Frameworks/libdkhelperDylib.dylib";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -730,8 +1292,10 @@
 					"-framework",
 					RevealServer,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dkjone.dkhelper2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
 			};
@@ -767,6 +1331,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/dkhelper/Info.plist";
 				INSTALL_PATH = "@executable_path/Frameworks/libdkhelperDylib.dylib";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -791,8 +1356,10 @@
 					"-weak_library",
 					"$(MonkeyDevPath)/Frameworks/libsubstrate.dylib",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dkjone.dkhelper2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -801,9 +1368,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NL54V6A3P5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = dkhelper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 7.0.17;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
 				MONKEYDEV_CLASS_DUMP = NO;
@@ -813,7 +1382,7 @@
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dkjone.test11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dkjone.dkhelper1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -823,9 +1392,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NL54V6A3P5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = dkhelper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 7.0.17;
 				MONKEYDEV_ADD_SUBSTRATE = YES;
 				MONKEYDEV_CLASS_DUMP = NO;
@@ -835,7 +1406,7 @@
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dkjone.test11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dkjone.dkhelper1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

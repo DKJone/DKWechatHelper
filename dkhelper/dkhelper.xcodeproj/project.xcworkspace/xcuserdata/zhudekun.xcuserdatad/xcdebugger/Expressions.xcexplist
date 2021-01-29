@@ -17,6 +17,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[DKHelperSettingController createCheckGroupe]:DKHelperSettingController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "DKHelper.allFriends ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "__45-[DKHelperSettingController testCreateGroupe]_block_invoke.469:DKHelperSettingController.m">
          <PersistentStrings>
             <PersistentString

@@ -58,7 +58,7 @@
     [manager addTableViewToSuperView:self.view];
     manager.tableView.frame = tableFrame;
     self.view.backgroundColor = [DKHelper backgroundColor];
-    [m_MMLoadingView setLabelText:@"正在检测..."];
+    [m_MMLoadingView setText:@"正在检测..."];
     [self.view addSubview:m_MMLoadingView];
     [self reloadTableData];
     self.navigationItem.leftBarButtonItem = [DKHelper leftNavigationItem];
@@ -123,6 +123,11 @@
     //消息防撤回
     WCTableViewCellManager *revokeInterceptCell = [DKHelper switchCellWithSel:@selector(revokeIntercept:) target:self title:@"消息防撤回" switchOn:[DKHelperConfig preventRevoke]];
     [toBeNO1Section addCell:revokeInterceptCell];
+    //动态聊天背景和启动图
+    WCTableViewCellManager *setLaunchCell = [DKHelper switchCellWithSel:@selector(setLaunch:) target:self title:@"动态启动图" switchOn:[DKHelperConfig dkLaunchEnable]];
+    [toBeNO1Section addCell:setLaunchCell];
+    WCTableViewCellManager *setChatBgCell = [DKHelper switchCellWithSel:@selector(setChatBg:) target:self title:@"动态聊天背景" switchOn:[DKHelperConfig dkChatBgEnable]];
+    [toBeNO1Section addCell:setChatBgCell];
     //步数修改
     WCTableViewCellManager *changeStepsCell = [DKHelper switchCellWithSel:@selector(changedSteps:) target:self title:@"修改微信步数" switchOn:[DKHelperConfig changeSteps]];
     [toBeNO1Section addCell:changeStepsCell];
@@ -260,6 +265,27 @@
 
 - (void)revokeIntercept:(UISwitch *)sender{
     DKHelperConfig.preventRevoke = sender.isOn;
+}
+
+- (void)setLaunch:(UISwitch *)sender{
+    DKHelperConfig.dkLaunchEnable = sender.isOn;
+    if(sender.isOn){
+        DKLaunchViewController *launchVC = [[DKLaunchViewController alloc] init];
+        launchVC.setType = 1;
+        launchVC.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:launchVC animated:true completion:nil];
+    }
+}
+- (void)setChatBg:(UISwitch *)sender{
+    DKHelperConfig.dkChatBgEnable = sender.isOn;
+    if(sender.isOn){
+        [DKHelper showAlertWithTitle:@"提示" message:@"设置动态背景时，需要确保不使用默认聊天背景才能生效。请在设置->通用->聊天背景 里修改，可修改为任意非默认聊天背景" btnTitle:@"你在教我做事?" handler:^(UIButton *sender) {
+            DKLaunchViewController *launchVC = [[DKLaunchViewController alloc] init];
+            launchVC.setType = 2;
+            launchVC.modalPresentationStyle = UIModalPresentationFullScreen;
+            [self presentViewController:launchVC animated:true completion:nil];
+        }];
+    }
 }
 
 - (void)forwardTimeline:(UISwitch *)sender{

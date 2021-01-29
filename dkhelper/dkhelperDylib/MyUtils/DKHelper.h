@@ -16,7 +16,8 @@
 #import "DKHelperConfig.h"
 #import <UIKit/UIKit.h>
 #import "NSArray+Utils.h"
-
+#import "DKLaunchHelper.h"
+#import "DKLaunchViewController.h"
 //MARK: - quick objc finds
 #define FUiUtil objc_getClass("UiUtil")
 #define FMMUICommonUtil objc_getClass("MMUICommonUtil")
@@ -44,6 +45,7 @@ typedef void(^BtnBlock)(UIButton *sender);
 @property (nonatomic,strong)CContact *groupContact;
 
 @property (nonatomic,strong)dispatch_group_t checkFriendGroup;
+
 
 /// 结束好友检测
 + (void)endCheck;

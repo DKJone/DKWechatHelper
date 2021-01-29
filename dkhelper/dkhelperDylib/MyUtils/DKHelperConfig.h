@@ -106,6 +106,23 @@ NS_ASSUME_NONNULL_BEGIN
 +(BOOL)cleanFriendsEnable;
 +(void)setCleanFriendsEnable:(BOOL)value;
 
+/// 启用动态启动图
++(BOOL)dkLaunchEnable;
++(void)setDkLaunchEnable:(BOOL)value;
+
+/// 启用动态聊天背景
++(BOOL)dkChatBgEnable;
++(void)setDkChatBgEnable:(BOOL)value;
+
+
+/// 启动图index
++(NSNumber *)dkLaunchIndex;
++(void)setDkLaunchIndex:(NSNumber *)value;
+
+/// 聊天背景index
++(NSNumber *)dkChatBGIndex;
++(void)setDkChatBGIndex:(NSNumber *)value;
+
 
 @end
 

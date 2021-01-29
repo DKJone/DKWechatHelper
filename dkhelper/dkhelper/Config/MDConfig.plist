@@ -144,7 +144,7 @@
 				<key>TraceFlag</key>
 				<integer>1</integer>
 			</dict>
-			<key>CMessageMgr1</key>
+			<key>CMessageMgr</key>
 			<dict>
 				<key>TraceMode</key>
 				<integer>1</integer>

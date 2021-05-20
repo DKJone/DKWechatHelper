@@ -22,6 +22,8 @@
 @property (nonatomic,strong)UIView *animaView;
 @property (nonatomic,assign)int animaIndex ;
 @property (nonatomic,assign)BOOL hasNext ;
+/// 点击跳过动画，已切换到下个视图
+@property (nonatomic,assign)BOOL hasExit ;
 @property (nonatomic,strong)UILabel *textLabel;
 @end
 
@@ -93,7 +95,10 @@
 
 
 - (void)showControl{
-    if (self.setType == 0){[self goNextVC];}
+    if (self.setType == 0){
+        [self goNextVC];
+        self.hasExit = true;
+    }
     [UIView animateWithDuration:0.25 animations:^{
         int alpha = ceil(self.controlView.alpha);
         self.controlView.alpha = (alpha + 1) % 2;
@@ -162,6 +167,7 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (self.setType == 0){
+            if (self.hasExit){return;}
             [self goNextVC];
             return;
         }
@@ -175,7 +181,7 @@
     UIWindow *window = UIApplication.sharedApplication.keyWindow;
     window.rootViewController = nil;
     [UIApplication.sharedApplication.keyWindow setHidden:true];
-    [UIApplication.sharedApplication.delegate.window makeKeyAndVisible];
+    [UIApplication.sharedApplication.keyWindow makeKeyAndVisible];
 }
 
 @end

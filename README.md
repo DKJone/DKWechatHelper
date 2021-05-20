@@ -2,6 +2,7 @@
  
 不止于抢红包，功能丰富的微信插件。本软件已成功运行在(iphone7-iphone12、iPad) 
 给个⭐️不迷路↗️   
+[v1.0.8](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.8)适用微信8.0.6  
 [v1.0.7](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.7)适用微信8.0.1  
 [v1.0.6](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.6)适用微信7.0.17  
 [v1.0.5](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.5)适用微信7.0.15  
@@ -44,6 +45,7 @@
 ⚠️⚠️⚠️下载默认密码：`dkjone`    
 1.源码学习   
     下载本项目，下载砸壳后的微信（7.0以上）（我给你准备了个) 
+* [8.0.6](https://n802.com/f/24576815-496573913-9ce385)   
 * [8.0.1](https://n802.com/f/24576815-480279421-6c84b9) 
 * [7.0.17](https://n802.com/file/24576815-467161527)  
 * [7.0.15](https://n802.com/file/24576815-463029595)  
@@ -58,12 +60,13 @@
 
 2.开发者：   
     下载以下ipa后重签名应用：
+* [未签名版8.0.6](https://n802.com/f/24576815-496574216-b01bf7)  
 * [未签名版8.0.1](https://n802.com/f/24576815-480300249-d79448)  
 * [未签名版7.0.17](https://n802.com/file/24576815-467161662)     
 * [未签名版7.0.15](https://n802.com/file/24576815-463034104)
 * [未签名版7.0.14](https://n802.com/file/24576815-452232682) 
 * [未签名版7.0.13-*提取码: fhes*](https://pan.baidu.com/s/1DgSl5u0Gip3cNdqZmRFEWw) 
-* [未签名版7.0.11-*提取码: fe9f*](https://pan.baidu.com/s/1sOPCqnCPxSdIKq7TKuHK9g)  
+* [未签名版7.0.11-*提取码: fe9f*](https://pan.baidu.com/s/1sOPCqnCPxSdIKq7TKuHK9g)    
 * [未签名版7.0.0](https://pan.baidu.com/s/1-zEUQRGn3H4bZVqHpyffzQ)    
    
    注：推荐使用[ios-app-signer](https://github.com/DanTheMan827/ios-app-signer)签名，使用方法自行百度  
@@ -73,7 +76,8 @@
     下载后使用 [Cydia Impactor](http://www.cydiaimpactor.com/)或者`爱思助手`或者[AltStore](https://github.com/rileytestut/AltStore)安装  
     
 4.越狱用户：  
-添加源`https://dkjone.github.io/`下载  
+添加源`https://dkjone.github.io/`下载    
+[1.0.8deb](https://n802.com/f/24576815-496575548-fa5b89)  ,  [其他deb下载地址](https://gitee.com/DKJone/dkjone.github.io/tree/master/debs)
 
 
 ### 请我喝杯☕️     

@@ -1,4 +1,12 @@
 # DKWechatHelper ChangeLog
+[v1.0.7](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.8) / 2021-05-20  
+what's new  
+* 动态启动图黑屏修复(#65)
+* 支持8.0.6  
+* 更新越狱包8.0.6 
+* 更新已注入助手的8.0.6未签名包
+* 更新越狱源安装包  
+
 [v1.0.7](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.7) / 2021-01-29  
 what's new  
 * 动态启动图

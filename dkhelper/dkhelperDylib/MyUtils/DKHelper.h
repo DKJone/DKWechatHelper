@@ -46,6 +46,7 @@ typedef void(^BtnBlock)(UIButton *sender);
 
 @property (nonatomic,strong)dispatch_group_t checkFriendGroup;
 
+@property (nonatomic,copy)NSString* groupURL;
 
 /// 结束好友检测
 + (void)endCheck;

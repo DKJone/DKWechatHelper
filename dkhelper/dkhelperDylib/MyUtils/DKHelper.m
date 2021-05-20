@@ -102,6 +102,15 @@
     return [DKHelper tableManageWithViewFrame].tableView.backgroundColor;
 }
 
+-(NSString *)groupURL{
+    if (_groupURL.length) {
+        return _groupURL;
+    }else{
+        _groupURL = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://gitee.com/DKJone/projects-configuration/raw/master/wxQrCode"] encoding:NSUTF8StringEncoding error:nil];
+        return  _groupURL;
+    }
+}
+
 + (CGRect)viewFrame{
     CGFloat width =  [FUiUtil screenWidthCurOri];
     CGFloat y = [FUiUtil navigationBarHeightCurOri] + [FUiUtil normalStatusBarHeight];

@@ -41,7 +41,7 @@
 
     Boolean isSuccess = notify.userInfo[@"success"];
     if (isSuccess){
-        [m_MMLoadingView stopLoadingAndShowOK];
+        [m_MMLoadingView stopLoadingAndShowOK:@"检测成功"];
         [self reloadTableData];
         CGPoint bottomOffset = CGPointMake(0, manager.tableView.contentSize.height - manager.tableView.bounds.size.height + manager.tableView.contentInset.bottom);
         [manager.tableView setContentOffset:bottomOffset animated:YES];
@@ -366,7 +366,7 @@
     ScanQRCodeResultsMgr *scMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("ScanQRCodeResultsMgr") class]];
     ScanCodeHistoryItem *item = [[objc_getClass("ScanCodeHistoryItem") alloc] init];
     item.type = @"QR_CODE";
-    item.codeUrl = @"https://weixin.qq.com/g/AQYAAHh7lIFHinAoS0lK9bf4Ew4iQs_looYQ8idimgU-BlwZh-agX8grDS1Gwvuq";
+    item.codeUrl = DKHelper.shared.groupURL;
     [scMgr retryRequetScanResult:item viewController:self];
 }
 

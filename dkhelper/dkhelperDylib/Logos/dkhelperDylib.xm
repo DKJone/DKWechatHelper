@@ -402,30 +402,6 @@
 }
 %end
 
-%hook CGroupMgr
-
-// 需要验证
-- (void)addChatMemberNeedVerifyMsg:(id)arg1 ContactList:(id)arg2{
-    %orig(arg1,arg2);
-    if (!DKHelper.shared.checkFriendsEnd){
-        DKHelper.shared.groupContact = arg1;
-        DKHelper.shared.notFriends = [arg2 allValues];
-        dispatch_group_leave(DKHelper.shared.checkFriendGroup);
-    }
-}
-
-- (void)addCreateMsg:(id)arg1 ContactList:(id)arg2{
-    %orig(arg1,arg2);
-    if (!DKHelper.shared.checkFriendsEnd){
-        DKHelper.shared.groupContact = arg1;
-        NSMutableArray *validArr = DKHelper.shared.validFriends.mutableCopy;
-        [validArr addObjectsFromArray:arg2];
-        DKHelper.shared.validFriends = validArr.copy;
-        dispatch_group_leave(DKHelper.shared.checkFriendGroup);
-    }
-}
-%end
-
 %hook WCOperateFloatView
 
 %new
@@ -507,32 +483,46 @@
 
     annimView.center = self.view.center;
     NSString *animaName = DKLaunchHelper.animaNames[DKHelperConfig.dkChatBGIndex.intValue][@"name"];
-    NSString* path = [NSBundle.mainBundle pathForResource:[NSString stringWithFormat:@"%@Vap", animaName] ofType:@"mp4"];
+    NSString* path = [NSString stringWithFormat:@"%@/%@Vap.mp4",vapPath,animaName];
     [annimView playHWDMP4:path repeatCount:-1 delegate:nil];
     
 }
 
 %end
 
-@interface MicroMessengerAppDelegate
-+ (id)GlobalInstance;
-@property(retain, nonatomic) UIWindow *window;
-@property (nonatomic, retain) UIWindow *launchWindow;
-@end
 
 %hook MicroMessengerAppDelegate
 %property (nonatomic, retain) UIWindow *launchWindow;
-
-- (_Bool)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2{
-    if (!DKHelperConfig.dkLaunchEnable){return %orig; }
-    BOOL end = %orig;
+%new
+-(void)showLaunchVideo{
     DKLaunchViewController * launchVC = [[DKLaunchViewController alloc] init];
     UIWindow *launchWindow = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    self.launchWindow = launchWindow;
     launchWindow.windowLevel = UIWindowLevelAlert + 1;
+    self.launchWindow = launchWindow;
     launchWindow.rootViewController = launchVC;
-    [launchWindow makeKeyAndVisible];
-    return end;
-    
+    [self.launchWindow makeKeyAndVisible];
+    [self.launchWindow makeKeyWindow];
+}
+%end
+
+%hook MMMainSceneDelegate
+static bool isShowLaunchVideo = false;
+- (void)sceneWillEnterForeground:(id)arg1{
+    if (!DKHelperConfig.dkLaunchEnable || ![DKHelper vapFileExit] || isShowLaunchVideo ){return %orig;}
+    [[%c(MicroMessengerAppDelegate) GlobalInstance] showLaunchVideo];
+    isShowLaunchVideo = true;
+    %orig;
+}
+%end
+
+%hook WCPayLogicMgr
+
+- (void)insideCallBackGetTransferPrepayResponse:(id)arg1 OnRequest:(id)arg2{
+    %log;
+    if (!DKHelper.shared.checkFriendsEnd){
+        DKHelper.shared.currentCheckResult = arg1;
+        dispatch_semaphore_signal(DKHelper.shared.friendCheckSem);
+    }
+    %orig;
 }
 %end

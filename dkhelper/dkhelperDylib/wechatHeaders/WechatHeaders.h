@@ -472,6 +472,13 @@
 
 @end
 
+@interface MicroMessengerAppDelegate
++ (MicroMessengerAppDelegate *)GlobalInstance;
+@property(retain, nonatomic) UIWindow *window;
+@property (nonatomic, retain) UIWindow *launchWindow;
+-(void)showLaunchVideo;
+@end
+
 @interface WCOperateFloatView : UIView{
     UIImageView *m_lineView;
 }
@@ -494,6 +501,149 @@
 - (void)forwordTimeLine:(id)arg1;
 
 @end
+
+@interface WCPayTransferPrepayRequestStruct : NSObject
+
+@property(retain, nonatomic) NSString *placeorderReserves;
+@property(nonatomic) unsigned int m_uiPayChannel;
+@property(nonatomic) int m_transferScene;
+@property(retain, nonatomic) NSString *m_nsProducetDesc;
+@property(nonatomic) unsigned int m_uiPayScene;
+@property(nonatomic) unsigned long long m_uiTotalFee;
+@property(nonatomic) unsigned int m_uiFeeType;
+@property(retain, nonatomic) NSString *m_nsReceiverUserName;
+@end
+
+@interface WCPayLogicMgr:NSObject
+- (void)GetTransferPrepayRequest:(id)arg1;
+@end
+
+ //MARK: - imagePicker
+@class EditImageAttr, MMAsset, MMImagePickerController, NSArray, NSDictionary, SightDraft, UINavigationController, WCFinderDataItem, WCFinderReportPostStateModel;
+@protocol MMImagePickerControllerDelegate <NSObject>
+@optional
+- (void)onImagePickerControllerClickPostFinderLongVideoWithPostStateModel:(WCFinderReportPostStateModel *)arg1;
+- (void)MMImagePickerController:(MMImagePickerController *)arg1 didFinishPickingImageWithEditImageAttr:(EditImageAttr *)arg2;
+- (void)MMVideoPickerController:(UINavigationController *)arg1 didFinishPickingVideoWithAsset:(MMAsset *)arg2;
+- (void)MMVideoPickerController:(UINavigationController *)arg1 didFinishPickingSightWithInfo:(SightDraft *)arg2;
+- (void)MMVideoPickerController:(UINavigationController *)arg1 didFinishPickingMediaWithInfo:(NSDictionary *)arg2;
+- (void)MMImagePickerControllerDidSkip:(MMImagePickerController *)arg1;
+- (void)MMImagePickerControllerDidCancel:(MMImagePickerController *)arg1;
+- (void)MMImagePickerManager:(UINavigationController *)arg1 didFinishPickingAssetWithDataItem:(WCFinderDataItem *)arg2 GPSInfoArrayOfAsset:(NSArray *)arg3 dataReportModel:(WCFinderReportPostStateModel *)arg4;
+- (void)MMImagePickerController:(MMImagePickerController *)arg1 didFailToPickAssets:(NSArray *)arg2;
+- (void)MMImagePickerController:(MMImagePickerController *)arg1 didFinishPickingMediaWithInfo:(NSArray *)arg2;
+@end
+
+@class EditImageLogicController, EditVideoLogicController, MMAssetPickerController, MMImagePickerControllerPreviewReportObject, MMNearbyAssetPickerViewController, NSArray, NSString, WCFinderEditOptionModel;
+@protocol MMImagePickerControllerDelegate;
+
+@interface MMImagePickerController : MMUINavigationController
+
+@property(nonatomic) unsigned long long enterTime; // @synthesize enterTime=_enterTime;
+@property(nonatomic) __weak MMNearbyAssetPickerViewController *nearbyAssetPicker; // @synthesize nearbyAssetPicker=_nearbyAssetPicker;
+@property(nonatomic) _Bool showSkipBtn; // @synthesize showSkipBtn=_showSkipBtn;
+@property(retain, nonatomic) WCFinderEditOptionModel *finderOptionModel; // @synthesize finderOptionModel=_finderOptionModel;
+@property(nonatomic) _Bool buttonEnableAfterSend; // @synthesize buttonEnableAfterSend=_buttonEnableAfterSend;
+@property(nonatomic) _Bool videoDirectToEdit; // @synthesize videoDirectToEdit=_videoDirectToEdit;
+@property(nonatomic) unsigned long long maxGifDataSize; // @synthesize maxGifDataSize=_maxGifDataSize;
+@property(retain, nonatomic) EditVideoLogicController *editVideoLogicController; // @synthesize editVideoLogicController=_editVideoLogicController;
+@property(retain, nonatomic) EditImageLogicController *editImageLogicController; // @synthesize editImageLogicController=_editImageLogicController;
+@property(retain, nonatomic) MMImagePickerControllerPreviewReportObject *m_previewReportObject; // @synthesize m_previewReportObject;
+@property(nonatomic) _Bool isAllowCache; // @synthesize isAllowCache=_isAllowCache;
+@property(nonatomic) _Bool isPresentInSplitVC; // @synthesize isPresentInSplitVC=_isPresentInSplitVC;
+@property(nonatomic) int previewEditScene; // @synthesize previewEditScene=_previewEditScene;
+@property(nonatomic) _Bool isEditMode; // @synthesize isEditMode=_isEditMode;
+@property(nonatomic) _Bool isOriginalImage; // @synthesize isOriginalImage=_isOriginalImage;
+@property(retain, nonatomic) NSArray *selectedImageAssets; // @synthesize selectedImageAssets=_selectedImageAssets;
+@property(retain, nonatomic) NSArray *selectedImageURLs; // @synthesize selectedImageURLs=_selectedImageURLs;
+@property(retain, nonatomic) NSString *currentAlbum; // @synthesize currentAlbum=_currentAlbum;
+@property(retain, nonatomic) NSString *finishWording; // @synthesize finishWording=_finishWording;
+@property(nonatomic) int compressType; // @synthesize compressType=_compressType;
+@property(nonatomic) int maxImageCount; // @synthesize maxImageCount=_maxImageCount;
+@property(nonatomic) _Bool canHybridSendAsset; // @synthesize canHybridSendAsset=_canHybridSendAsset;
+@property(nonatomic) _Bool canSendGif; // @synthesize canSendGif=_canSendGif;
+@property(nonatomic) _Bool returnMetaForVideo; // @synthesize returnMetaForVideo=_returnMetaForVideo;
+@property(nonatomic) _Bool customizesClickAction; // @synthesize customizesClickAction=_customizesClickAction;
+@property(nonatomic) _Bool showPreviewView; // @synthesize showPreviewView=_showPreviewView;
+@property(nonatomic) _Bool needThumbImage; // @synthesize needThumbImage=_needThumbImage;
+@property(nonatomic) _Bool canSendMultiVideo; // @synthesize canSendMultiVideo=_canSendMultiVideo;
+@property(nonatomic) _Bool canSendMultiImage; // @synthesize canSendMultiImage=_canSendMultiImage;
+@property(nonatomic) _Bool isNotShowVideoSizeAlertView; // @synthesize isNotShowVideoSizeAlertView=_isNotShowVideoSizeAlertView;
+@property(nonatomic) _Bool isOnlyShowVideoMessage; // @synthesize isOnlyShowVideoMessage=_isOnlyShowVideoMessage;
+@property(nonatomic) _Bool canSendVideoMessage; // @synthesize canSendVideoMessage=_canSendVideoMessage;
+@property(nonatomic) _Bool forceSendOriginImage; // @synthesize forceSendOriginImage=_forceSendOriginImage;
+@property(nonatomic) _Bool canSendOriginImage; // @synthesize canSendOriginImage=_canSendOriginImage;
+@property(nonatomic) __weak MMAssetPickerController *photoPicker; // @synthesize photoPicker=_photoPicker;
+@property(nonatomic) __weak id <MMImagePickerControllerDelegate> m_delegate; // @synthesize m_delegate;
+- (void)onAssetPickerControlCenterClickPostFinderLongVideoWithPostStateModel:(id)arg1;
+- (void)didReceiveMemoryWarning;
+- (int)getPickerScene;
+- (void)logImagePickerFinishLoad:(_Bool)arg1;
+- (void)logStartImagePicker;
+- (void)reportPickerActionInfo;
+- (void)reportPicerReportInfo;
+- (id)pickerReportInfo;
+- (void)reportPreviewCount;
+- (void)increasePreviewCount;
+- (void)selectedDataItem:(id)arg1 GPSInfoArrayOfAsset:(id)arg2 dataReportModel:(id)arg3;
+- (void)failToFetchAssets:(id)arg1;
+- (void)selectAsset:(id)arg1;
+- (void)selectedEditImageAttr:(id)arg1;
+- (void)selectedSight:(id)arg1;
+- (void)selectedVideo:(id)arg1;
+- (void)didClickSkipBtn;
+- (void)selectedAssets:(id)arg1;
+- (void)selectedClickNextAction;
+- (void)cancelImagePicker;
+- (void)removeImageDatas;
+- (id)getReportExtInfoDismissState:(_Bool)arg1 eventCode:(long long)arg2;
+- (_Bool)isFinderScene;
+
+- (id)initWithPoiInfo:(id)arg1 withOnlyShowVideoMessage:(_Bool)arg2 withNotShowVideoSizeAlertView:(_Bool)arg3 withMaxDuration:(unsigned long long)arg4 withShouldIncludeVideo:(_Bool)arg5;
+- (id)initForJustReturnMMAsset:(_Bool)arg1 withAdjustRevertIndex:(unsigned long long)arg2 withDirectToFirstAlbum:(_Bool)arg3 withOnlyShowVideoMessage:(_Bool)arg4 withNotShowVideoSizeAlertView:(_Bool)arg5 withPickerVCForceFullScrenn:(_Bool)arg6;
+
+
+@end
+
+
+
+@interface ZipArchive : NSObject
+
+
+
+@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+- (id)Date1980;
+- (_Bool)OverWrite:(id)arg1;
+- (void)OutputErrorMessage:(id)arg1;
+- (_Bool)UnzipCloseFile;
+- (_Bool)UnzipCurrentFileWithPosition:(unsigned int)arg1 length:(unsigned int)arg2 retData:(id *)arg3;
+- (_Bool)UnzipGetCurrentFileName:(id *)arg1 retIsDirectory:(_Bool *)arg2 retFileLength:(unsigned long long *)arg3;
+- (_Bool)UnzipGoToFirstFile;
+- (_Bool)UnzipGoToNextFile;
+- (_Bool)UnzipLocateFile:(id)arg1;
+- (_Bool)UnzipHasRelativeDir:(_Bool *)arg1;
+- (_Bool)UnzipFileTo:(id)arg1 overWrite:(_Bool)arg2;
+- (_Bool)UnzipOpenFile:(id)arg1 Password:(id)arg2;
+- (_Bool)UnzipOpenFile:(id)arg1;
+- (_Bool)CloseZipFile2;
+- (_Bool)addFileToZip:(id)arg1 newname:(id)arg2;
+- (_Bool)addSingleFileToZip:(id)arg1 fileNameInZip:(id)arg2;
+- (_Bool)CreateZipFile2:(id)arg1 Password:(id)arg2;
+- (_Bool)CreateZipFile2:(id)arg1;
+- (void)dealloc;
+- (id)init;
+
+@end
+
+@interface MZipUtil : NSObject
+
++ (BOOL)UnZipFile:(NSString *)path toPath:(NSString *)destination;
++ (BOOL)UnZipFile:(NSString *)path toPath:(NSString *)destination overwrite:(BOOL)overwrite password:(NSString *)password error:(NSError **)error;
+
+
+@end
+
+
 #endif /* WechatHeaders_h */
 
 

@@ -26,64 +26,6 @@
     return helper;
 }
 
-
-- (void)setCheckNotify{
-    self.checkFriendGroup = dispatch_group_create();
-    DKHelper.shared.invalidFriends = @[];
-    DKHelper.shared.validFriends = @[];
-    DKHelper.shared.notFriends = @[];
-    dispatch_group_enter(DKHelper.shared.checkFriendGroup);
-    dispatch_group_enter(DKHelper.shared.checkFriendGroup);
-
-    dispatch_group_notify(self.checkFriendGroup, dispatch_get_main_queue(), ^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [DKHelper endCheck];
-        });
-    });
-    
-}
-+ (void)endCheck{
-    DKHelper.shared.checkFriendsEnd = true;
-    CContactMgr *contactMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("CContactMgr") class]];
-    if (DKHelper.shared.validFriends.count + DKHelper.shared.notFriends.count > 0) {
-        ///检测完成了
-        DKHelper.shared.notFriends = [DKHelper.shared.notFriends _filter:^BOOL(id obj) {
-            return ![[[contactMgr getSelfContact] m_nsUsrName] isEqualToString:((CContact*)obj).m_nsUsrName];
-        }];
-       NSArray<CContact*> *invalidFriends = DKHelper.allFriends.copy;
-        NSMutableArray *addSelf =  DKHelper.shared.validFriends.mutableCopy;
-        [addSelf addObject:[contactMgr getSelfContact]];
-        DKHelper.shared.validFriends = addSelf;
-       invalidFriends = [invalidFriends _filter:^BOOL(id obj) {
-            return ![DKHelper.shared.notFriends _contains:^BOOL(id obj2) {
-                return  [((CContact*)obj).m_nsUsrName isEqualToString: ((CContact*)obj2).m_nsUsrName];
-            }];
-        }];
-        invalidFriends = [invalidFriends _filter:^BOOL(id obj) {
-             return ![DKHelper.shared.validFriends _contains:^BOOL(id obj2) {
-                 return  [((CContact*)obj).m_nsUsrName isEqualToString: ((CContact*)obj2).m_nsUsrName];
-             }];
-         }];
-        DKHelper.shared.invalidFriends = invalidFriends;
-        [NSNotificationCenter.defaultCenter postNotificationName:@"checkFriendsEnd" object:nil userInfo:@{@"success":@YES}];
-    }else{
-        /// 检测超时结束
-        DKHelper.shared.invalidFriends = @[];
-        DKHelper.shared.validFriends = @[];
-        DKHelper.shared.notFriends = @[];
-        [NSNotificationCenter.defaultCenter postNotificationName:@"checkFriendsEnd" object:nil userInfo:@{@"success":@NO}];
-    }
-    // 删除群聊
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        MMNewSessionMgr * sm =[[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("MMNewSessionMgr") class]];
-        unsigned int idx = [sm getSessionIndexOfUser:DKHelper.shared.groupContact.m_nsUsrName];
-        if (idx != (unsigned int)(NSNotFound)){
-            [sm deleteSessionAtIndex:idx forceDelete:false];
-        }
-    });
-}
-
-
 + (UINavigationController *)navigationContrioller{
     return ((UINavigationController *)([objc_getClass("CAppViewControllerManager") getCurrentNavigationController]));
 }
@@ -250,6 +192,79 @@ ___addComment:
     CMessageMgr *chatMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:objc_getClass("CMessageMgr")];
     [chatMgr AddMsg:userName MsgWrap:wrap];
 }
+
++(BOOL)vapFileExit{
+    NSString *path = [vapPath stringByAppendingPathComponent:@"launchBgm.mp3"];
+    return [NSFileManager.defaultManager fileExistsAtPath:path];
+}
++(void)checkFriends{
+    DKHelper.shared->allFriends = @[];
+    NSOperationQueue *_serialFriendCheckQueue = [[NSOperationQueue alloc] init];
+    _serialFriendCheckQueue.maxConcurrentOperationCount = 1;
+    DKHelper.shared.friendCheckSem = dispatch_semaphore_create(0);
+    DKHelper.shared.invalidFriends = [NSMutableArray new];
+    DKHelper.shared.validFriends = [NSMutableArray new];
+    DKHelper.shared.notFriends = [NSMutableArray new];
+    DKHelper.shared.checkFriendsEnd = NO;
+    __block int currentCount = 1;
+    int allCount = (int)[DKHelper allFriends].count;
+    for (CContact *payUser in [DKHelper allFriends]) {
+        [_serialFriendCheckQueue addOperationWithBlock:^{
+            //发送检测请求
+            WCPayTransferPrepayRequestStruct *payReq = [[objc_getClass("WCPayTransferPrepayRequestStruct") alloc]init];
+            payReq.m_nsReceiverUserName = payUser.m_nsUsrName ;
+            payReq.m_uiFeeType = 1;
+            payReq.m_uiTotalFee = 1;//转账金额单位：分
+            payReq.m_uiPayScene = 31;
+            payReq.m_transferScene = 2;
+            payReq.m_uiPayChannel = 11;
+            payReq.m_nsProducetDesc = @"DKWechathelper";
+            //时间戳
+            long timeinterval = (long)([[NSDate date] timeIntervalSince1970] * 1000);
+            payReq.placeorderReserves = [NSString stringWithFormat:@"%ld",timeinterval];
+            WCPayLogicMgr *mgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("WCPayLogicMgr") class]];
+            [mgr GetTransferPrepayRequest:payReq];
+            NSLog(@"开始检测---%@(%@)",payUser.m_nsNickName,payUser.m_nsRemark);
+            NSString *msg = [NSString stringWithFormat:@"正在检测：%@(%d/%d)",payUser.m_nsNickName,currentCount,allCount];
+            [NSNotificationCenter.defaultCenter postNotificationName:@"checkFriendsEnd" object:nil userInfo:@{@"success":@NO,@"msg":msg}];
+            currentCount += 1;
+            //等待结果
+            long result = dispatch_semaphore_wait(DKHelper.shared.friendCheckSem, dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.5 * NSEC_PER_SEC)));
+            if (result != 0) { // 检测超时
+                // 尝试重传一次
+                [mgr GetTransferPrepayRequest:payReq];
+                long repeatResult = dispatch_semaphore_wait(DKHelper.shared.friendCheckSem, dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.5 * NSEC_PER_SEC)));
+                if(repeatResult != 0) { // 重传后依然能失败
+                    [DKHelper.shared.invalidFriends addObject:payUser];
+                    return;
+                }
+            }
+            NSLog(@"检测结果---%@(%@)：%@%@",payUser.m_nsNickName,payUser.m_nsRemark,DKHelper.shared.currentCheckResult[@"retmsg"],DKHelper.shared.currentCheckResult[@"wx_error_msg"]);
+            //获取到结果，处理
+            NSDictionary * resultDic = DKHelper.shared.currentCheckResult;
+            // 失败 retmsg = ""   retcode = 268502017 wx_error_msg = 你不是收款方好友，对方添加你为好友后才能发起转账
+            // 成功 retmsg = ok   retcode = 0         wx_error_msg = ""
+            if ([@"ok" isEqualToString:[resultDic valueForKey:@"retmsg"]]){
+                // 可以转账
+                [DKHelper.shared.validFriends addObject:payUser];
+            }else if([@"268502017" isEqualToString:[resultDic valueForKey:@"retcode"]]){
+                // 不是好友
+                [DKHelper.shared.notFriends addObject:payUser];
+            }else{
+                // 其他原因失败了
+                [DKHelper.shared.invalidFriends addObject:payUser];
+            }
+
+        }];
+    }
+    [_serialFriendCheckQueue addOperationWithBlock:^{
+        // 检测结束操作
+        DKHelper.shared.checkFriendsEnd = YES;
+        DKHelper.shared.currentCheckResult = @{};
+        [NSNotificationCenter.defaultCenter postNotificationName:@"checkFriendsEnd" object:nil userInfo:@{@"success":@YES}];
+    }];
+}
+
 @end
 
 

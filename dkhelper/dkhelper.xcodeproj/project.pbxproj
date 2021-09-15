@@ -134,33 +134,6 @@
 		116B4DC425BE92470079C6FE /* QGHWDMetalRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D7425BE92470079C6FE /* QGHWDMetalRenderer.h */; };
 		116B4DC525BE92470079C6FE /* QGHWDMP4OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B4D7625BE92470079C6FE /* QGHWDMP4OpenGLView.m */; };
 		116B4DC625BE92470079C6FE /* QGHWDMP4OpenGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 116B4D7725BE92470079C6FE /* QGHWDMP4OpenGLView.h */; };
-		11967676260838D3006BD577 /* uranus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1196765B260838D3006BD577 /* uranus.jpg */; };
-		11967677260838D3006BD577 /* venus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1196765C260838D3006BD577 /* venus.jpg */; };
-		11967678260838D3006BD577 /* nepture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1196765D260838D3006BD577 /* nepture.jpg */; };
-		11967679260838D3006BD577 /* venusVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1196765E260838D3006BD577 /* venusVap.mp4 */; };
-		1196767A260838D3006BD577 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1196765F260838D3006BD577 /* mars.jpg */; };
-		1196767B260838D3006BD577 /* sature.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11967660260838D3006BD577 /* sature.jpg */; };
-		1196767C260838D3006BD577 /* launchBgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 11967661260838D3006BD577 /* launchBgm.mp3 */; };
-		1196767D260838D3006BD577 /* marsVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 11967662260838D3006BD577 /* marsVap.mp4 */; };
-		1196767E260838D3006BD577 /* blackholeVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 11967663260838D3006BD577 /* blackholeVap.mp4 */; };
-		1196767F260838D3006BD577 /* moonVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 11967664260838D3006BD577 /* moonVap.mp4 */; };
-		11967680260838D3006BD577 /* earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11967665260838D3006BD577 /* earth.jpg */; };
-		11967681260838D3006BD577 /* blackhole.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11967666260838D3006BD577 /* blackhole.jpg */; };
-		11967682260838D3006BD577 /* earthVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 11967667260838D3006BD577 /* earthVap.mp4 */; };
-		11967683260838D3006BD577 /* moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11967668260838D3006BD577 /* moon.jpg */; };
-		11967684260838D3006BD577 /* uranusVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 11967669260838D3006BD577 /* uranusVap.mp4 */; };
-		11967685260838D3006BD577 /* satureVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1196766A260838D3006BD577 /* satureVap.mp4 */; };
-		11967686260838D3006BD577 /* neptureVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1196766B260838D3006BD577 /* neptureVap.mp4 */; };
-		11967687260838D3006BD577 /* pluto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1196766C260838D3006BD577 /* pluto.jpg */; };
-		11967688260838D3006BD577 /* sedna.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1196766D260838D3006BD577 /* sedna.jpg */; };
-		11967689260838D3006BD577 /* sun.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1196766E260838D3006BD577 /* sun.jpg */; };
-		1196768A260838D3006BD577 /* jupitreVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1196766F260838D3006BD577 /* jupitreVap.mp4 */; };
-		1196768B260838D3006BD577 /* mercuryVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 11967670260838D3006BD577 /* mercuryVap.mp4 */; };
-		1196768C260838D3006BD577 /* sednaVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 11967671260838D3006BD577 /* sednaVap.mp4 */; };
-		1196768D260838D3006BD577 /* mercury.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11967672260838D3006BD577 /* mercury.jpg */; };
-		1196768E260838D3006BD577 /* sunVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 11967673260838D3006BD577 /* sunVap.mp4 */; };
-		1196768F260838D3006BD577 /* plutoVap.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 11967674260838D3006BD577 /* plutoVap.mp4 */; };
-		11967690260838D3006BD577 /* jupitre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11967675260838D3006BD577 /* jupitre.jpg */; };
 		11D27C9E25208FC800AE6337 /* NSArray+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 11D27C9C25208FC800AE6337 /* NSArray+Utils.h */; };
 		11D27C9F25208FC800AE6337 /* NSArray+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D27C9D25208FC800AE6337 /* NSArray+Utils.m */; };
 /* End PBXBuildFile section */
@@ -323,33 +296,6 @@
 		116B4D7425BE92470079C6FE /* QGHWDMetalRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGHWDMetalRenderer.h; sourceTree = "<group>"; };
 		116B4D7625BE92470079C6FE /* QGHWDMP4OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGHWDMP4OpenGLView.m; sourceTree = "<group>"; };
 		116B4D7725BE92470079C6FE /* QGHWDMP4OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGHWDMP4OpenGLView.h; sourceTree = "<group>"; };
-		1196765B260838D3006BD577 /* uranus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = uranus.jpg; sourceTree = "<group>"; };
-		1196765C260838D3006BD577 /* venus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = venus.jpg; sourceTree = "<group>"; };
-		1196765D260838D3006BD577 /* nepture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nepture.jpg; sourceTree = "<group>"; };
-		1196765E260838D3006BD577 /* venusVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = venusVap.mp4; sourceTree = "<group>"; };
-		1196765F260838D3006BD577 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
-		11967660260838D3006BD577 /* sature.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sature.jpg; sourceTree = "<group>"; };
-		11967661260838D3006BD577 /* launchBgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = launchBgm.mp3; sourceTree = "<group>"; };
-		11967662260838D3006BD577 /* marsVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = marsVap.mp4; sourceTree = "<group>"; };
-		11967663260838D3006BD577 /* blackholeVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = blackholeVap.mp4; sourceTree = "<group>"; };
-		11967664260838D3006BD577 /* moonVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moonVap.mp4; sourceTree = "<group>"; };
-		11967665260838D3006BD577 /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
-		11967666260838D3006BD577 /* blackhole.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blackhole.jpg; sourceTree = "<group>"; };
-		11967667260838D3006BD577 /* earthVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = earthVap.mp4; sourceTree = "<group>"; };
-		11967668260838D3006BD577 /* moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moon.jpg; sourceTree = "<group>"; };
-		11967669260838D3006BD577 /* uranusVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = uranusVap.mp4; sourceTree = "<group>"; };
-		1196766A260838D3006BD577 /* satureVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = satureVap.mp4; sourceTree = "<group>"; };
-		1196766B260838D3006BD577 /* neptureVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = neptureVap.mp4; sourceTree = "<group>"; };
-		1196766C260838D3006BD577 /* pluto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pluto.jpg; sourceTree = "<group>"; };
-		1196766D260838D3006BD577 /* sedna.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sedna.jpg; sourceTree = "<group>"; };
-		1196766E260838D3006BD577 /* sun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sun.jpg; sourceTree = "<group>"; };
-		1196766F260838D3006BD577 /* jupitreVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = jupitreVap.mp4; sourceTree = "<group>"; };
-		11967670260838D3006BD577 /* mercuryVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mercuryVap.mp4; sourceTree = "<group>"; };
-		11967671260838D3006BD577 /* sednaVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sednaVap.mp4; sourceTree = "<group>"; };
-		11967672260838D3006BD577 /* mercury.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mercury.jpg; sourceTree = "<group>"; };
-		11967673260838D3006BD577 /* sunVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sunVap.mp4; sourceTree = "<group>"; };
-		11967674260838D3006BD577 /* plutoVap.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = plutoVap.mp4; sourceTree = "<group>"; };
-		11967675260838D3006BD577 /* jupitre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jupitre.jpg; sourceTree = "<group>"; };
 		11D27C9C25208FC800AE6337 /* NSArray+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utils.h"; sourceTree = "<group>"; };
 		11D27C9D25208FC800AE6337 /* NSArray+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -442,7 +388,6 @@
 		114CCC4321F817D500A4646E /* dkhelperDylib */ = {
 			isa = PBXGroup;
 			children = (
-				1196765A260838D3006BD577 /* vapFiles */,
 				116B4D1B25BE92460079C6FE /* QGVAPlayer */,
 				114CCC8921F8307500A4646E /* wechatHeaders */,
 				114CCC8821F8306500A4646E /* MyUtils */,
@@ -758,40 +703,6 @@
 			path = OpenGL;
 			sourceTree = "<group>";
 		};
-		1196765A260838D3006BD577 /* vapFiles */ = {
-			isa = PBXGroup;
-			children = (
-				1196765B260838D3006BD577 /* uranus.jpg */,
-				1196765C260838D3006BD577 /* venus.jpg */,
-				1196765D260838D3006BD577 /* nepture.jpg */,
-				1196765E260838D3006BD577 /* venusVap.mp4 */,
-				1196765F260838D3006BD577 /* mars.jpg */,
-				11967660260838D3006BD577 /* sature.jpg */,
-				11967661260838D3006BD577 /* launchBgm.mp3 */,
-				11967662260838D3006BD577 /* marsVap.mp4 */,
-				11967663260838D3006BD577 /* blackholeVap.mp4 */,
-				11967664260838D3006BD577 /* moonVap.mp4 */,
-				11967665260838D3006BD577 /* earth.jpg */,
-				11967666260838D3006BD577 /* blackhole.jpg */,
-				11967667260838D3006BD577 /* earthVap.mp4 */,
-				11967668260838D3006BD577 /* moon.jpg */,
-				11967669260838D3006BD577 /* uranusVap.mp4 */,
-				1196766A260838D3006BD577 /* satureVap.mp4 */,
-				1196766B260838D3006BD577 /* neptureVap.mp4 */,
-				1196766C260838D3006BD577 /* pluto.jpg */,
-				1196766D260838D3006BD577 /* sedna.jpg */,
-				1196766E260838D3006BD577 /* sun.jpg */,
-				1196766F260838D3006BD577 /* jupitreVap.mp4 */,
-				11967670260838D3006BD577 /* mercuryVap.mp4 */,
-				11967671260838D3006BD577 /* sednaVap.mp4 */,
-				11967672260838D3006BD577 /* mercury.jpg */,
-				11967673260838D3006BD577 /* sunVap.mp4 */,
-				11967674260838D3006BD577 /* plutoVap.mp4 */,
-				11967675260838D3006BD577 /* jupitre.jpg */,
-			);
-			path = vapFiles;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -946,33 +857,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				114CCC2F21F817D500A4646E /* MDConfig.plist in Resources */,
-				1196768A260838D3006BD577 /* jupitreVap.mp4 in Resources */,
-				11967684260838D3006BD577 /* uranusVap.mp4 in Resources */,
-				11967683260838D3006BD577 /* moon.jpg in Resources */,
-				1196767E260838D3006BD577 /* blackholeVap.mp4 in Resources */,
-				11967690260838D3006BD577 /* jupitre.jpg in Resources */,
-				1196768C260838D3006BD577 /* sednaVap.mp4 in Resources */,
-				1196768D260838D3006BD577 /* mercury.jpg in Resources */,
-				11967685260838D3006BD577 /* satureVap.mp4 in Resources */,
-				11967682260838D3006BD577 /* earthVap.mp4 in Resources */,
-				11967679260838D3006BD577 /* venusVap.mp4 in Resources */,
-				1196768F260838D3006BD577 /* plutoVap.mp4 in Resources */,
-				11967686260838D3006BD577 /* neptureVap.mp4 in Resources */,
-				1196767B260838D3006BD577 /* sature.jpg in Resources */,
-				11967678260838D3006BD577 /* nepture.jpg in Resources */,
-				1196767C260838D3006BD577 /* launchBgm.mp3 in Resources */,
-				1196768E260838D3006BD577 /* sunVap.mp4 in Resources */,
-				1196768B260838D3006BD577 /* mercuryVap.mp4 in Resources */,
-				11967677260838D3006BD577 /* venus.jpg in Resources */,
-				1196767F260838D3006BD577 /* moonVap.mp4 in Resources */,
-				11967687260838D3006BD577 /* pluto.jpg in Resources */,
-				11967680260838D3006BD577 /* earth.jpg in Resources */,
-				11967689260838D3006BD577 /* sun.jpg in Resources */,
-				11967688260838D3006BD577 /* sedna.jpg in Resources */,
-				1196767A260838D3006BD577 /* mars.jpg in Resources */,
-				1196767D260838D3006BD577 /* marsVap.mp4 in Resources */,
-				11967676260838D3006BD577 /* uranus.jpg in Resources */,
-				11967681260838D3006BD577 /* blackhole.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1377,7 +1261,7 @@
 				MONKEYDEV_CLASS_DUMP = NO;
 				MONKEYDEV_DEFAULT_BUNDLEID = YES;
 				MONKEYDEV_INSERT_DYLIB = YES;
-				MONKEYDEV_RESTORE_SYMBOL = YES;
+				MONKEYDEV_RESTORE_SYMBOL = NO;
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";
@@ -1401,7 +1285,7 @@
 				MONKEYDEV_CLASS_DUMP = NO;
 				MONKEYDEV_DEFAULT_BUNDLEID = YES;
 				MONKEYDEV_INSERT_DYLIB = YES;
-				MONKEYDEV_RESTORE_SYMBOL = YES;
+				MONKEYDEV_RESTORE_SYMBOL = NO;
 				MONKEYDEV_TARGET_APP = Optional;
 				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PODS_ROOT = "${SRCROOT}/Pods";

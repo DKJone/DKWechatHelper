@@ -25,8 +25,11 @@
 #define WK(object) autoreleasepool{} __weak typeof(object) weak##object = object
 #define ST(object) autoreleasepool{} __strong typeof(object) object = weak##object
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
-
-
+#define SS(strongSelf) __strong __typeof(weakSelf)strongSelf = weakSelf;
+#define isDKForDeb (YES)
+#define documentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+#define libPath [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject]
+#define vapPath [libPath stringByAppendingPathComponent:@"/dkjone/vapFiles"]
 
 typedef void(^BtnBlock)(UIButton *sender);
 
@@ -36,23 +39,20 @@ typedef void(^BtnBlock)(UIButton *sender);
 /// 好友关系是否检测完毕
 @property (nonatomic,assign)BOOL checkFriendsEnd;
 /// 已将你删除的好友
-@property (nonatomic,copy)NSArray<CContact *> *notFriends;
+@property (nonatomic,strong)NSMutableArray<CContact *> *notFriends;
 /// 账号被封的好友
-@property (nonatomic,copy)NSArray<CContact *> *invalidFriends;
+@property (nonatomic,strong)NSMutableArray<CContact *> *invalidFriends;
 /// 相互好友
-@property (nonatomic,copy)NSArray<CContact *> *validFriends;
-/// 检测好友状态的群组
-@property (nonatomic,strong)CContact *groupContact;
-
-@property (nonatomic,strong)dispatch_group_t checkFriendGroup;
+@property (nonatomic,strong)NSMutableArray<CContact *> *validFriends;
 
 @property (nonatomic,copy)NSString* groupURL;
 
-/// 结束好友检测
-+ (void)endCheck;
+@property (nonatomic,copy)NSDictionary *currentCheckResult;
 
-- (void)setCheckNotify;
+@property (nonatomic ,strong) dispatch_semaphore_t friendCheckSem;
 
++(void)checkFriends;
++(BOOL)vapFileExit;
 + (instancetype)shared ;
 /// 所有好友(不包含公众号)
 + (NSArray<CContact*> *)allFriends;
@@ -128,3 +128,5 @@ typedef void(^BtnBlock)(UIButton *sender);
 - (BOOL)serialQueueIsEmpty;
 
 @end
+
+

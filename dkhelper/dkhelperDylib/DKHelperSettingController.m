@@ -38,16 +38,22 @@
 }
 
 - (void)checkFriendsEnd:(NSNotification *)notify{
+    WS(weakSelf)
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        SS(strongSelf)
+        Boolean isSuccess = [notify.userInfo[@"success"] boolValue];
+        NSString *msg = [notify.userInfo[@"msg"] stringValue];
+        if (isSuccess){
+            [strongSelf->m_MMLoadingView stopLoadingAndShowOK:@"检测成功"];
+            [strongSelf reloadTableData];
+            CGPoint bottomOffset = CGPointMake(0, strongSelf->manager.tableView.contentSize.height - strongSelf->manager.tableView.bounds.size.height + strongSelf-> manager.tableView.contentInset.bottom);
+            [strongSelf->manager.tableView setContentOffset:bottomOffset animated:YES];
+        }else{
+            [strongSelf->m_MMLoadingView setText:msg];
+//            [m_MMLoadingView stopLoadingAndShowError:@"检测失败"];
+        }
+    });
 
-    Boolean isSuccess = notify.userInfo[@"success"];
-    if (isSuccess){
-        [m_MMLoadingView stopLoadingAndShowOK:@"检测成功"];
-        [self reloadTableData];
-        CGPoint bottomOffset = CGPointMake(0, manager.tableView.contentSize.height - manager.tableView.bounds.size.height + manager.tableView.contentInset.bottom);
-        [manager.tableView setContentOffset:bottomOffset animated:YES];
-    }else{
-        [m_MMLoadingView stopLoadingAndShowError:@"检测失败"];
-    }
 }
 
 - (void)viewDidLoad {
@@ -205,7 +211,7 @@
         [clearFriendsSection addCell:notFriendCountCell];
 
         NSString * invalidFriendsCount = [NSString stringWithFormat:@"共%lu人",(unsigned long)DKHelper.shared.invalidFriends.count];
-        WCTableViewNormalCellManager *invalidFriendsCell = [DKHelper cellWithSel:@selector(showSelectContactVC:) target:self title:@"账号被封禁" rightValue:invalidFriendsCount accessoryType:1];
+        WCTableViewNormalCellManager *invalidFriendsCell = [DKHelper cellWithSel:@selector(showSelectContactVC:) target:self title:@"无法识别" rightValue:invalidFriendsCount accessoryType:1];
         [invalidFriendsCell addUserInfoValue:@1 forKey:@"type"];
         [clearFriendsSection addCell:invalidFriendsCell];
     }
@@ -218,7 +224,7 @@
     NSNumber * type = [sender getUserInfoValueForKey:@"type"];
     //1:被封账号 , 0:已将你删除
     NSArray *contactList = [type isEqual:@1] ? DKHelper.shared.invalidFriends : DKHelper.shared.notFriends;
-    NSString *contactDesc = [type isEqual:@1] ? @"账号被封" :@"已将你删除";
+    NSString *contactDesc = [type isEqual:@1] ? @"无法识别" :@"已将你删除";
     DKCleanFriendsController *vc = [[DKCleanFriendsController alloc] initWithContactList:contactList contactDesc:contactDesc];
     [self.navigationController pushViewController:vc animated:true ];
 }
@@ -254,9 +260,12 @@
     }
     __block UISwitch *s = sender;
     WS(weakSelf)
-    [DKHelper showAlertWithTitle:@"重要提示" message:@"好友关系检测会新建一个包含您所有好友的群组，检测完成后会帮您自动删除，正常情况下您的好友不会收到任何消息。部分好友可能会收到进群邀请！(会自动帮您撤回该邀请信息)如果你想排除某些好友不做检测，请先将其添加到黑名单，待检测完成再将其从黑名单的移除！" btnTitle:@"开始检测" handler:^(UIButton *sender) {
+    [DKHelper showAlertWithTitle:@"重要提示" message:@"好友关系检测会尝试向好友转账(并不会发生实际转账)，可以转账的好友标记为双向好友，非好友会在直接标记，其他原因不能转账的会在无法识别中显示(可能是账户违规被限制转账，或者网络原因无法获取请求结果)" btnTitle:@"开始检测" handler:^(UIButton *sender) {
+        SS(strongSelf)
         DKHelperConfig.cleanFriendsEnable = true;
-        [weakSelf createCheckGroupe];
+        [DKHelper checkFriends];
+        [strongSelf->m_MMLoadingView setText:@"开始检测..."];
+        [strongSelf->m_MMLoadingView startLoading];
     } btnTitle:@"取消" handler:^(UIButton *sender) {
         s.on = false;
     }];
@@ -268,6 +277,16 @@
 }
 
 - (void)setLaunch:(UISwitch *)sender{
+    if (![DKHelper vapFileExit] && sender.isOn){
+        WS(weakSelf);
+        [DKHelper showAlertWithTitle:@"资源文件下载提示" message:@"本功能需要下载18M的资源文件是否继续？" btnTitle:@"下载" handler:^(UIButton *sender) {
+            [weakSelf downLoadVapfiles];
+        } btnTitle:@"取消" handler:^(UIButton *sender) {
+
+        }];
+        [sender setOn:NO];
+        return;
+    }
     DKHelperConfig.dkLaunchEnable = sender.isOn;
     if(sender.isOn){
         DKLaunchViewController *launchVC = [[DKLaunchViewController alloc] init];
@@ -277,6 +296,16 @@
     }
 }
 - (void)setChatBg:(UISwitch *)sender{
+    if (![DKHelper vapFileExit] && sender.isOn){
+        WS(weakSelf);
+        [DKHelper showAlertWithTitle:@"资源文件下载提示" message:@"本功能需要下载18M的资源文件是否继续？" btnTitle:@"下载" handler:^(UIButton *sender) {
+            [weakSelf downLoadVapfiles];
+        } btnTitle:@"取消" handler:^(UIButton *sender) {
+
+        }];
+        [sender setOn:NO];
+        return;
+    }
     DKHelperConfig.dkChatBgEnable = sender.isOn;
     if(sender.isOn){
         [DKHelper showAlertWithTitle:@"提示" message:@"设置动态背景时，需要确保不使用默认聊天背景才能生效。请在设置->通用->聊天背景 里修改，可修改为任意非默认聊天背景" btnTitle:@"你在教我做事?" handler:^(UIButton *sender) {
@@ -286,6 +315,57 @@
             [self presentViewController:launchVC animated:true completion:nil];
         }];
     }
+}
+
+-(void)downLoadVapfiles{
+    NSString *filePath = [NSString stringWithFormat: @"%@.zip",vapPath];
+    if ([NSFileManager.defaultManager fileExistsAtPath:filePath]){
+        //已下载，直接解压
+        [m_MMLoadingView setText:@"正在解压文件"];
+        [m_MMLoadingView startLoading];
+        NSError *error;
+        bool unzipSuccess = [objc_getClass("MZipUtil") UnZipFile:filePath toPath:vapPath overwrite:YES password:nil error:&error];
+        NSLog(@"%d:%@",unzipSuccess,error);
+        [m_MMLoadingView stopLoadingAndShowOK:@"解压完成，请重新打开开关"];
+        return;
+    }
+    m_MMLoadingView.text = @"正在下载资源文件";
+    NSURL *url = [NSURL URLWithString:[@"http://srdftp.e-jt.cn/security/dangerDaily_1631608685271.zip" stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+    WS(weakSelf);
+    NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        SS(strongSelf);
+        if ([NSFileManager.defaultManager fileExistsAtPath:location.path]) {
+            // 下载完成,保存到本地
+            NSString *filePath = [NSString stringWithFormat: @"%@.zip",vapPath];
+            NSString *dirPath = [NSString stringWithFormat:@"%@%@",libPath,@"/dkjone"];
+            if (![NSFileManager.defaultManager fileExistsAtPath:dirPath]) {
+                [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:nil error:nil];
+            }
+            NSError *error;
+            bool saveSuccess = [NSFileManager.defaultManager moveItemAtPath:location.path toPath:filePath error:&error];
+            //[data writeToFile:filePath options:NSDataWritingAtomic error:&error];
+
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if(saveSuccess){
+                    [strongSelf->m_MMLoadingView setText:@"正在解压文件"];
+                    bool unzipSuccess = [objc_getClass("MZipUtil") UnZipFile:filePath toPath:vapPath overwrite:YES password:nil error:nil];
+                }
+                [strongSelf->m_MMLoadingView stopLoadingAndShowOK:@"下载完成，请重新打开开关"];
+            });
+
+        }else{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [strongSelf->m_MMLoadingView stopLoadingAndShowError:@"下载失败"];
+            });
+
+        }
+    }];
+    [task resume];
+    [m_MMLoadingView startLoading];
 }
 
 - (void)forwardTimeline:(UISwitch *)sender{
@@ -469,38 +549,6 @@
         return helper;
     }
     return nil;
-}
-
-- (void)createCheckGroupe{
-    [m_MMLoadingView startLoading];
-    BOOL canCreateGroup = [objc_getClass("CGroupMgr") isSupportOpenIMGroup];
-    if (!canCreateGroup) {
-        [DKHelper showAlertWithTitle:@"检测失败" message:@"您当前无法创建群聊！" btnTitle:@"确定" handler:^(UIButton *sender) {
-            NSLog(@"检测失败 - 无法创建群聊");
-        }];
-    }else{
-        CGroupMgr *groupMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("CGroupMgr") class]];
-        DKHelper.shared.checkFriendsEnd = false;
-        NSMutableArray<GroupMember *> * groupMembers = @[].mutableCopy;
-        [DKHelper.allFriends enumerateObjectsUsingBlock:^(CContact *obj, NSUInteger idx, BOOL *stop) {
-            if ([obj.m_nsUsrName containsString:@"@openim"] ){
-
-            }else{
-                GroupMember *gm = [[objc_getClass("GroupMember") alloc] init];
-                gm.m_nsMemberName = obj.m_nsUsrName;
-                [groupMembers addObject:gm];
-            }
-        }];
-        [DKHelper.shared setCheckNotify];
-        [groupMgr CreateGroup:@"DKWechatHelper-friendsCheck" withMemberList:groupMembers];
-
-        // 设置超时时间，超过10秒，不在检测
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW , 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            if (!DKHelper.shared.checkFriendsEnd) {
-                [DKHelper endCheck];
-            }
-        });
-    }
 }
 
 @end

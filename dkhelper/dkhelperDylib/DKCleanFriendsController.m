@@ -131,7 +131,7 @@
         });
     }else{
         [DKHelper showAlertWithTitle:@"删除成功"
-                             message:[NSString stringWithFormat: @"已成功删除%d名好友",contactList.count]
+                             message:[NSString stringWithFormat: @"已成功删除%d名好友",(int)contactList.count]
                             btnTitle:@"确定" handler:^(UIButton *sender) { }];
     }
 }

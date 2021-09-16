@@ -48,7 +48,8 @@
 |---| --- | --- |
 |[8.0.1](https://n802.com/f/24576815-480279421-6c84b9)|[7.0.17](https://n802.com/file/24576815-467161527)|[7.0.15](https://n802.com/file/24576815-463029595)  |
 |[7.0.14](https://n802.com/file/24576815-452231690) |[7.0.13-*提取码: nx4m*](https://pan.baidu.com/s/1rqB0pV4zMEB6Z3VJTsTa8Q)|[7.0.11-*提取码: 2igg*](https://pan.baidu.com/s/1mU_mezsWhqL2-AY0PB-vVg)  |
-| [7.0.8-*提取码:h54d*](https://pan.baidu.com/s/11VoUXPC4vb5zg8HzP3kC0Q)   | [7.0.2](https://pan.baidu.com/s/1SHZHfu94Z_jhCkaaFDx8pA)   |  [7.0.0](https://pan.baidu.com/s/15pVma66Ea822YVGrBa2GHw)   |
+| [7.0.8-*提取码:h54d*](https://pan.baidu.com/s/11VoUXPC4vb5zg8HzP3kC0Q)   | [7.0.2](https://pan.baidu.com/s/1SHZHfu94Z_jhCkaaFDx8pA)   |  [7.0.0](https://pan.baidu.com/s/15pVma66Ea822YVGrBa2GHw)   |   
+
 将下载的微信放到'/dkhelper/dkhelper/TargetApp/'目录下该目录下有一个空白文件’put ipa or app here‘，和它放在同一文件夹下即可，修改项目BundleId及签名信息，选择真机设备运行即可   
 
 2.开发者：   

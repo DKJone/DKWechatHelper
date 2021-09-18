@@ -10,7 +10,7 @@
 |[v1.0.2](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.2)适用微信7.0.11  |[v1.0.1](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.1)适用微信7.0.8~7.0.10 |[v1.0.0](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.0) 适用微信7.0.0-7.0.3  |
 
 更多更新内容请查看[CHANGELOG](./CHANGELOG.md)   
-图片加载失败可以到[简书](https://www.jianshu.com/p/8f3eae328a20)查看，本文将在[简书](https://www.jianshu.com/p/8f3eae328a20)同步更新。
+图片加载失败可以到[掘金](https://juejin.cn/post/7009142365671817223)查看，本文将在[掘金](https://juejin.cn/post/7009142365671817223)同步更新。
 ## 特色    
 1.完全融入微信8.0UI风格，沉浸式体验   
 2.完全免费的全功能插件  

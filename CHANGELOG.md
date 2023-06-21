@@ -1,4 +1,12 @@
-# DKWechatHelper ChangeLog
+# DKWechatHelper ChangeLog  
+
+[v1.1.0](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.1.0) / 2023-06-21  
+what's new    
+* 支持8.0.38   
+* 更新越狱包8.0.38   
+* 更新已注入助手的8.0.38未签名包  
+* 更新越狱源安装包  
+
 [v1.0.9](https://github.com/DKWechatHelper/DKWechatHelper/releases/tag/1.0.9) / 2021-09-15  
 what's new  
 * 好友检测改为通过请求是否可以转账进行判断  

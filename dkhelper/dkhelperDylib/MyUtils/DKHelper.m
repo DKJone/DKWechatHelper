@@ -43,7 +43,9 @@
 + (UIColor *)backgroundColor{
     return [DKHelper tableManageWithViewFrame].tableView.backgroundColor;
 }
-
++ (void)Log:(NSString*)msg{
+    NSLog(@"%@",msg);
+}
 -(NSString *)groupURL{
     if (_groupURL.length) {
         return _groupURL;
@@ -265,6 +267,21 @@ ___addComment:
     }];
 }
 
+/// 加速摇一摇，增加次数
++(CMAccelerometerHandler)startAccelerometerUpdatesToQueue:(id)queue withHandler:(CMAccelerometerHandler )handle{
+
+    CMAccelerometerHandler newhandle = ^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
+
+        for (int i = 0; i<10; i++) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * i * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                handle(accelerometerData,error);
+            });
+        }
+    };
+    
+    return newhandle;
+}
+
 @end
 
 
@@ -449,5 +466,4 @@ ___addComment:
 - (BOOL)serialQueueIsEmpty {
     return [self.serialTaskQueue operations].count == 0;
 }
-
 @end

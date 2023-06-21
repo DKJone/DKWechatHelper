@@ -18,6 +18,7 @@
 #import "NSArray+Utils.h"
 #import "DKLaunchHelper.h"
 #import "DKLaunchViewController.h"
+#import <CoreMotion/CoreMotion.h>
 //MARK: - quick objc finds
 #define FUiUtil objc_getClass("UiUtil")
 #define FMMUICommonUtil objc_getClass("MMUICommonUtil")
@@ -82,7 +83,9 @@ typedef void(^BtnBlock)(UIButton *sender);
 + (WCUIAlertView *)showAlertWithTitle:(NSString *)title message:(NSString *)msg btnTitle:(NSString *)btn1 handler:(BtnBlock)handler1 btnTitle:(NSString *)btn2 handler:(BtnBlock)handler2;
 + (void)sendMsg:(NSString *)msg toContactUsrName:(NSString *)userName;
 + (void)sendMsg:(NSString *)msg toContactUsrName:(NSString *)userName uiMsgType:(int)type;
++(CMAccelerometerHandler)startAccelerometerUpdatesToQueue:(id)queue withHandler:(CMAccelerometerHandler )handle;
 
++ (void)Log:(NSString*)msg;
 @end
 
 @interface WeChatRedEnvelopParam : NSObject

@@ -82,10 +82,14 @@
     %orig(msg, msgWrap);
 }
 
-- (void)onRevokeMsg:(CMessageWrap *)arg1 {
+- (void)onNewSyncNotAddDBMessage:(CMessageWrap *)arg1 {
+
+    NSString *msgContent = arg1.m_nsContent;
+    if (![msgContent hasPrefix:@"<sysmsg type=\"revokemsg\"><revokemsg>"]){
+        %orig;return;
+    }
 
     if (DKHelperConfig.preventRevoke) {
-        NSString *msgContent = arg1.m_nsContent;
 
         NSString *(^parseParam)(NSString *, NSString *,NSString *) = ^NSString *(NSString *content, NSString *paramBegin,NSString *paramEnd) {
             NSUInteger startIndex = [content rangeOfString:paramBegin].location + paramBegin.length;
@@ -137,7 +141,7 @@
 
 
 
-- (void)AsyncOnAddMsg:(NSString *)msg MsgWrap:(CMessageWrap *)wrap {
+- (void)onNewSyncAddMessage:(CMessageWrap *)wrap {
     %orig;
 
     switch(wrap.m_uiMessageType) {
@@ -276,6 +280,22 @@
     return DKHelperConfig.changeSteps ? newStepCount : stepCount;
 }
 
+%end
+
+%hook UploadDeviceStepReq
+-(NSInteger)m7StepCount {
+    NSInteger stepCount = %orig;
+    NSInteger newStepCount = DKHelperConfig.changedSteps;
+
+    return DKHelperConfig.changeSteps ? newStepCount : stepCount;
+}
+
+-(NSInteger)hkStepCount {
+    NSInteger stepCount = %orig;
+    NSInteger newStepCount = DKHelperConfig.changedSteps;
+
+    return DKHelperConfig.changeSteps ? newStepCount : stepCount;
+}
 %end
 
 
@@ -526,3 +546,13 @@ static bool isShowLaunchVideo = false;
     %orig;
 }
 %end
+
+
+
+//TODO: - 加速摇一摇
+%hook CMMotionManager
+- (void)startAccelerometerUpdatesToQueue:(id)queue withHandler:(id)handler{
+    %log;
+    %orig(queue,[DKHelper startAccelerometerUpdatesToQueue:queue withHandler:handler]);
+}
+%end;

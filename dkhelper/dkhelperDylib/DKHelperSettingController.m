@@ -451,7 +451,7 @@
 }
 
 - (void)openBlog{
-    NSURL *blogUrl = [NSURL URLWithString:@"https://www.jianshu.com/p/8f3eae328a20"];
+    NSURL *blogUrl = [NSURL URLWithString:@"https://juejin.cn/post/7009142365671817223"];
     MMWebViewController *webViewController = [[objc_getClass("MMWebViewController") alloc] initWithURL:blogUrl presentModal:NO extraInfo:nil];
     [self.navigationController PushViewController:webViewController animated:YES];
 }
